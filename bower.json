@@ -1,0 +1,23 @@
+{
+  "name": "SoundCtl",
+  "version": "0.0.0",
+  "homepage": "https://github.com/iMuzz/SoundCtl",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Faraaz Nishtar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.7"
+  }
+}
