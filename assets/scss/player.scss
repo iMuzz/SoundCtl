@@ -1,8 +1,57 @@
-.player {
-	height: 200px;
-	width: 400px;
+/*Base */
+body {
+	margin: 0px;
 }
 
-img.cover {
+.player-wrap {
 	width: 100%;
+	height: 100vh;
+	background-color: #34AADC;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.player {
+	background-color: #EAEDEF;
+	width: 300px;
+	height: 375px;
+	border-radius: 10px;
+	box-shadow: 0px 10px 47px 2px rgba(0,0,0,0.3);
+	
+	.thumbnail {
+		position: relative;
+		height: 65%;
+		background-image: url("https://a4-images.myspacecdn.com/images03/2/85a286a4bbe84b56a6d57b1e5bd03ef4/300x300.jpg");
+		background-size: cover;
+
+		#on-air {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+
+			.fa-circle {
+				color: red;
+				animation-name: blinker;
+				animation-duration: 2s;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				
+				@keyframes blinker {  
+					0% { opacity: 1.0; }
+					50% { opacity: 0.0; }
+					100% { opacity: 1.0; }
+				}
+			}
+		}
+
+	}
+}
+
+
+.controls-wrap{
+	height: 35%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

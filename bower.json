@@ -19,5 +19,10 @@
   ],
   "devDependencies": {
     "angular": "~1.4.7"
+  },
+  "dependencies": {
+    "uikit": "~2.23.0",
+    "jquery": "~2.1.4",
+    "components-font-awesome": "~4.4.0"
   }
 }
