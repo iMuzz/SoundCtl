@@ -2,9 +2,8 @@ extends layout
 
 block content
 	div.player-wrap
-		div.player.uk-container-center
+		div.player.uk-container-center(ng-controller="webPlayerController")
 			div.thumbnail
-				div#on-air
+				div#on-air(ng-show="player.isPlaying")
 					i.fa.fa-circle
-			div.controls-wrap
-				i.fa.fa-play.fa-2x
+			audio-player
