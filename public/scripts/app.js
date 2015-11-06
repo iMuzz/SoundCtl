@@ -13,23 +13,22 @@
 			templateUrl: "/templates/music-player",
 			controller: function($scope, $element, streamOutput, $sce){
 
-				$scope.outputUrls = [];
 				streamOutput.getOutputURL().then(function(res){
-					console.log('Answers:', res);
-					$scope.outputUrls = trustResources(res);
+					$scope.outputUrl = $sce.trustAsResourceUrl(findAACUrl(res));
 				});
 
-				function trustResources(urls){
-					var trustedUrls = []
-
-					for(var i = 0; i < urls.length; i++) {
-						trustedUrls.push($sce.trustAsResourceUrl(urls[i]));
+				function findAACUrl(urls) {
+					for (var i = 0; i < urls.length; i++) {
+						if (urls[i].substring(urls[i].length - 4) === ".aac") {
+							return urls[i];
+						} 
 					}
-					return trustedUrls;
+					return urls[0];
 				}
 
 
 				$scope.toggleStream = function(){
+					console.log("toggleStream: ", $scope.player.isPlaying);
 					var audioTag = $element.find("audio")[0];
 					if ($scope.player.isPlaying) {
 						audioTag.pause();
@@ -42,6 +41,7 @@
 		}
 	});
 
+	// A factory service that goes to all the studio paths and returns an Array of stream URLS with
 	soundCtl.factory("streamOutput", ['$http','$q', function($http, $q){
 		
 		var streamOutput = {};
@@ -50,13 +50,13 @@
 			var mountPoints = [];
 
 			// API call  and get studio paths
-			var promise = $http.get('http://kradradio:5000/studio').then(function(res){
+			return $http.get('http://kradradio:5000/studio').then(function(studioPaths){
 				var promises = [];
 				
 				// change it to forEach
-				for(var i = 0; i < res.data.length; i++) {
-					console.log('Requesting path ' + i);
-					promises.push($http.get('http://kradradio:5000'+res.data[i]).success(searchForOutput));
+				for(var i = 0; i < studioPaths.data.length; i++) {
+					console.log('Requesting path ' + studioPaths.data[i]);
+					promises.push($http.get('http://kradradio:5000'+studioPaths.data[i]).success(searchForOutput));
 				}
 				
 				return $q.all(promises).then(function(){
@@ -77,18 +77,19 @@
 				console.log('searching for output..');
 				if (studioPath['output'] !== undefined ) {
 					if (studioPath['output']['transmission'] !== undefined) {
-						console.log("output found:", studioPath['output']['transmission']['mount']);
+						// console.log("output found:", studioPath['output']['transmission']['mount']);
 						mountPoints.push(studioPath['output']['transmission']['mount']);
 					};
 				};
 			}
-
-			return promise;
 		}
-
 		
 		return streamOutput;
 	}]);
 
+// Refactor with this
+// http://stackoverflow.com/questions/32212135/how-to-return-multiple-http-request-that-depend-on-each-other-in-angular
+// https://thinkster.io/a-better-way-to-learn-angularjs/promises
+// http://www.webdeveasy.com/javascript-promises-and-angularjs-q-service/
 
 })();
