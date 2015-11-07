@@ -1,0 +1,117 @@
+/* Variables */
+$facebook: #3B5998;
+$twitter: #00ACEE;
+$pinterest: #3B5998;
+$google-plus: #FF6347;
+
+$player-main: lighten(#00AF6B, 0%);
+$player-secondary: lighten(#00AF6B, 10%);
+/*Base */
+body {
+	margin: 0px;
+}
+
+/* Mixins */
+@mixin center-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.player-wrap {
+	@include center-center;
+	width: 100%;
+	height: 100vh;
+	background-color: $player-main;
+	position: relative;
+	z-index: 2;
+
+	.player {
+		background-color: transparent;
+		width: 300px;
+		border-radius: 10px;
+		box-shadow: 0px 50px 150px -45px rgba(0,0,0,0.75);
+		
+		.share {
+			display: flex;
+			flex-direction: row;
+			.tab {
+				@include center-center;
+				border: 1px solid white;
+				border-bottom: none;
+				border-left: none;
+				border-right: none;
+				position: relative;
+				width: 100%;
+				top: 16px;
+				background-color: white;
+				height: 50px;
+				border-top-left-radius: 15px; 
+				border-top-right-radius: 15px;
+				color: white;
+				transition: top .2s;
+				
+				span {
+					position: relative;
+					top: -8px;
+				}
+				
+				&:hover {
+					top: 0px;
+				}
+
+				&:nth-child(1){
+					background-color: $facebook;
+				}
+				&:nth-child(2){
+					background-color: $twitter;
+				}
+				&:nth-child(3){ 
+					background-color: $google-plus;
+				}
+			}
+		}
+
+		.player-content {
+			height: 100%;
+		}
+		.thumbnail {
+			position: relative;
+			background-image: url("https://a4-images.myspacecdn.com/images03/2/85a286a4bbe84b56a6d57b1e5bd03ef4/300x300.jpg");
+			background-size: cover;
+			height: 300px;
+
+			#on-air {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+
+				.fa-circle {
+					color: red;
+					animation-name: blinker;
+					animation-duration: 2s;
+					animation-timing-function: linear;
+					animation-iteration-count: infinite;
+					
+					@keyframes blinker {  
+						0% { opacity: 1.0; }
+						50% { opacity: 0.0; }
+						100% { opacity: 1.0; }
+					}
+				}
+			}
+
+		}
+	}
+}
+
+.controls-wrap{
+	@include center-center;
+	padding: 30px;
+	background-color: #EAEDEF;
+
+
+	i {
+		cursor: pointer;
+	}
+}

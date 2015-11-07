@@ -1,0 +1,29 @@
+{
+  "name": "SoundCtl",
+  "version": "0.0.0",
+  "homepage": "https://github.com/iMuzz/SoundCtl",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Faraaz Nishtar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.7"
+  },
+  "dependencies": {
+    "uikit": "~2.23.0",
+    "jquery": "~2.1.4",
+    "components-font-awesome": "~4.4.0",
+    "angular-loading-bar": "~0.8.0"
+  }
+}
