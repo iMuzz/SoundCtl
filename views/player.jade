@@ -3,7 +3,15 @@ extends layout
 block content
 	div.player-wrap
 		div.player.uk-container-center(ng-controller="webPlayerController")
-			div.thumbnail
-				div#on-air(ng-show="player.isPlaying")
-					i.fa.fa-circle
-			audio-player
+			div.share
+				div.tab
+					span.fa.fa-facebook
+				div.tab
+					span.fa.fa-twitter 
+				div.tab
+					span.fa.fa-google
+			div.player-content		
+				div.thumbnail
+					div#on-air(ng-show="player.isPlaying")
+						i.fa.fa-circle
+				audio-player

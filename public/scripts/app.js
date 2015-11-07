@@ -1,5 +1,5 @@
 (function(){
-	var soundCtl = angular.module('soundCtl', []);
+	var soundCtl = angular.module('soundCtl', ['rzModule']);
 
 	soundCtl.controller('webPlayerController', ['$scope','streamOutput', function($scope, streamOutput){
 		$scope.player = {
@@ -12,6 +12,8 @@
 			restrict: 'E',
 			templateUrl: "/templates/music-player",
 			controller: function($scope, $element, streamOutput, $sce){
+				
+				$scope.volumeSlider = 150;
 
 				streamOutput.getOutputURL().then(function(res){
 					$scope.outputUrl = $sce.trustAsResourceUrl(findAACUrl(res));
@@ -38,6 +40,12 @@
 					$scope.player.isPlaying = !$scope.player.isPlaying;
 				};
 			}
+		}
+	});
+
+	soundCtl.directive('vertical-slider', function(){
+		return {
+			
 		}
 	});
 
@@ -77,7 +85,7 @@
 				console.log('searching for output..');
 				if (studioPath['output'] !== undefined ) {
 					if (studioPath['output']['transmission'] !== undefined) {
-						// console.log("output found:", studioPath['output']['transmission']['mount']);
+						console.log("output found:", studioPath['output']['transmission']['mount']);
 						mountPoints.push(studioPath['output']['transmission']['mount']);
 					};
 				};
