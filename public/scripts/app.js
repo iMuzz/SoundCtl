@@ -1,5 +1,5 @@
 (function(){
-	var soundCtl = angular.module('soundCtl', ['rzModule']);
+	var soundCtl = angular.module('soundCtl', []);
 
 	soundCtl.controller('webPlayerController', ['$scope','streamOutput', function($scope, streamOutput){
 		$scope.player = {
@@ -40,12 +40,6 @@
 					$scope.player.isPlaying = !$scope.player.isPlaying;
 				};
 			}
-		}
-	});
-
-	soundCtl.directive('vertical-slider', function(){
-		return {
-			
 		}
 	});
 

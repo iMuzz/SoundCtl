@@ -24,6 +24,6 @@
     "uikit": "~2.23.0",
     "jquery": "~2.1.4",
     "components-font-awesome": "~4.4.0",
-    "angularjs-slider": "~1.0.0"
+    "angular-loading-bar": "~0.8.0"
   }
 }
