@@ -29,10 +29,7 @@ router.get('/callback',
   });
 
 router.post('/updateUser', function(req, res, next) {
-  // auth0Client.getUser('/google-oauth2%7C107749376288480166720');
   auth0Client.updateAppData('/google-oauth2%7C107749376288480166720', req.body.app_metadata)
-  // auth0Client.updateAppData('/google-oauth2%7C107749376288480166720', "{'test': 'true'}")
-  // console.log(req.body.app_metadata);
   res.redirect('/dashboard');
 });
 
