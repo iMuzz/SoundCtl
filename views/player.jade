@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	div(ng-app="soundCtl")
+		div.player-wrap
+			div.player.uk-container-center(ng-controller="webPlayerController")
+				div.share
+					div.tab
+						span.fa.fa-facebook
+					div.tab
+						span.fa.fa-twitter 
+					div.tab
+						span.fa.fa-google
+				div.player-content		
+					div.thumbnail
+						div.view-count
+							i.fa.fa-eye
+							span  25
+						div#on-air(ng-show="player.isPlaying")
+							i.fa.fa-circle
+					audio-player
