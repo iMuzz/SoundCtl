@@ -2,4 +2,6 @@ extends layout
 
 block content
   div  Welcome #{user.nickname}! Click the button to create a station!
-  a(href="/updateData") Create Station
+  form(action="/updateUser" method="post")
+    input(name="app_metadata" placeholder="Enter app_metadata here")
+    input(type="submit")
