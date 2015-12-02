@@ -11,7 +11,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/player', function(req, res, next) {
-  
   res.render('player', { title: 'Express' });
 });
 
@@ -29,10 +28,14 @@ router.get('/callback',
     res.redirect('/dashboard');
   });
 
-router.post('/updateUser', function(req, res, next) {
-  auth0Client.updateAppData('/google-oauth2%7C107749376288480166720', req.body.app_metadata)
-  res.redirect('/dashboard');
+// Accepts station name
+router.post('/stations', requiresLogin, function(req, res, next){
+
 });
 
+router.post('/updateUser', function(req, res, next) {
+  auth0Client.updateAppData(req.user.identities[0].user_id, req.body.app_metadata);
+  res.redirect('/dashboard');
+});
 
 module.exports = router;
