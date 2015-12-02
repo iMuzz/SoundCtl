@@ -8,7 +8,6 @@ var kradEngine = require('../modules/kradEngine');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  kradEngine.getAllStations();
   res.render('index');
 });
 
@@ -39,5 +38,24 @@ router.post('/updateUser', function(req, res, next) {
   auth0Client.updateAppMetaData(req.user.identities[0].user_id, req.body.app_metadata);
   res.redirect('/dashboard');
 });
+
+
+
+// Stations
+
+router.get('/stations', function(req, res, next){
+  kradEngine.getAllStations()
+    .then(function(response){
+      console.log(response);
+    });
+});
+
+// router.get('/stations', function(req, res, next){
+
+//   kradEngine.station('test2', 'destroy')
+//     .then(function(response){
+//       console.log(response);
+//     });
+// });
 
 module.exports = router;

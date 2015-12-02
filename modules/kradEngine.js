@@ -1,7 +1,5 @@
 // Depenedencies
-var http = require('http');
-
-var request = require('request');
+var request = require('request-promise');
 require('dotenv').load();
 
 // Generic request options
@@ -12,28 +10,39 @@ var requestOptions = {
 	}
 }
 
-/*
-	A simple wrapper around the KradEngine middleware
-*/
+var soundCtlKey = process.env.soundCtlKey;
 
+/*
+	A simple wrapper around the KradEngine middleware.
+	
+	Note: All methods initially return a promise.
+*/
 var kradEngine = {
 	// Returns a list of all created stations
 	getAllStations: function(){
-		requestOptions.url = requestOptions.url + 'stations?key=' + process.env.soundCtlKey;
-		
-		return request(requestOptions, function(error, response, body){
-			// console.log(body);
-			if(error) {};
+		requestOptions.url = requestOptions.url + 'stations?key=' + soundCtlKey;
+		return request(requestOptions)
 
-			if (!error) {
-				console.log('response from middleware', body);
-			};
-		});
+			// Any kind of data extraction / processing will happen here
+			.then(function(response){
+				return response;
+			});
 	},
-	createStation: function(stationName){},
-	startStation: function(stationName){},
-	stopStation: function(stationName){},
-	destroyStation: function(stationName){}
+
+	station: function(callsign, action){
+		requestOptions['url'] = requestOptions.url + action
+		requestOptions['method'] = 'POST';
+		requestOptions['headers']['Content-Type'] = 'application/json';
+		requestOptions['json'] = {
+			callsign: callsign,
+			key: soundCtlKey
+		};
+
+		return request(requestOptions)
+			.then(function(response){
+				console.log(response);
+			})
+	}
 }
 
 
