@@ -1,4 +1,4 @@
-var request = require('request');
+var request = require('request-promise');
 
 // Generic header Options for Auth0 Requests
 var options = {
@@ -24,26 +24,21 @@ var auth0Client = {
 		});
 	},
 
+	// 
 	updateAppMetaData: function(userID, payLoad){
 		// console.log('updateAppData called!');
 		options['method'] = 'PATCH';
 		options['url'] = options.url + userID;
 		options['headers']['Content-Type'] = 'application/json';
-		options['json'] = {app_metadata: JSON.parse(payLoad)}
+		options['json'] = {app_metadata: payLoad}
 
-
-		// console.log('Updating app_metadata...');
-
-		request(options, function(error, response, body){
-			console.log("APP_METADATA", body)
-			if(error) {
-				console.log("update failed", body);
-			}
-			//TODO: Add error check at this point
-			if(!error && response.statusCode == 200) {
-			  console.log("Response from getUser", body);
-			}
-		});
+		return request(options)
+			.then(function(response){
+				return response;
+			})
+			.catch(function(err){
+				console.log(err);
+			})
 
 	}
 }

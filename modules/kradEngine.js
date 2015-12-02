@@ -30,6 +30,7 @@ var kradEngine = {
 	},
 
 	station: function(callsign, action){
+		console.log('station called!', action);
 		requestOptions['url'] = requestOptions.url + action
 		requestOptions['method'] = 'POST';
 		requestOptions['headers']['Content-Type'] = 'application/json';
@@ -40,7 +41,10 @@ var kradEngine = {
 
 		return request(requestOptions)
 			.then(function(response){
-				console.log(response);
+				return response;
+			})
+			.catch(function(err){
+				console.log(err);
 			})
 	}
 }
