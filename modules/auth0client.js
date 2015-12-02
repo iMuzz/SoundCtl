@@ -9,7 +9,7 @@ var options = {
 	}
 }
 
-auth0Client = {
+var auth0Client = {
 	
 	// @param userID (Auth0 user_id of a single user)
 	// @param AuthToken (Auth0 refresh token)
@@ -24,7 +24,7 @@ auth0Client = {
 		});
 	},
 
-	updateAppData: function(userID, payLoad){
+	updateAppMetaData: function(userID, payLoad){
 		// console.log('updateAppData called!');
 		options['method'] = 'PATCH';
 		options['url'] = options.url + userID;

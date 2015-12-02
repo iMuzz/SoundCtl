@@ -4,9 +4,11 @@ var passport = require('passport');
 var requiresLogin = require('../requiresLogin');
 var request = require('request');
 var auth0Client = require('../modules/auth0Client');
+var kradEngine = require('../modules/kradEngine');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  kradEngine.getAllStations();
   res.render('index');
 });
 
@@ -34,7 +36,7 @@ router.post('/stations', requiresLogin, function(req, res, next){
 });
 
 router.post('/updateUser', function(req, res, next) {
-  auth0Client.updateAppData(req.user.identities[0].user_id, req.body.app_metadata);
+  auth0Client.updateAppMetaData(req.user.identities[0].user_id, req.body.app_metadata);
   res.redirect('/dashboard');
 });
 
