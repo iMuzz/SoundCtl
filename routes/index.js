@@ -31,7 +31,8 @@ router.get('/callback',
 
 // Accepts station name
 router.post('/stations', requiresLogin, function(req, res, next){
-  console.log(req.body.callsign);
+  console.log("callsign chosen by user:", req.body.callsign);
+  console.log("Station creator:", req.user);
 
   stationManager.createStation(req.user.identities[0].user_id, req.body.callsign)
     .then(function(response){
