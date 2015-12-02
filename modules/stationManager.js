@@ -29,7 +29,6 @@ var stationManager = {
 			return auth0Client.updateAppMetaData(userID, station)
 				.then(function(response){
 					console.log("app_metadata updated!");
-					console.log(prom);
 				});
 		}
 

@@ -26,34 +26,18 @@ router.get('/callback',
     if (!req.user) {
       throw new Error('user null');
     }
-    console.log(req.user);
     res.redirect('/');
   });
 
 // Accepts station name
-router.get('/stations', requiresLogin, function(req, res, next){
-  console.log('called!');
-  stationManager.createStation(req.user.identities[0].user_id, 'test'+ Math.floor(Math.random() * 1000) + 1)
+router.post('/stations', requiresLogin, function(req, res, next){
+  console.log(req.body.callsign);
+
+  stationManager.createStation(req.user.identities[0].user_id, req.body.callsign)
     .then(function(response){
-      console.log("Everything complete!");
+      console.log("Station has been created!");
+      res.status(200).end();
     });
 });
-
-
-// router.post('/updateUser', function(req, res, next) {
-//   auth0Client.updateAppMetaData(req.user.identities[0].user_id, req.body.app_metadata);
-//   res.redirect('/dashboard');
-// });
-
-
-
-// Stations
-
-// router.get('/stations', function(req, res, next){
-//   kradEngine.getAllStations()
-//     .then(function(response){
-//       console.log(response);
-//     });
-// });
 
 module.exports = router;

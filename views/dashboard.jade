@@ -2,6 +2,6 @@ extends layout
 
 block content
   div  Welcome #{user.nickname}! Click the button to create a station!
-  form(action="/updateUser" method="post")
-    input(name="app_metadata" placeholder="Enter app_metadata here")
+  form(action="/stations" method="post")
+    input(name="callsign" placeholder="Enter Station Name")
     input(type="submit")
