@@ -4,7 +4,7 @@ require('dotenv').load();
 
 // Generic request options
 
-function getReguestOptions(){
+function getRequestOptions(){
 	var requestOptionsObj = {
 		url: 'http://api.soundctl.com/',
 		headers: {
@@ -26,7 +26,7 @@ var soundCtlKey = process.env.soundCtlKey;
 var kradEngine = {
 	// Returns a list of all created stations
 	getAllStations: function(){
-		requestOptions = getReguestOptions();
+		requestOptions = getRequestOptions();
 		requestOptions.url = requestOptions.url + 'stations?key=' + soundCtlKey;
 		return request(requestOptions)
 
@@ -38,7 +38,7 @@ var kradEngine = {
 
 	station: function(callsign, action){
 		console.log('station called!', action);
-		requestOptions = getReguestOptions();
+		requestOptions = getRequestOptions();
 
 		requestOptions['url'] = requestOptions.url + action
 		requestOptions['method'] = 'POST';
@@ -59,6 +59,7 @@ var kradEngine = {
 	},
 
 	destroyAllStations: function(){
+		// console.log('\033[31m', 'sometext' ,'\033[91m');
 		var that = this;
 		this.getAllStations()
 			.then(function(response){
