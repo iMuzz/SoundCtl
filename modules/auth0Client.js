@@ -39,8 +39,7 @@ var auth0Client = {
 		options['json'] = {app_metadata: payLoad}
 
 		console.log("updateAppData request options:", options);
-		console.log("\n\n");
-
+		
 		return request(options)
 			.then(function(response){
 				return response;
