@@ -5,6 +5,7 @@ var requiresLogin = require('../requiresLogin');
 var request = require('request');
 
 var stationManager = require('../modules/stationManager');
+var kradEngine = require('../modules/kradEngine');
 
 
 /* GET home page. */
@@ -40,5 +41,20 @@ router.post('/stations', requiresLogin, function(req, res, next){
       res.status(200).end();
     });
 });
+
+router.get('/createrandstations', function(req, res, next){
+  for (var i = 0; i < 5; i++) {
+    kradEngine.station('soundctl'+i, 'create');
+  };
+
+  res.status(200).end();
+});
+
+// Destroy all stations (testing purposes)
+router.get('/destroystations', function(req, res, next) {
+  kradEngine.destroyAllStations();
+  res.status(200).end();
+});
+
 
 module.exports = router;

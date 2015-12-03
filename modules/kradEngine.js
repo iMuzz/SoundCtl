@@ -3,11 +3,17 @@ var request = require('request-promise');
 require('dotenv').load();
 
 // Generic request options
-var requestOptions = {
-	url: 'http://api.soundctl.com/',
-	headers: {
-		'User-Agent': 'request'
+
+function getReguestOptions(){
+	var requestOptionsObj = {
+		url: 'http://api.soundctl.com/',
+		headers: {
+			'User-Agent': 'request'
+		}
 	}
+
+	return requestOptionsObj;
+	
 }
 
 var soundCtlKey = process.env.soundCtlKey;
@@ -20,6 +26,7 @@ var soundCtlKey = process.env.soundCtlKey;
 var kradEngine = {
 	// Returns a list of all created stations
 	getAllStations: function(){
+		requestOptions = getReguestOptions();
 		requestOptions.url = requestOptions.url + 'stations?key=' + soundCtlKey;
 		return request(requestOptions)
 
@@ -31,6 +38,8 @@ var kradEngine = {
 
 	station: function(callsign, action){
 		console.log('station called!', action);
+		requestOptions = getReguestOptions();
+
 		requestOptions['url'] = requestOptions.url + action
 		requestOptions['method'] = 'POST';
 		requestOptions['headers']['Content-Type'] = 'application/json';
@@ -39,12 +48,26 @@ var kradEngine = {
 			key: soundCtlKey
 		};
 
+		console.log("requestOptions", requestOptions);
 		return request(requestOptions)
 			.then(function(response){
 				return response;
 			})
 			.catch(function(err){
 				console.log(err);
+			})
+	},
+
+	destroyAllStations: function(){
+		var that = this;
+		this.getAllStations()
+			.then(function(response){
+				var stations = JSON.parse(response);
+				for(var i = 0; i < stations.length; i++) {
+					console.log('destroying...', stations[i]);
+					that.station(stations[i], 'destroy');
+					// break; //Uncomment to destroy only one stations
+				}
 			})
 	}
 }
