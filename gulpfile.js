@@ -18,7 +18,10 @@ var watchify = require('watchify');
 var browserify = require('gulp-browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-var assign = require('lodash.assign');
+
+var browserify = require('browserify');
+var watchify = require('watchify');
+var babel = require('babelify');
 
 // CONSTANT PATHS
 var PATH =  {
@@ -41,3 +44,32 @@ gulp.task('watch', function() {
   gulp.watch(PATH.scss_src, ['css-build']);
 });
 
+function compile(watch) {
+  var bundler = watchify(browserify('./app/reactApp/main.js', { debug: true }).transform(babel));
+
+  function rebundle() {
+    bundler.bundle()
+      .on('error', function(err) { console.error(err); this.emit('end'); })
+      .pipe(source('main.js'))
+      .pipe(buffer())
+      .pipe(sourcemaps.init({ loadMaps: true }))
+      .pipe(sourcemaps.write('./'))
+      .pipe(gulp.dest('./jsbuild'));
+  }
+
+  if (watch) {
+    bundler.on('update', function() {
+      console.log('-> bundling...');
+      rebundle();
+    });
+  }
+
+  rebundle();
+}
+
+function watchjs() {
+  return compile(true);
+};
+
+gulp.task('build', function() { return compile(); });
+gulp.task('watchjs', function() { return watchjs(); });
