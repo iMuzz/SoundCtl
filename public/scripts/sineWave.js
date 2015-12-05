@@ -83,7 +83,7 @@ SiriWave.prototype._drawLine = function(attenuation, color, width){
 	this.ctx.lineWidth = width || 1;
 
 	var i = -2;
-	while ((i += 0.01) <= 2) {
+	while ((i += 0.025) <= 2) {
 		var y = this._ypos(i, attenuation);
 		if (Math.abs(i) >= 1.90) y = this.height_2;
 		this.ctx.lineTo(this._xpos(i), y);
@@ -93,9 +93,10 @@ SiriWave.prototype._drawLine = function(attenuation, color, width){
 };
 
 SiriWave.prototype._clear = function() {
-	this.ctx.globalCompositeOperation = 'destination-out';
-	this.ctx.fillRect(0, 0, this.width, this.height);
-	this.ctx.globalCompositeOperation = 'source-over';
+	//this.ctx.globalCompositeOperation = 'destination-out';
+	//this.ctx.fillRect(0, 0, this.width, this.height);
+	this.ctx.clearRect(0, 0, this.width, this.height);
+	//this.ctx.globalCompositeOperation = 'source-over';
 };
 
 SiriWave.prototype._draw = function() {
