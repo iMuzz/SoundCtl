@@ -238,6 +238,7 @@ a {
 .dropdown-wrap {
 	position: relative;
 	display: none;
+	top: 14px;
 
 	&.is-open {
 		display: block;
