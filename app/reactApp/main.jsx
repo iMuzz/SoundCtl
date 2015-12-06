@@ -15,5 +15,5 @@ class Intro extends React.Component {
 	}
 }
 $(document).ready(function(){
-	ReactDom.render(<Intro />, document.getElementById('main'));
+	ReactDom.render(<Intro />, document.getElementById('body'));
 });

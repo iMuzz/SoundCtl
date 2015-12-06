@@ -1,5 +1,5 @@
-$krad-main: #CF1C22;
-$krad-accent: darken(#211B2B, 0%);
+$soundCtl-main: #CF1C22;
+$soundCtl-accent: darken(#211B2B, 0%);
 
 @mixin primary-font-family {
 	font-family: "Gotham Rounded A", "Gotham Rounded B";
@@ -27,9 +27,17 @@ body {
 
 /* End Base */
 
-.nav {
+$main: #D8D8D8;
 
-	padding: 30px 5%;
+#body {
+	.nav {
+		background-color: $main;
+	}
+}
+.nav {
+	height: 80px;
+	max-height: 80px;
+	padding: 0px 5%;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -40,18 +48,22 @@ body {
 	font-size: 16px;
 
 	.nav-right {
-		width: 12%;
-		min-width: 220px;
+		// width: 12%;
+		// min-width: 220px;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		.nav-item {
-			display: inline-block;
+			display: flex;
+			align-items: center;
+			position: relative;
 		}
 	}
 	div.nav-item {
 		@include primary-font-family;
 		font-size: 1.2em;
+		display: flex;
+		align-items: center;
 
 		&:hover {
 			cursor: pointer;
@@ -67,9 +79,9 @@ body {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-        /*background: linear-gradient(45deg, $krad-main, darken($krad-accent, 25%));*/
-		background-color: $krad-accent;
-		background-color: darken($krad-accent, 25%);
+        /*background: linear-gradient(45deg, $soundCtl-main, darken($soundCtl-accent, 25%));*/
+		background-color: $soundCtl-accent;
+		background-color: darken($soundCtl-accent, 25%);
 		opacity: .85;
 		z-index: 1;
 	}
@@ -114,7 +126,7 @@ body {
 	    line-height: 1.3;
 
 		.bright {
-			color: $krad-main;
+			color: $soundCtl-main;
 		}
 	}
 
@@ -194,3 +206,62 @@ a {
 		width: 100% !important;
 	}
 }
+
+
+// Avatar component
+.avatar {
+	img {
+		height: 50px;
+		border-radius: 50%;
+		border: 1px solid
+	}
+}
+
+// .nav-item {
+// 	&:hover {
+// 		.arrow-up {
+// 			display: inline-block;
+// 		}
+// 		.dropdown {
+// 			display: block;
+			
+// 			.dropdown-item {
+// 				&:hover {
+// 					background-color: darken(#ECEAEA, 10%);
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+//(Dropdown) Menu componenent
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #ECEAEA;
+}
+
+.nav-item {
+	.arrow-up {
+		position: relative;
+	    top: 33px;
+	    left: -30px;
+	}
+}
+
+.dropdown {
+    position: absolute;
+    background-color: #ECEAEA;
+    color: black;
+    z-index: 1;
+    left: -90px;
+    top: 75px;
+    border-radius: 2px;
+
+	.dropdown-item {
+		padding: 10px 50px;
+    	font-size: .7em;
+	}
+}    
