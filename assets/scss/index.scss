@@ -245,13 +245,14 @@ a {
 
 .nav-item {
 	.arrow-up {
-		position: relative;
-	    top: 33px;
-	    left: -30px;
+		position: absolute;
+	        top: 4px;
+    left: 20px;
 	}
 }
 
 .dropdown-wrap {
+	position: relative;
 	display: none;
 
 	&.is-open {
@@ -260,13 +261,13 @@ a {
 }
 
 .dropdown {
-    position: absolute;
     background-color: #ECEAEA;
     color: black;
     z-index: 1;
-    left: -90px;
-    top: 75px;
     border-radius: 2px;
+    position: absolute;
+    left: -90px;
+    top: 8px;
 
 	.dropdown-item {
 		padding: 10px 50px;

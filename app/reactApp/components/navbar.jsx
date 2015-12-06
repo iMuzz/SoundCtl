@@ -65,7 +65,7 @@ class Dropdown extends React.Component {
 			<div className={dropdownClass}>
 				<div className="arrow-up"> </div>
 				<div className="dropdown">
-					<div className="dropdown-item"> logout </div>
+					<div className="dropdown-item"> <a href="http://SoundCtl.com" />logout </div>
 				</div>
 			</div>
 		);
@@ -73,7 +73,6 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.defaultProps = { isOpen: false };
-
 
 class Avatar extends React.Component {
 	render() {
