@@ -37,6 +37,7 @@ class UserPanel extends React.Component {
 	}
 
 	onClick(e) {
+		console.log('called?');
 		this.setState({
 			isOpen: !this.state.isOpen
 		});
@@ -57,15 +58,28 @@ class UserPanel extends React.Component {
 class Dropdown extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.onClick = this.onClick.bind(this);
 	}
 
+	onClick(e) {
+		console.log('A tag was clicked!');
+		e.stopPropagation();
+	}
 	render() {
 		let dropdownClass = classNames("dropdown-wrap", {"is-open": this.props.isOpen});
 		return (
 			<div className={dropdownClass}>
 				<div className="arrow-up"> </div>
 				<div className="dropdown">
-					<div className="dropdown-item"> <a href="http://SoundCtl.com" />logout </div>
+					<a onClick={this.onClick} href="/"> 
+						<div className="dropdown-item">		
+								Logout
+						</div>
+					</a>
+					<div className="dropdown-item">		
+						Settings
+					</div>
 				</div>
 			</div>
 		);
