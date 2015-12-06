@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('passport');
 var requiresLogin = require('../requiresLogin');
 var request = require('request');
 
@@ -23,14 +22,6 @@ router.get('/dashboard', function(req, res, next) {
   res.render('dashboard', {user: req.user});
 });
 
-router.get('/callback',
-  passport.authenticate('auth0', { failureRedirect: '/player' }),
-  function(req, res) {
-    if (!req.user) {
-      throw new Error('user null');
-    }
-    res.redirect('/dashboard');
-  });
 
 // Accepts station name
 router.post('/stations', requiresLogin, function(req, res, next){
