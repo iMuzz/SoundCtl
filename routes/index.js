@@ -17,7 +17,9 @@ router.get('/player', function(req, res, next) {
   res.render('player', { title: 'Express' });
 });
 
-router.get('/dashboard', requiresLogin, function(req, res, next) {
+// router.get('/dashboard', requiresLogin, function(req, res, next) {
+//   res.render('dashboard', {user: req.user});
+router.get('/dashboard', function(req, res, next) {
   res.render('dashboard', {user: req.user});
 });
 
@@ -27,7 +29,7 @@ router.get('/callback',
     if (!req.user) {
       throw new Error('user null');
     }
-    res.redirect('/');
+    res.redirect('/dashboard');
   });
 
 // Accepts station name

@@ -1,17 +1,19 @@
-class UserName extends React.Component {  
-  render() {
-    return <div>name: {this.props.name}</div>;
-  }
-}
+// var React = require('react');
+// var ReactDom = require('react-dom');
+import React from         'react';
+import ReactDom from      'react-dom';
+import $ from             'jquery';
+import {Navbar} from      './components/navbar';
 
-class User extends React.Component {  
-  render() {
-    return <div>
-        <h1>City: {this.props.user.city}</h1>
-        <UserName name={this.props.user.name} />
-      </div>;
-  }
+class Intro extends React.Component {
+	render() {
+		return  ( 
+			<div> 
+				<Navbar />
+			</div> 
+		);
+	}
 }
-
-var user = { name: 'John', city: 'San Francisco' };  
-React.render(<User user={user} />, mountNode);
+$(document).ready(function(){
+	ReactDom.render(<Intro />, document.getElementById('main'));
+});
