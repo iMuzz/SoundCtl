@@ -1,5 +1,6 @@
 import React from         'react';
 import ReactDom from      'react-dom';
+import classNames from    'classnames';
 
 export class Navbar extends React.Component {
 	render() {
@@ -19,24 +20,59 @@ export class Navbar extends React.Component {
 class UserPanel extends React.Component {
 	constructor() {
 		super();
-		
-		this.handleClick = this.handleClick.bind(this);
+
+		this.state = { isOpen: false }
+
+		this.openDropdown = this.openDropdown.bind(this);
+		this.closeDropdown = this.closeDropdown.bind(this);
+		this.onClick = this.onClick.bind(this);
 	}
 
-	handleClick(e) {
-		console.log('User Panel was clicked!');
+	openDropdown() {
+		this.setState({ isOpen: true });
+	}
+
+	closeDropdown() {
+		this.setState({ isOpen: false});
+	}
+
+	onClick(e) {
+		this.setState({
+			isOpen: !this.state.isOpen
+		});
 	}
 
 	render() {
 		return (
-			<div className="user-panel" onClick={this.handleClick}>
+			<div className="user-panel" onClick={this.onClick}>
 				<Avatar imageUrl={'https://media.licdn.com/mpr/mpr/shrink_100_100/AAEAAQAAAAAAAAKVAAAAJGQ4NDg2ZjA4LTM2ZTctNDAwMS05ZDI2LTU2NDg0ZDlmMzJmNA.jpg'}/>
-				<Dropdown />
+				<Dropdown isOpen={this.state.isOpen}/>
 			</div>
 		);
 	}
 }
 
+
+
+class Dropdown extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		let dropdownClass = classNames("dropdown-wrap", {"is-open": this.props.isOpen});
+		return (
+			<div className={dropdownClass}>
+				<div className="arrow-up"> </div>
+				<div className="dropdown">
+					<div className="dropdown-item"> logout </div>
+				</div>
+			</div>
+		);
+	}
+}
+
+Dropdown.defaultProps = { isOpen: false };
 
 
 class Avatar extends React.Component {
@@ -48,22 +84,3 @@ class Avatar extends React.Component {
 		);
 	}
 }
-
-class Dropdown extends React.Component {
-	render() {
-		return (
-			<div className="dropdown-wrap">
-				<div className="arrow-up"> </div>
-				<div className="dropdown">
-					<div className="dropdown-item"> logout </div>
-				</div>
-			</div>
-		);
-	}
-}
-
-Dropdown.propTypes = {
-	isOpen: React.PropTypes.bool
-};
-
-Dropdown.defaultProps = { isOpen: false };

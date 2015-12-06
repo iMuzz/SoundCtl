@@ -251,6 +251,14 @@ a {
 	}
 }
 
+.dropdown-wrap {
+	display: none;
+
+	&.is-open {
+		display: block;
+	}
+}
+
 .dropdown {
     position: absolute;
     background-color: #ECEAEA;
