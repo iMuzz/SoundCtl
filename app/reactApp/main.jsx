@@ -65,6 +65,45 @@ class Intro extends React.Component {
 	}
 }
 
+class Home extends React.Component {
+	constructor(props){
+		super(props);
+
+		this.showLock = this.showLock.bind(this);
+	}
+	showLock() {
+		this.props.lock.show();
+	}
+
+	render() {
+		return (
+			<div>
+				<nav className="nav">
+					<div className="nav-item"> SoundCtl </div>
+					<div className="nav-right"> 
+						<div className="nav-item">
+							<a href='/dashboard'> Dashboard </a>
+						</div>
+						<div className="nav-item"> Login </div>
+					</div>
+				</nav>
+				<div className="hero-wrapper"> 
+					<div className="bg-hero bg-hero-1"></div>
+					<div className="hero-content">
+						<div className="company"> SoundCtl </div>
+						<div className="hero-title"> This simplest way to broadcast your ideas <span className="bright"> live </span> </div>
+						<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
+							<input placeholder="Enter email address" type="email" name="EMAIL" required/>
+							<input className="cta-base" type="submit" value="Signup"/>
+						</form>
+					</div>
+					<div id="container" className="container"></div>
+				</div>
+			</div>
+		)
+	}
+}
+
 $(document).ready(function(){
-	ReactDom.render(<Intro />, document.getElementById('body'));
+	ReactDom.render(<Home />, document.getElementById('body'));
 });
