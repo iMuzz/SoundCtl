@@ -29,11 +29,6 @@ body {
 
 $main: #D8D8D8;
 
-#body {
-	.nav {
-		background-color: $main;
-	}
-}
 .nav {
 	height: 80px;
 	max-height: 80px;
@@ -204,6 +199,12 @@ a {
 
 	canvas  {
 		width: 100% !important;
+	}
+}
+// Dashboard
+#body {
+	.nav {
+		background-color: $main;
 	}
 }
 

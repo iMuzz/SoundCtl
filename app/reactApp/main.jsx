@@ -5,6 +5,16 @@ import ReactDom from      'react-dom';
 import $ from             'jquery';
 import {Navbar} from      './components/navbar';
 
+let sinewave = require('./modules/sinewave');
+new sinewave({
+  width: 1000,
+  height: 300,
+  speed: 0.009,
+  container: document.getElementById('sinewave'),
+  autostart: true,
+});
+
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -73,6 +83,17 @@ class Home extends React.Component {
 	}
 	showLock() {
 		this.props.lock.show();
+	}
+
+	componentDidMount(){
+		console.log('hopefully after the render function!', document.getElementById('sinewave'));
+		// new sinewave({
+		// 	width: 1000,
+		// 	height: 300,
+		// 	speed: 0.009,
+		// 	container: document.getElementById('sinewave'),
+		// 	autostart: true,
+		// });
 	}
 
 	render() {
