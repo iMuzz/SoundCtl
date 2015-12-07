@@ -86,17 +86,17 @@ class Home extends React.Component {
 	}
 
 	componentDidMount(){
-		console.log('hopefully after the render function!', document.getElementById('sinewave'));
-		// new sinewave({
-		// 	width: 1000,
-		// 	height: 300,
-		// 	speed: 0.009,
-		// 	container: document.getElementById('sinewave'),
-		// 	autostart: true,
-		// });
+		new sinewave({
+			width: 1000,
+			height: 300,
+			speed: 0.009,
+			container: document.getElementById('sinewave'),
+			autostart: true,
+		});
 	}
 
 	render() {
+		debugger;
 		return (
 			<div>
 				<nav className="nav">
@@ -118,7 +118,7 @@ class Home extends React.Component {
 							<input className="cta-base" type="submit" value="Signup"/>
 						</form>
 					</div>
-					<div id="container" className="container"></div>
+					<div id="sinewave" className="container"></div>
 				</div>
 			</div>
 		)
