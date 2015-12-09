@@ -4,7 +4,7 @@ import React from         'react';
 import ReactDom from      'react-dom';
 import $ from             'jquery';
 import {Navbar} from      './components/navbar';
-// import {Dashboard} from      './components/dashboard';
+import {Dashboard} from      './components/dashboard';
 
 let sinewave = require('./modules/sinewave');
 
@@ -109,33 +109,6 @@ class Home extends React.Component {
 	}
 }
 
-
-class Dashboard extends React.Component {
-
-	constructor(props){
-		super(props);
-
-		this.state = { profile: null}
-	}
-
-	componentDidMount(){
-		this.props.lock.getProfile(this.props.idToken, (err, profile) => {
-			if(err) {
-				console.log("Error loading the profile", err);
-				alert("Error loading the profile. Please check the console");
-			}
-			this.setState({profile: profile});
-		});
-	}
-
-	render() {
-		return  ( 
-			<div> 
-				<Navbar userProfile={this.state.profile}/>
-			</div> 
-		);
-	}
-}
 
 $(document).ready(function(){
 	if (document.getElementById('home')) {
