@@ -20,11 +20,10 @@ export class Navbar extends React.Component {
 		);
 	}
 }
-Navbar.defaultProps = { userProfile: { email: "", name: "", picture: "" } };
 
 class UserPanel extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = { isOpen: false }
 
@@ -42,12 +41,10 @@ class UserPanel extends React.Component {
 	}
 
 	onClick(e) {
-		console.log('called?');
 		this.setState({
 			isOpen: !this.state.isOpen
 		});
 	}
-
 	render() {
 		if (this.props.userProfile) {
 			return (
@@ -61,17 +58,17 @@ class UserPanel extends React.Component {
 	}
 }
 
-
+UserPanel.defaultProps = { initialCount: 0}
 
 class Dropdown extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 
-		this.onClick = this.onClick.bind(this);
+		this.logout = this.logout.bind(this);
 	}
 
-	onClick(e) {
-		console.log('A tag was clicked!');
+	logout(e) {
+		console.log('Logout the user!');
 		e.stopPropagation();
 	}
 	render() {
@@ -80,9 +77,9 @@ class Dropdown extends React.Component {
 			<div className={dropdownClass}>
 				<div className="arrow-up"> </div>
 				<div className="dropdown">
-					<a onClick={this.onClick} href="/"> 
+					<a onClick={this.logout}> 
 						<div className="dropdown-item">		
-								Logout
+							Logout
 						</div>
 					</a>
 					<div className="dropdown-item">		

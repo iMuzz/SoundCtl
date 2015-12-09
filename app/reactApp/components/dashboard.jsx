@@ -1,11 +1,4 @@
 import React from         'react';
+import {Navbar} from      './navbar'
 
-class Dashboard extends React.Component {
-	render() {
-		return  ( 
-			<div> 
-				<Navbar />
-			</div> 
-		);
-	}
-}
+console.log('does this run?');
