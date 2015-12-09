@@ -4,16 +4,9 @@ import React from         'react';
 import ReactDom from      'react-dom';
 import $ from             'jquery';
 import {Navbar} from      './components/navbar';
+// import {Dashboard} from      './components/dashboard';
 
 let sinewave = require('./modules/sinewave');
-new sinewave({
-  width: 1000,
-  height: 300,
-  speed: 0.009,
-  container: document.getElementById('sinewave'),
-  autostart: true,
-});
-
 
 class App extends React.Component {
 	constructor(props) {
@@ -40,7 +33,7 @@ class App extends React.Component {
 		});
 	}
 	createLock() {
-		this.lock = new Auth0Lock(this.props.clientId, this.props.domain);
+		this.lock = new Auth0Lock("da8oL0bZSljscKr94Oq11W7P7AiTvb4L", "soundctl.auth0.com");
 	}
 	getIdToken() {
 		var idToken = localStorage.getItem('userToken');
@@ -58,20 +51,12 @@ class App extends React.Component {
 	}
 	render() {
 		if (this.state.idToken) {
-			return ( <div> logged in </div>);
+			// If user is logged in 
+			return ( <div> <Dashboard lock={this.lock} idToken={this.state.idToken}/> </div>);
 		} else {
-			return ( <div> logged out</div> );
+			// If user is not logged in
+			return ( <div> <Home lock={this.lock}/> </div> );
 		}
-	}
-}
-
-class Intro extends React.Component {
-	render() {
-		return  ( 
-			<div> 
-				<Navbar />
-			</div> 
-		);
 	}
 }
 
@@ -104,7 +89,7 @@ class Home extends React.Component {
 						<div className="nav-item">
 							<a href='/dashboard'> Dashboard </a>
 						</div>
-						<div className="nav-item"> Login </div>
+						<div className="nav-item" onClick={this.showLock}> Login </div>
 					</div>
 				</nav>
 				<div className="hero-wrapper"> 
@@ -124,13 +109,36 @@ class Home extends React.Component {
 	}
 }
 
-$(document).ready(function(){
 
-	if (document.getElementById('home')) {
-		ReactDom.render(<Home />, document.getElementById('home'));
+class Dashboard extends React.Component {
+
+	constructor(props){
+		super(props);
+
+		this.state = { profile: null}
 	}
 
-	if (document.getElementById('dashboard')) {
-		ReactDom.render(<Intro />, document.getElementById('dashboard'));
+	componentDidMount(){
+		this.props.lock.getProfile(this.props.idToken, (err, profile) => {
+			if(err) {
+				console.log("Error loading the profile", err);
+				alert("Error loading the profile. Please check the console");
+			}
+			this.setState({profile: profile});
+		});
+	}
+
+	render() {
+		return  ( 
+			<div> 
+				<Navbar userProfile={this.state.profile}/>
+			</div> 
+		);
+	}
+}
+
+$(document).ready(function(){
+	if (document.getElementById('home')) {
+		ReactDom.render(<App />, document.getElementById('home'));
 	}
 });

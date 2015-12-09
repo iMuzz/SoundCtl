@@ -4,19 +4,23 @@ import classNames from    'classnames';
 
 
 export class Navbar extends React.Component {
+	constructor(props) {
+		super(props)
+	}
 	render() {
 		return (
-			<nav className="nav">
+			<nav className="nav dash">
 				<div className="nav-item"> SoundCtl </div>
 				<div className="nav-right">
 					<div className="nav-item">
-						<UserPanel />
+						<UserPanel {...this.props}/>
 					</div>
 				</div>
 			</nav>
 		);
 	}
 }
+Navbar.defaultProps = { userProfile: { email: "", name: "", picture: "" } };
 
 class UserPanel extends React.Component {
 	constructor() {
@@ -45,12 +49,15 @@ class UserPanel extends React.Component {
 	}
 
 	render() {
-		return (
-			<div className="user-panel" onClick={this.onClick}>
-				<Avatar imageUrl={'https://media.licdn.com/mpr/mpr/shrink_100_100/AAEAAQAAAAAAAAKVAAAAJGQ4NDg2ZjA4LTM2ZTctNDAwMS05ZDI2LTU2NDg0ZDlmMzJmNA.jpg'}/>
-				<Dropdown isOpen={this.state.isOpen}/>
-			</div>
-		);
+		if (this.props.userProfile) {
+			return (
+				<div className="user-panel" onClick={this.onClick}>
+					<Avatar imageUrl={this.props.userProfile.picture}/>
+					<Dropdown isOpen={this.state.isOpen}/>
+				</div>
+			);
+		} 		
+		return ( <div></div>);
 	}
 }
 
