@@ -125,5 +125,12 @@ class Home extends React.Component {
 }
 
 $(document).ready(function(){
-	ReactDom.render(<Home />, document.getElementById('body'));
+
+	if (document.getElementById('home')) {
+		ReactDom.render(<Home />, document.getElementById('home'));
+	}
+
+	if (document.getElementById('dashboard')) {
+		ReactDom.render(<Intro />, document.getElementById('dashboard'));
+	}
 });
