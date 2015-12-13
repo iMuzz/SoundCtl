@@ -4,7 +4,7 @@ import React from         'react';
 import ReactDom from      'react-dom';
 import $ from             'jquery';
 import {Navbar} from      './components/navbar';
-import {Dashboard} from      './components/dashboard';
+import {Dashboard} from   './components/dashboard';
 
 let sinewave = require('./modules/sinewave');
 
@@ -50,9 +50,10 @@ class App extends React.Component {
 		return idToken;
 	}
 	render() {
+		// this.state.idToken = null;
 		if (this.state.idToken) {
 			// If user is logged in 
-			return ( <div> <Dashboard lock={this.lock} idToken={this.state.idToken}/> </div>);
+			return (<Dashboard lock={this.lock} idToken={this.state.idToken}/>);
 		} else {
 			// If user is not logged in
 			return ( <div> <Home lock={this.lock}/> </div> );
@@ -86,9 +87,6 @@ class Home extends React.Component {
 				<nav className="nav">
 					<div className="nav-item"> SoundCtl </div>
 					<div className="nav-right"> 
-						<div className="nav-item">
-							<a href='/dashboard'> Dashboard </a>
-						</div>
 						<div className="nav-item" onClick={this.showLock}> Login </div>
 					</div>
 				</nav>

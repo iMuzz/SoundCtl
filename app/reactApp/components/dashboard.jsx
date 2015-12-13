@@ -1,7 +1,6 @@
 import React from         'react';
 import {Navbar} from      './navbar'
-
-console.log('does this run?');
+import {StationCreator} from './stationCreator'
 
 export class Dashboard extends React.Component {
 
@@ -23,9 +22,10 @@ export class Dashboard extends React.Component {
 
 	render() {
 		return  ( 
-			<div> 
+			<div id="dashboard">
 				<Navbar userProfile={this.state.profile}/>
-			</div> 
+				<StationCreator />
+			</div>
 		);
 	}
 }
