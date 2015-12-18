@@ -37,10 +37,11 @@ gulp.task('css-build', function () {
 gulp.task('watch', function() {
   gulp.watch(PATH.scss_src, ['css-build']);
   gulp.watch('./app/reactApp/**/*.jsx', ['js-build']);
+  gulp.watch('./app/reactApp/**/*.js', ['js-build']);
 });
 
 gulp.task('js-build', function () {
-  return browserify({entries: './app/reactApp/main.jsx', extensions: ['.jsx'], debug: true})
+  return browserify({entries: './app/reactApp/main.jsx', extensions: ['.jsx', '.js'], debug: true})
       .transform(babelify, {presets: ["es2015", "react"]})
       .bundle()
       .pipe(source('bundle.js'))

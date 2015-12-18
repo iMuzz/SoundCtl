@@ -35,6 +35,11 @@ router.post('/stations', requiresLogin, function(req, res, next){
     });
 });
 
+router.get('/websocket', function(req, res, next) {
+  res.render('websocket');
+});
+
+
 router.get('/createrandstations', function(req, res, next){
   for (var i = 0; i < 5; i++) {
     kradEngine.station('soundctl'+i, 'create');

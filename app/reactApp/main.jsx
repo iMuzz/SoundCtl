@@ -1,5 +1,3 @@
-// var React = require('react');
-// var ReactDom = require('react-dom');
 import React from         'react';
 import ReactDom from      'react-dom';
 import $ from             'jquery';
@@ -7,6 +5,8 @@ import {Navbar} from      './components/navbar';
 import {Dashboard} from   './components/dashboard';
 
 let sinewave = require('./modules/sinewave');
+
+import {soundCtlStation} from './modules/websocket';
 
 class App extends React.Component {
 	constructor(props) {
@@ -107,9 +107,37 @@ class Home extends React.Component {
 	}
 }
 
+class SoundPathManager extends React.Component {
+	constructor(props){
+		super(props);
+	}
+
+	render(){
+
+		return (
+			<div> {this.props.label} </div>
+		);
+	}
+}
+
+SoundPathManager.propTypes = { label: React.PropTypes.string.isRequired };
+SoundPathManager.defaultProps = { label: "null" };
+
+class SoundPath extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		
+	}
+}
 
 $(document).ready(function(){
 	if (document.getElementById('home')) {
 		ReactDom.render(<App />, document.getElementById('home'));
+	}
+	if (document.getElementById('mixers')) {
+		ReactDom.render(<SoundPathManager />, document.getElementById('mixers'));
 	}
 });
