@@ -37,10 +37,10 @@ export class soundCtlStation {
 
 	_socketOnMessage(event) {
 		var crate = JSON.parse(event.data);
-		console.log(crate.meth + " " + crate.path);
+		// console.log(crate.meth + " " + crate.path);
 
 		if (crate.data) {
-			console.log(crate.data);
+			// console.log(crate.data);
 		};
 		if (crate.path.split('/').length < 3) { //if its a root node
 			crate.data.path.forEach( path => {
@@ -66,8 +66,8 @@ export class soundCtlStation {
 				});
 				break;
 			};
-		console.log("Warehouse contains " + this.warehouse.length + " crates.");
-		console.log("Number of patches " + this.patches);
+		console.log("Warehouse contains " + this.warehouse.length + " crates: ", this.warehouse);
+		// console.log("Number of patches " + this.patches);
 	}
 
 	sendCommand(meth, path, data = {}) {
@@ -105,30 +105,6 @@ class Mixer {
 		this.data = data;
 	}
 }
-let station = new soundCtlStation('dev');
-
-document.getElementById('drive').addEventListener('change', function(e){
-	let data = [
-			{
-				"op": "replace",
-				"path": "/afx/0/volume/fader",
-				"value": parseInt(e.target.value)
-			},
-			{
-				"op": "replace",
-				"path": "/afx/1/volume/fader",
-				"value": parseInt(e.target.value)
-			}
-		];
-	station.sendCommand('PATCH','/mixer/Deck1', data);
-	console.log('data sent!');
-});
-
-
-
-
-
-
 
 
 
