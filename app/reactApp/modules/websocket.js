@@ -123,7 +123,6 @@ export class socketManager {
 
 		let crate = Crate('PATCH', path, data)
 		this.sendCommand('PATCH', path, data);
-
 		this.dataStore.updateSoundPath(crate);
 	}
 }

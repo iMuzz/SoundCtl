@@ -5,11 +5,7 @@ import {Navbar} from      './components/navbar';
 import {Dashboard} from   './components/dashboard';
 
 let sinewave = require('./modules/sinewave');
-
-var EventEmitter = require('fbemitter').EventEmitter; 
-
 import {socketManager} from './modules/websocket';
-// var dataStore = require('./modules/websocket');
 
 class App extends React.Component {
 	constructor(props) {
@@ -150,9 +146,7 @@ class SoundPath extends React.Component {
 }
 
 var station = new socketManager("radio45", render);
-var emitter = new EventEmitter();
-emitter.addListener('event', function(x, y) { console.log(x, y); });
-emitter.emit('event', 5, 10);
+
 
 // accepts mixer path as a prop
 class FaderControl extends React.Component {
@@ -160,17 +154,15 @@ class FaderControl extends React.Component {
 		super(props);
 
 		this.increase = this.increase.bind(this);
+		this.decrease = this.decrease.bind(this);
 	}
 
 	increase(){
 		station.updateFader(this.props.fader + 1, this.props.path);
-		// station.sendCommand('PATCH',this.props.path, data);
 	}
 
-	componentDidMount(){
-		emitter.addListener('PATCH_FADER', function(){
-			console.log('Patching fader...');
-		});
+	decrease(){
+		station.updateFader(this.props.fader - 1, this.props.path);
 	}
 
 	render(){ 
@@ -178,28 +170,41 @@ class FaderControl extends React.Component {
 			<div className="path-wrap">
 				<h4> Sound Path :: {this.props.path} :: VALUE  ::  {this.props.fader}</h4>
 				<button onClick={this.increase}> +1 </button>
-				<button onClick={this.fireEvent}> FIRE </button>
+				<button onClick={this.decrease}> -1 </button>
 				<input type="number" min="-50" max="0" step="1"/>
 			</div>
 		);
 	}
 }
 
+class Mixer extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render(){
+		let faderNodes = this.props.soundPaths.map( (currEl) => {
+			return <FaderControl path={currEl.path} fader={currEl.data.afx[0].volume.fader}/>
+		});
+
+		return (
+			<div> {faderNodes} </div>
+		)
+	}
+}
+
 FaderControl.defaultProps = { path: "loading mixer path.." };
+
 $(document).ready(function(){
 	if (document.getElementById('home')) {
 		ReactDom.render(<App />, document.getElementById('home'));
 	}
-	// ReactDom.render(<FaderControl path={station.warehouse[0].path} fader={station.warehouse[0].data.afx[0].volume.fader}/>, document.getElementById('mixers'));
 });
 
 function render() {
-	console.log('rendering..')
-	// ReactDom.render(<FaderControl path={"/mixer/Deck1"} fader={10}/>, document.getElementById('mixers'));
-	var path = station.dataStore.soundPaths[0].path ? station.dataStore.soundPaths[0].path : null;
-	var fader = station.dataStore.soundPaths[0].path ? station.dataStore.soundPaths[0].data.afx[0].volume.fader : null;
-	console.log('Path: ', path);
-	ReactDom.render(<FaderControl path={path} fader={fader}/>, document.getElementById('mixers'));
+	if (station.dataStore.soundPaths[0]) {
+		ReactDom.render(<Mixer soundPaths={station.dataStore.soundPaths} />, document.getElementById('mixers'));
+	};
 }
 
 render();
