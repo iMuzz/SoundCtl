@@ -1,5 +1,6 @@
 import React from         'react';
 import ReactDom from      'react-dom';
+import emitter from       'fbemitter';
 import $ from             'jquery';
 import {Navbar} from      './components/navbar';
 import {Dashboard} from   './components/dashboard';
@@ -120,8 +121,8 @@ export class soundCtlStation {
 		this.mixerStore = null;
 
 		var proto = window.location.protocol === "https:" ? "wss" : "ws";
-		const hostname = "kradradio.com";
-		const port = "4545";
+		const hostname = "soundctl.com";
+		const port = "";
 		const subProto = "krad-ws-api";
 		const url = proto + "://" + callsign + "." + hostname + ":" + port;
 		this.socket = new WebSocket(url, subProto);
@@ -150,11 +151,8 @@ export class soundCtlStation {
 
 	_socketOnMessage(event) {
 		var crate = JSON.parse(event.data);
-	 console.log(crate.meth + " " + crate.path);
+		console.log(crate.meth + " " + crate.path);
 
-		if (crate.data) {
-			// console.log(crate.data);
-		};
 		if (crate.path.split('/').length < 3) { //if its a root node
 			crate.data.path.forEach( path => {
 				this.sendCommand('GET', path.name)
@@ -176,15 +174,15 @@ export class soundCtlStation {
 					var c = this.warehouse[i];
 					if (this.warehouse[i].path == crate.path) {
 						// this.warehouse[i].data = crate.data;
-						console.log("Patching...: " + crate.path);
-						console.log("BEFORE: ", station.warehouse[i].data);
+						// console.log("Patching...: " + crate.path);
+						// console.log("BEFORE: ", station.warehouse[i].data);
 						jsonpatch.apply( station.warehouse[i].data, crate.data );
-						console.log("AFTER: ", station.warehouse[i].data);
-						cake();
+						// console.log("AFTER: ", station.warehouse[i].data);
+						render();
 						return;
 					}
 				}
-				console.log("Patch Fail: " + crate.path);
+				// console.log("Patch Fail: " + crate.path);
 				break;
 			case "DELETE":
 				this.warehouse = this.warehouse.filter(currCrate => {
@@ -193,15 +191,14 @@ export class soundCtlStation {
 				break;
 			};
 		console.log("Warehouse contains " + this.warehouse.length + " crates: ", this.warehouse);
-		console.log("Number of patches " + this.patches);
-		cake();
 	}
 
 	sendCommand(meth, path, data = {}) {
 		let c = Crate(meth, path, data);
 		var payload = JSON.stringify(c);
-		console.log("Payload: ", payload);
+		console.log("Sending command with payload: ", payload);
 		this.socket.send(payload);
+		// render();
 	}
 }
 
@@ -235,18 +232,13 @@ class Mixer {
 
 class SoundPath extends React.Component {
 	constructor(props) {
-		console.log("i am constructing")
 		super(props);
 		this.state = props.data;
-		//this.increase = this.increase.bind(this);
-		//this.decrease = this.decrease.bind(this);
 		this.handleChange = this.handleChange.bind(this);
     }
 
 	handleChange(newval) {
-		console.log("handle change newval is: " + newval)
 		this.setState({ afx: [{volume: { fader: newval}}]});
-		//this.state.afx[0].volume.fader = newval;
 		let data = [
 			{
 				"op": "replace",
@@ -263,7 +255,6 @@ class SoundPath extends React.Component {
 	}
 
 	render() {
-		console.log("rendering ")
 		var valueLink = {
 			value: this.state.afx[0].volume.fader,
             requestChange: this.handleChange
@@ -278,45 +269,75 @@ class SoundPath extends React.Component {
 	}
 }
 
+var station = new soundCtlStation('radio45');
+let updateComponent = function(){
 
-$(document).ready(function(){
-	if (document.getElementById('home')) {
-		ReactDom.render(<App />, document.getElementById('home'));
-	}
-	station = new soundCtlStation('dev');
-    // react_soundpathmanger = ReactDom.render(<SoundPathManager soundPaths={station.warehouse}/>, document.getElementById('mixers'));
-    setTimeout(function(){
-    	let path = station.warehouse[0];
-    	react_soundpathmanger = ReactDom.render(<SoundPath data={path.data} path={path.path}/>, document.getElementById('mixers'));
-    }, 1000)
-});
-
-function cake() {
-    let path = station.warehouse[0];
-	react_soundpathmanger.setState({ data: path.data});
-	react_soundpathmanger.forceUpdate();
 }
 
-// class SoundPathManager extends React.Component {
-// 	constructor(props){
-// 		super(props);
-// 		this.state = {soundpaths: this.props.soundPaths};
-// 	}
+// accepts mixer path as a prop
+class FaderControl extends React.Component {
+	constructor(props){
+		super(props);
 
-// 	render(){
+		this.state = {
+			fader: station.warehouse[0].data.afx[0].volume.fader
+		}
 
-// 		let pathNodes = this.state.soundpaths.map(function(currEl){
-// 			var key = currEl.path;
-// 			// console.log("Sound Path Key: ", key);
+		this.increase = this.increase.bind(this);
+		this.fireEvent = this.fireEvent.bind(this);
+	}
 
-// 			return (
-// 				<SoundPath data={currEl.data} key={key} path={key} propcopy={this.state}/>
-// 			);
-// 		});
-// 		return (
-// 			<div>
-// 				{pathNodes}
-// 			</div>
-// 		);
-// 	}
-// }
+	fireEvent(){
+		emitter.emit('something');
+	}
+
+	increase(){
+		let newval = this.state.fader + 1;
+		let data = [
+			{
+				"op": "replace",
+				"path": "/afx/0/volume/fader",
+				"value": newval
+			},
+			{
+				"op": "replace",
+				"path": "/afx/1/volume/fader",
+				"value": newval
+			}
+		];
+		this.setState({fader: newval });
+		station.sendCommand('PATCH',this.props.path, data);
+	}
+
+	componentDidMount() {
+		this.setState({fader: station.warehouse[0].data.afx[0].volume.fader});
+
+		emitter.on('something', function() {
+			console.log('Something happended!!');
+		});
+	}
+
+	render(){
+		return(
+			<div className="path-wrap">
+				<h4> Sound Path :: {this.props.path} :: VALUE  ::  {this.state.fader}</h4>
+				<button onClick={this.increase}> +1 </button>
+				<button onClick={this.fireEvent}> FIRE </button>
+				<input type="number" min="-50" max="0" step="1"/>
+			</div>
+		);
+	}
+}
+
+FaderControl.defaultProps = { path: "loading mixer path.." };
+$(document).ready(function(){
+	// if (document.getElementById('home')) {
+	// 	ReactDom.render(<App />, document.getElementById('home'));
+	// }
+	// ReactDom.render(<FaderControl path={"/mixer/Deck1"} />, document.getElementById('mixers'));
+});
+
+function render() {
+	debugger;
+	// ReactDom.render(<FaderControl path={station.warehouse[0].path} fader={station.warehouse[0].data.afx[0].volume.fader}/>, document.getElementById('mixers'));
+}
