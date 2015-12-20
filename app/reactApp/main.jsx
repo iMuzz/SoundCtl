@@ -6,7 +6,7 @@ import {Dashboard} from   './components/dashboard';
 
 let sinewave = require('./modules/sinewave');
 
-let EventEmitter = require('fbemitter').EventEmitter;
+var EventEmitter = require('fbemitter').EventEmitter;
 
 import {soundCtlStation} from './modules/websocket';
 
@@ -150,6 +150,9 @@ class SoundPath extends React.Component {
 
 
 var station = new soundCtlStation('radio45', render);
+var emitter = new EventEmitter();
+emitter.addListener('event', function(x, y) { console.log(x, y); });
+emitter.emit('event', 5, 10);
 
 // accepts mixer path as a prop
 class FaderControl extends React.Component {
@@ -160,7 +163,7 @@ class FaderControl extends React.Component {
 	}
 
 	increase(){
-		let newval = this.state.fader + 1;
+		let newval = this.props.fader + 1;
 		let data = [
 			{
 				"op": "replace",
@@ -173,6 +176,11 @@ class FaderControl extends React.Component {
 				"value": newval
 			}
 		];
+
+		console.log('station object..', station);
+		console.log('emitter object..', emitter);
+
+		debugger;
 		station.sendCommand('PATCH',this.props.path, data);
 	}
 
