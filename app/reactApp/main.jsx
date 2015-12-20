@@ -6,9 +6,10 @@ import {Dashboard} from   './components/dashboard';
 
 let sinewave = require('./modules/sinewave');
 
-var EventEmitter = require('fbemitter').EventEmitter;
+var EventEmitter = require('fbemitter').EventEmitter; 
 
 import {socketManager} from './modules/websocket';
+// var dataStore = require('./modules/websocket');
 
 class App extends React.Component {
 	constructor(props) {
@@ -148,8 +149,7 @@ class SoundPath extends React.Component {
 	}
 }
 
-
-var station = new socketManager('radio45', render);
+var station = new socketManager("radio45", render);
 var emitter = new EventEmitter();
 emitter.addListener('event', function(x, y) { console.log(x, y); });
 emitter.emit('event', 5, 10);
@@ -163,33 +163,17 @@ class FaderControl extends React.Component {
 	}
 
 	increase(){
-		let newval = this.props.fader + 1;
-		let data = [
-			{
-				"op": "replace",
-				"path": "/afx/0/volume/fader",
-				"value": newval
-			},
-			{
-				"op": "replace",
-				"path": "/afx/1/volume/fader",
-				"value": newval
-			}
-		];
-
-		emitter.emit('PATCH_FADER');
-		station.sendCommand('PATCH',this.props.path, data);
+		station.updateFader(this.props.fader + 1, this.props.path);
+		// station.sendCommand('PATCH',this.props.path, data);
 	}
 
 	componentDidMount(){
-		console.log('station object..', station);
-		console.log('emitter object..', emitter);
 		emitter.addListener('PATCH_FADER', function(){
 			console.log('Patching fader...');
 		});
 	}
 
-	render(){
+	render(){ 
 		return(
 			<div className="path-wrap">
 				<h4> Sound Path :: {this.props.path} :: VALUE  ::  {this.props.fader}</h4>
@@ -210,5 +194,12 @@ $(document).ready(function(){
 });
 
 function render() {
-	ReactDom.render(<FaderControl path={station.warehouse[0].path} fader={station.warehouse[0].data.afx[0].volume.fader}/>, document.getElementById('mixers'));
+	console.log('rendering..')
+	// ReactDom.render(<FaderControl path={"/mixer/Deck1"} fader={10}/>, document.getElementById('mixers'));
+	var path = station.dataStore.soundPaths[0].path ? station.dataStore.soundPaths[0].path : null;
+	var fader = station.dataStore.soundPaths[0].path ? station.dataStore.soundPaths[0].data.afx[0].volume.fader : null;
+	console.log('Path: ', path);
+	ReactDom.render(<FaderControl path={path} fader={fader}/>, document.getElementById('mixers'));
 }
+
+render();
