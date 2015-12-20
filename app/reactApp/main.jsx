@@ -8,7 +8,7 @@ let sinewave = require('./modules/sinewave');
 
 var EventEmitter = require('fbemitter').EventEmitter;
 
-import {soundCtlStation} from './modules/websocket';
+import {socketManager} from './modules/websocket';
 
 class App extends React.Component {
 	constructor(props) {
@@ -149,7 +149,7 @@ class SoundPath extends React.Component {
 }
 
 
-var station = new soundCtlStation('radio45', render);
+var station = new socketManager('radio45', render);
 var emitter = new EventEmitter();
 emitter.addListener('event', function(x, y) { console.log(x, y); });
 emitter.emit('event', 5, 10);
@@ -177,11 +177,16 @@ class FaderControl extends React.Component {
 			}
 		];
 
+		emitter.emit('PATCH_FADER');
+		station.sendCommand('PATCH',this.props.path, data);
+	}
+
+	componentDidMount(){
 		console.log('station object..', station);
 		console.log('emitter object..', emitter);
-
-		debugger;
-		station.sendCommand('PATCH',this.props.path, data);
+		emitter.addListener('PATCH_FADER', function(){
+			console.log('Patching fader...');
+		});
 	}
 
 	render(){
