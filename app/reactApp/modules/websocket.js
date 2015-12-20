@@ -106,8 +106,6 @@ export class socketManager {
 	}
 
 	updateFader(newFaderVal, path) {
-		console.log('updating fader val...');
-
 		let data = [
 			{
 				"op": "replace",

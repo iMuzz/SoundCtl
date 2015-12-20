@@ -106,48 +106,6 @@ class Home extends React.Component {
 	}
 }
 
-class SoundPath extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = props.data;
-		this.handleChange = this.handleChange.bind(this);
-    }
-
-	handleChange(newval) {
-		this.setState({ afx: [{volume: { fader: newval}}]});
-		let data = [
-			{
-				"op": "replace",
-				"path": "/afx/0/volume/fader",
-				"value": parseInt(newval)
-			},
-			{
-				"op": "replace",
-				"path": "/afx/1/volume/fader",
-				"value": parseInt(newval)
-			}
-		];
-		station.sendCommand('PATCH',this.props.path, data);
-	}
-
-	render() {
-		var valueLink = {
-			value: this.state.afx[0].volume.fader,
-            requestChange: this.handleChange
-        };
-		return(
-			<div className="path-wrap">
-				<h4>key {this.key} :: path {this.props.path}</h4>
-				<input type="number" valueLink={valueLink} min="-50" max="0" step="1"/>
-				<div> ----- value: {this.state.afx[0].volume.fader}</div>
-			</div>
-		);
-	}
-}
-
-var station = new socketManager("radio45", render);
-
-
 // accepts mixer path as a prop
 class FaderControl extends React.Component {
 	constructor(props){
@@ -193,12 +151,17 @@ class Mixer extends React.Component {
 	}
 }
 
-FaderControl.defaultProps = { path: "loading mixer path.." };
+var station;
 
 $(document).ready(function(){
 	if (document.getElementById('home')) {
 		ReactDom.render(<App />, document.getElementById('home'));
-	}
+	};
+
+	if (document.getElementById('mixers')) {
+		station = new socketManager("radio45", render);
+		render();
+	};
 });
 
 function render() {
@@ -206,5 +169,3 @@ function render() {
 		ReactDom.render(<Mixer soundPaths={station.dataStore.soundPaths} />, document.getElementById('mixers'));
 	};
 }
-
-render();
