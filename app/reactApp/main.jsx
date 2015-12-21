@@ -129,7 +129,6 @@ class FaderControl extends React.Component {
 				<h4> Sound Path :: {this.props.path} :: VALUE  ::  {this.props.fader}</h4>
 				<button onClick={this.increase}> +1 </button>
 				<button onClick={this.decrease}> -1 </button>
-				<input type="number" min="-50" max="0" step="1"/>
 			</div>
 		);
 	}
