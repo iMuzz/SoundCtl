@@ -3,6 +3,7 @@ import ReactDom from      'react-dom';
 import $ from             'jquery';
 import {Navbar} from      './components/navbar';
 import {Dashboard} from   './components/dashboard';
+import {Mixer} from       './components/mixer';
 
 let sinewave = require('./modules/sinewave');
 import {socketManager} from './modules/websocket';
@@ -106,49 +107,6 @@ class Home extends React.Component {
 	}
 }
 
-// accepts mixer path as a prop
-class FaderControl extends React.Component {
-	constructor(props){
-		super(props);
-
-		this.increase = this.increase.bind(this);
-		this.decrease = this.decrease.bind(this);
-	}
-
-	increase(){
-		station.updateFader(this.props.fader + 1, this.props.path);
-	}
-
-	decrease(){
-		station.updateFader(this.props.fader - 1, this.props.path);
-	}
-
-	render(){ 
-		return(
-			<div className="path-wrap">
-				<h4> Sound Path :: {this.props.path} :: VALUE  ::  {this.props.fader}</h4>
-				<button onClick={this.increase}> +1 </button>
-				<button onClick={this.decrease}> -1 </button>
-			</div>
-		);
-	}
-}
-
-class Mixer extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render(){
-		let faderNodes = this.props.soundPaths.map( (currEl) => {
-			return <FaderControl path={currEl.path} fader={currEl.data.afx[0].volume.fader}/>
-		});
-
-		return (
-			<div> {faderNodes} </div>
-		)
-	}
-}
 
 var station;
 
@@ -158,13 +116,40 @@ $(document).ready(function(){
 	};
 
 	if (document.getElementById('mixers')) {
-		station = new socketManager("radio45", render);
+		console.log("Calling render() on page load...");
 		render();
 	};
 });
 
 function render() {
-	if (station.dataStore.soundPaths[0]) {
-		ReactDom.render(<Mixer soundPaths={station.dataStore.soundPaths} />, document.getElementById('mixers'));
-	};
+		let hardcodedObject = [
+			{
+				data: {
+					afx: [
+						{
+							volume: {
+								fader: 10
+							}
+						}
+					]
+				},
+				path: "/mixer/Deck1"
+			},
+			{
+				data: {
+					afx: [
+						{
+							volume: {
+								fader: 20
+							}
+						}
+					]
+				},
+				path: "/mixer/Deck2"
+			}
+		]
+		ReactDom.render(<Mixer soundPaths={hardcodedObject} />, document.getElementById('mixers'));
+	// if (station.dataStore.soundPaths[0]) {
+	// 	ReactDom.render(<Mixer soundPaths={station.dataStore.soundPaths} />, document.getElementById('mixers'));
+	// };
 }
