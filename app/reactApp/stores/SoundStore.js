@@ -37,5 +37,3 @@ AppDispatcher.register( action => {
 });
 
 console.log("SoundStore.js has been required!");
-
-// module.exports = SoundPathStore;

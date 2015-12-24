@@ -107,9 +107,6 @@ class Home extends React.Component {
 	}
 }
 
-
-var station;
-
 $(document).ready(function(){
 	if (document.getElementById('home')) {
 		ReactDom.render(<App />, document.getElementById('home'));
