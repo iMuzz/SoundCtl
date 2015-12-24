@@ -38,9 +38,9 @@ export class socketManager {
 	 constructor(callsign, render){
 
 		var proto = window.location.protocol === "https:" ? "wss" : "ws";
-		const hostname = "kradradio.com";
+		const hostname = "soundctl.com";
 		const port = "";
-		const subProto = "krad-ws-api";
+		const subProto = "api";
 		const url = proto + "://" + callsign + "." + hostname + ":" + port;
 		this.socket = new WebSocket(url, subProto);
 		this.dataStore = new MixerStore(render);
