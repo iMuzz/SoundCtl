@@ -80,6 +80,7 @@ $(document).ready(function(){
 		render();
 	};
 });
+var station = new socketManager('fun');
 
 function render() {
 		let hardcodedObject = [

@@ -38,7 +38,7 @@ export class socketManager {
 	 constructor(callsign, render){
 
 		var proto = window.location.protocol === "https:" ? "wss" : "ws";
-		const hostname = "soundctl.com";
+		const hostname = "kradradio.com";
 		const port = "";
 		const subProto = "krad-ws-api";
 		const url = proto + "://" + callsign + "." + hostname + ":" + port;

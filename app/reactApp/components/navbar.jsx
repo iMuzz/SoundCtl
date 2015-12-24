@@ -84,9 +84,6 @@ class Dropdown extends React.Component {
 							Logout
 						</div>
 					</a>
-					<div className="dropdown-item">		
-						Settings
-					</div>
 				</div>
 			</div>
 		);
