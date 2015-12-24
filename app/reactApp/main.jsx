@@ -1,12 +1,12 @@
-import React from         'react';
-import ReactDom from      'react-dom';
-import $ from             'jquery';
-import {Navbar} from      './components/navbar';
-import {Dashboard} from   './components/dashboard';
-import {Mixer} from       './components/mixer';
-
-let sinewave = require('./modules/sinewave');
+import React from           'react';
+import ReactDom from        'react-dom';
+import $ from               'jquery';
+import {Navbar} from        './components/navbar';
+import {Dashboard} from     './components/dashboard';
+import {Home} from          './components/home'
+import {Mixer} from         './components/mixer';
 import {socketManager} from './modules/websocket';
+import {AuthStore} from     './stores/AuthStore';
 
 class App extends React.Component {
 	constructor(props) {
@@ -23,6 +23,18 @@ class App extends React.Component {
 		
 		this.setState({ idToken: this.getIdToken()});
 	}
+
+	componentDidMount() {
+		AuthStore.addChangeListener(()=>{
+			console.log('Callback fired after auth-change event');
+			this.setState({ idToken: null});
+		});
+	}
+
+	componentWillUnmount(){
+		AuthStore.removeChangeListener();
+	}
+
 	setupAjax() {
 		$.ajaxSetup({
 			'beforeSend': function(xhr) {
@@ -50,60 +62,11 @@ class App extends React.Component {
 		return idToken;
 	}
 	render() {
-		// this.state.idToken = null;
-		if (this.state.idToken) {
-			// If user is logged in 
+		if (this.state.idToken) { // If user is logged in 
 			return (<Dashboard lock={this.lock} idToken={this.state.idToken}/>);
-		} else {
-			// If user is not logged in
+		} else { // If user is not logged in
 			return ( <div> <Home lock={this.lock}/> </div> );
 		}
-	}
-}
-
-class Home extends React.Component {
-	constructor(props){
-		super(props);
-
-		this.showLock = this.showLock.bind(this);
-	}
-	showLock() {
-		this.props.lock.show();
-	}
-
-	componentDidMount(){
-		new sinewave({
-			width: 1000,
-			height: 300,
-			speed: 0.009,
-			container: document.getElementById('sinewave'),
-			autostart: true,
-		});
-	}
-
-	render() {
-		return (
-			<div>
-				<nav className="nav">
-					<div className="nav-item"> SoundCtl </div>
-					<div className="nav-right"> 
-						<div className="nav-item" onClick={this.showLock}> Login </div>
-					</div>
-				</nav>
-				<div className="hero-wrapper"> 
-					<div className="bg-hero bg-hero-1"></div>
-					<div className="hero-content">
-						<div className="company"> SoundCtl </div>
-						<div className="hero-title"> This simplest way to broadcast your ideas <span className="bright"> live </span> </div>
-						<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
-							<input placeholder="Enter email address" type="email" name="EMAIL" required/>
-							<input className="cta-base" type="submit" value="Signup"/>
-						</form>
-					</div>
-					<div id="sinewave" className="container"></div>
-				</div>
-			</div>
-		)
 	}
 }
 

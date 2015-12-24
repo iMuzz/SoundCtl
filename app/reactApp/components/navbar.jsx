@@ -2,6 +2,7 @@ import React from         'react';
 import ReactDom from      'react-dom';
 import classNames from    'classnames';
 
+let AuthActions = require('../actions/AuthActions');
 
 export class Navbar extends React.Component {
 	constructor(props) {
@@ -70,6 +71,7 @@ class Dropdown extends React.Component {
 	logout(e) {
 		console.log('Logout the user!');
 		e.stopPropagation();
+		AuthActions.logout();
 	}
 	render() {
 		let dropdownClass = classNames("dropdown-wrap", {"is-open": this.props.isOpen});
@@ -100,5 +102,5 @@ class Avatar extends React.Component {
 				<img src={this.props.imageUrl} />
 			</div>
 		);
-	}
 }
+	}
