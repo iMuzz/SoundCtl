@@ -36,6 +36,7 @@ app.use('/users', users);
 
 
 app.use('/api/secure', jwtCheck)
+app.use('/hello', jwtCheck)
 
 //Dynamically get templates for AngularJS
 app.use('/templates/:id', function(req, res, next){

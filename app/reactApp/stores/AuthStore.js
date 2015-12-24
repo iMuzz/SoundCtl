@@ -25,7 +25,7 @@ export class AuthStore {
 AppDispatcher.register( action => {
 	switch(action.actionType) {
 		case "LOGOUT_USER":
-			localStorage.setItem('userToken', "");
+			localStorage.removeItem('userToken');
 			AuthStore.emitChange();
 			break;
 		default:

@@ -94,7 +94,6 @@ export class socketManager {
 				this.warehouse = this.warehouse.filter(currCrate => {
 					return crate.path !== currCrate.path;
 				});
-
 				break;
 			};
 	}

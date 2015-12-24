@@ -80,7 +80,7 @@ $(document).ready(function(){
 		render();
 	};
 });
-var station = new socketManager('radio45');
+// var station = new socketManager('radio45', render);
 
 function render() {
 		let hardcodedObject = [

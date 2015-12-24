@@ -32,8 +32,6 @@ AppDispatcher.register( action => {
 			SoundPathStore.emitChange();
 			break;
 		default:
-			console.log("Action mismatch!");
+			break;
 	}
 });
-
-console.log("SoundStore.js has been required!");
