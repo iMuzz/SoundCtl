@@ -25,10 +25,7 @@ export class AuthStore {
 AppDispatcher.register( action => {
 	switch(action.actionType) {
 		case "LOGOUT_USER":
-			console.log('Logging out user by emitting change.. ');
-			debugger;
 			localStorage.setItem('userToken', "");
-			debugger;
 			AuthStore.emitChange();
 			break;
 		default:
