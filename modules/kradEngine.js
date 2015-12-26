@@ -6,7 +6,7 @@ require('dotenv').load();
 
 function getRequestOptions(){
 	var requestOptionsObj = {
-		url: 'http://api.soundctl.com/',
+		url: 'https://api.soundctl.com/',
 		headers: {
 			'User-Agent': 'request'
 		}

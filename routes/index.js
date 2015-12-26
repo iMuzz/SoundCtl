@@ -23,15 +23,13 @@ router.get('/dashboard', function(req, res, next) {
 });
 
 router.post('/api/stations', function(req, res, next){
-  console.log("callsign chosen by user:", req.body.callsign);
-  console.log("Station creator:", req.user);
+  var userId = req.user.sub.replace("|", "%7C");
 
-  // stationManager.createStation(req.user.identities[0].user_id, req.body.callsign)
-  //   .then(function(response){
-  //     console.log("Station has been created!");
-  //     res.status(200).end();
-  //   });
-  res.status(200).end();
+  stationManager.createStation(userId, req.body.callsign)
+    .then(function(response){
+      console.log("Station has been created!");
+      res.status(200).end();
+    });
 });
 // Accepts station name
 router.post('/stations', requiresLogin, function(req, res, next){

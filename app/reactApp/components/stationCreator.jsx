@@ -26,7 +26,7 @@ export class StationCreator extends React.Component {
 		}).done(() => {
 			console.log("Successful?");
 		}).error(err => {
-			console.log('GET Request failed with..', err)
+			console.log('POST failed with..', err)
 		});
 	}
 
