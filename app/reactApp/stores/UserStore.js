@@ -4,7 +4,7 @@ var EventEmitter = require('events').EventEmitter;
 let emitter = new EventEmitter();
 const AUTH_EVENT = 'auth-change';
 
-export class AuthStore {
+export class UserStore {
 
 	static emitChange(){
 		console.log('emitting event..', AUTH_EVENT );
@@ -26,7 +26,7 @@ AppDispatcher.register( action => {
 	switch(action.actionType) {
 		case "LOGOUT_USER":
 			localStorage.removeItem('userToken');
-			AuthStore.emitChange();
+			UserStore.emitChange();
 			break;
 		default:
 			break;

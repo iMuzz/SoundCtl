@@ -1,6 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 
-let AuthActions = {
+let UserActions = {
 	logout: function(){
 		console.log('Calling dispatcher with event LOGOUT_USER...')
 		AppDispatcher.dispatch({
@@ -9,4 +9,4 @@ let AuthActions = {
 	}
 }
 
-module.exports = AuthActions;
+module.exports = UserActions;
