@@ -9,10 +9,11 @@ var cookieParser = require('cookie-parser');
 require('dotenv').load();
 
 var jwt = require('express-jwt');
+
 var jwtCheck = jwt({
-  secret: new Buffer(process.env.auth0ClientSecret),
+  secret: new Buffer(process.env.auth0ClientSecret, 'base64'),
   audience: process.env.auth0ClientID
-})
+});
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -31,12 +32,10 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api/stations', jwtCheck);
+
 app.use('/', routes);
 app.use('/users', users);
-
-
-app.use('/api/secure', jwtCheck)
-app.use('/hello', jwtCheck)
 
 //Dynamically get templates for AngularJS
 app.use('/templates/:id', function(req, res, next){

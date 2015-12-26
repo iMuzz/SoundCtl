@@ -16,13 +16,17 @@ export class StationCreator extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		let callsign = this.state.callsign.trim();
+		console.log('Header Object: ', {'Authorization': 'Bearer ' + localStorage.getItem('userToken') });
 
 		$.ajax({
+			headers: {'Authorization': 'Bearer ' + localStorage.getItem('userToken') },
 			url: '/api/stations',
 			method: 'POST',
 			data: {'callsign': callsign}
-		}).error((err) => {
-			console.log("Create station failed with: ", err);
+		}).done(() => {
+			console.log("Successful?");
+		}).error(err => {
+			console.log('GET Request failed with..', err)
 		});
 	}
 
