@@ -1,17 +1,17 @@
-import React from           'react';
-import ReactDom from        'react-dom';
-import $ from               'jquery';
-import {Navbar} from        './components/navbar';
-import {Dashboard} from     './components/dashboard';
-import {Home} from          './components/home'
-import {Mixer} from         './components/mixer';
-import {socketManager} from './modules/websocket';
-import userStoreInstance from     './stores/UserStore';
+import React from                   'react';
+import ReactDom from                'react-dom';
+import { Router, Route, Link} from  'react-router';
+import $ from                       'jquery';
+import {Navbar} from                './components/navbar';
+import {Dashboard} from             './components/dashboard';
+import {Home} from                  './components/home'
+import {Mixer} from                 './components/mixer';
+import {socketManager} from         './modules/websocket';
+import userStoreInstance from       './stores/UserStore';
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.setupAjax = this.setupAjax.bind(this);
 		this.createLock = this.createLock.bind(this);
 		this.componentWillMount = this.componentWillMount.bind(this);
