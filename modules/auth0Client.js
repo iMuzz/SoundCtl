@@ -7,7 +7,8 @@ function getRequestOptions(){
 		url: 'https://soundctl.auth0.com/api/v2/users/google-oauth2%7C',
 		headers: {
 			'User-Agent': 'request',
-			'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiI2aVRqUjJIa2hBTFBQb0RmSThmZU4wWjFmbFhKOVlKTyIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInVwZGF0ZSJdfX0sImlhdCI6MTQ0OTAzOTY1NywianRpIjoiNjc1ZDNiNzYxYTE4NWU5MTM4OTQzMGFlOGI5Yzg3NTAifQ.Mt2joRGm8wR-5P5rRwvqb5xsCdiGHo7bNiwJXz2Lfu4'
+			// 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiI2aVRqUjJIa2hBTFBQb0RmSThmZU4wWjFmbFhKOVlKTyIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInVwZGF0ZSJdfX0sImlhdCI6MTQ0OTAzOTY1NywianRpIjoiNjc1ZDNiNzYxYTE4NWU5MTM4OTQzMGFlOGI5Yzg3NTAifQ.Mt2joRGm8wR-5P5rRwvqb5xsCdiGHo7bNiwJXz2Lfu4'
+			'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiI2aVRqUjJIa2hBTFBQb0RmSThmZU4wWjFmbFhKOVlKTyIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInVwZGF0ZSJdfX0sImlhdCI6MTQ1MTEwMDg0NywianRpIjoiYTY1NDBjNTUxODExZjliOTY1YWU2YjI4OTM0Y2YzY2EifQ.rQfhn_iDZX0FUa3R0VjB3AL7-14gnr-38ML7t7-KQ3Y'
 		}
 	}
 	return options;

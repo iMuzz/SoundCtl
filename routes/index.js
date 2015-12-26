@@ -23,7 +23,8 @@ router.get('/dashboard', function(req, res, next) {
 });
 
 router.post('/api/stations', function(req, res, next){
-  var userId = req.user.sub.replace("|", "%7C");
+  var userId = req.user.sub.replace("google-oauth2|", "");
+  console.log('UserId', userId);
 
   stationManager.createStation(userId, req.body.callsign)
     .then(function(response){
