@@ -1,4 +1,5 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+import AppDispatcher from   '../dispatcher/AppDispatcher';
+
 var EventEmitter = require('events').EventEmitter;
 
 let emitter = new EventEmitter();

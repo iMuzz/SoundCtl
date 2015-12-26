@@ -1,4 +1,4 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+import AppDispatcher from   '../dispatcher/AppDispatcher';
 
 let UserActions = {
 	logout: function(){
