@@ -6,7 +6,7 @@ import {Dashboard} from     './components/dashboard';
 import {Home} from          './components/home'
 import {Mixer} from         './components/mixer';
 import {socketManager} from './modules/websocket';
-import {AuthStore} from     './stores/AuthStore';
+import {UserStore} from     './stores/UserStore';
 
 class App extends React.Component {
 	constructor(props) {
@@ -25,14 +25,14 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		AuthStore.addChangeListener(()=>{
+		UserStore.addChangeListener(()=>{
 			console.log('Callback fired after auth-change event');
 			this.setState({ idToken: null});
 		});
 	}
 
 	componentWillUnmount(){
-		AuthStore.removeChangeListener();
+		UserStore.removeChangeListener();
 	}
 
 	setupAjax() {
