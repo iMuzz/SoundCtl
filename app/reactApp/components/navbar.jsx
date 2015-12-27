@@ -11,10 +11,10 @@ export class Navbar extends React.Component {
 		super(props)
 	}
 	render() {
-		// <div className="nav-item"> <Link to="/"> SoundCtl </Link> </div>
+				// <div className="nav-item"> SoundCtl </div>
 		return (
 			<nav className="nav dash">
-				<div className="nav-item"> SoundCtl </div>
+				 <div className="nav-item"> <Link to="/"> SoundCtl </Link> </div>
 				<div className="nav-right">
 					<div className="nav-item">
 						<UserPanel {...this.props}/>

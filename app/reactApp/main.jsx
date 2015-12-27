@@ -70,31 +70,32 @@ class App extends React.Component {
 	}
 
 	render() {
-		if (this.state.idToken) { // If user is logged in 
-			return (<Dashboard lock={this.lock} idToken={this.state.idToken}/>);
-		} else { // If user is not logged in
-			return ( <div> <Home lock={this.lock}/> </div> );
-		}
-		// return(
-		// 	<div>
-		// 		{this.renderChildren()}
-		// 	</div>
-		// )
+		// if (this.state.idToken) { // If user is logged in 
+		// 	return (<Dashboard lock={this.lock} idToken={this.state.idToken}/>);
+		// } else { // If user is not logged in
+		// 	return ( <div> <Home lock={this.lock}/> </div> );
+		// }
+		return(
+			<div>
+				{this.renderChildren()}
+			</div>
+		)
 	}
 }
 
 $(document).ready(function(){
 	if (document.getElementById('home')) {
-		ReactDom.render(<App />, document.getElementById('home'));
+		// ReactDom.render(<App />, document.getElementById('home'));
 
-		// render((
-		// 	<Router>
-		// 		<Route path="/" component={App}>
-		// 			<IndexRoute component={Home} />
-		// 			<Route path="/dashboard" component={Dashboard} />
-		// 		</Route>
-		// 	</Router>
-		// ), document.getElementById('home'));
+		ReactDom.render((
+			<Router>
+				<Route path="/" component={App}>
+					<IndexRoute component={Home} />
+					<Route path="/dashboard" component={Dashboard} />
+					<Route path="/access_token" component={Dashboard} />
+				</Route>
+			</Router>
+		), document.getElementById('home'));
 	};
 
 	if (document.getElementById('mixers')) {
