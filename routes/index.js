@@ -23,6 +23,7 @@ router.post('/api/stations', function(req, res, next){
     .then(function(response){
       res.status(200).end();
     });
+  res.status(200).end();
 });
 
 router.get('/websocket', function(req, res, next) {

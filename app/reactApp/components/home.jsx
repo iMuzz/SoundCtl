@@ -1,10 +1,11 @@
 import React from         'react';
+import { Link } from      'react-router';
+
 let sinewave = require('../modules/sinewave');
 
 export class Home extends React.Component {
 	constructor(props){
 		super(props);
-
 		this.showLock = this.showLock.bind(this);
 	}
 	showLock() {
@@ -22,12 +23,13 @@ export class Home extends React.Component {
 	}
 
 	render() {
+		// <div className="nav-item"> <Link to="/dashboard"> Dashboard </Link> </div>
 		return (
 			<div>
 				<nav className="nav">
 					<div className="nav-item"> SoundCtl </div>
 					<div className="nav-right"> 
-						<div className="nav-item" onClick={this.showLock}> Login </div>
+						<div className="nav-item" onClick={this.showLock}> Login</div>
 					</div>
 				</nav>
 				<div className="hero-wrapper"> 

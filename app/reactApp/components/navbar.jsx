@@ -1,6 +1,8 @@
 import React from         'react';
 import ReactDom from      'react-dom';
 import classNames from    'classnames';
+import { Link } from      'react-router';
+
 
 let UserActions = require('../actions/UserActions');
 
@@ -9,6 +11,7 @@ export class Navbar extends React.Component {
 		super(props)
 	}
 	render() {
+		// <div className="nav-item"> <Link to="/"> SoundCtl </Link> </div>
 		return (
 			<nav className="nav dash">
 				<div className="nav-item"> SoundCtl </div>
