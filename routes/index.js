@@ -19,10 +19,10 @@ router.get('/player', function(req, res, next) {
 router.post('/api/stations', function(req, res, next){
   var userId = req.user.sub.replace("google-oauth2|", "");
 
-  // stationManager.createStation(userId, req.body.callsign)
-  //   .then(function(response){
-  //     res.status(200).end();
-  //   });
+  stationManager.createStation(userId, req.body.callsign)
+    .then(function(response){
+      res.status(200).end();
+    });
   res.status(200).end();
 });
 

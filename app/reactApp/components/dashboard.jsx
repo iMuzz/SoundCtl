@@ -2,6 +2,8 @@ import React from            'react';
 import {Navbar} from         './navbar'
 import {StationCreator} from './stationCreator'
 
+let UserActions = require('../actions/UserActions');
+
 
 export class Dashboard extends React.Component {
 
@@ -15,6 +17,7 @@ export class Dashboard extends React.Component {
 		this.props.lock.getProfile(this.props.idToken, (err, profile) => {
 			if(err) {
 				console.log("Error loading the profile", err);
+				UserActions.logout();
 				// alert("Error loading the profile. Please check the console");
 			}
 			this.setState({profile: profile});

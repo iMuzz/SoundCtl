@@ -24,6 +24,7 @@ AppDispatcher.register( action => {
 		case "LOGOUT_USER":
 			localStorage.removeItem('userToken');
 			userStoreInstance.emitChange();
+			window.location.hash = '/';
 			break;
 		case "LOGIN_USER":
 			// localStorage.setItem(action.data);
