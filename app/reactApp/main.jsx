@@ -50,8 +50,10 @@ class App extends React.Component {
 	}
 	getIdToken() {
 		var idToken = localStorage.getItem('userToken');
-		debugger;
-		var authHash = this.lock.parseHash(window.location.hash);
+		var authHash = this.lock.parseHash(localStorage.getItem('auth0Hash'));
+		
+		// console.log('Parsed Hash..', authHash);
+
 		if (!idToken && authHash) {
 			if (authHash.id_token) {
 				idToken = authHash.id_token
@@ -66,7 +68,7 @@ class App extends React.Component {
 
 	renderChildren(){
 		return React.Children.map(this.props.children, child =>{
-			return React.cloneElement(child, { lock : this.lock})
+			return React.cloneElement(child, { lock : this.lock, idToken: this.state.idToken});
 		});
 	}
 
@@ -85,10 +87,11 @@ class App extends React.Component {
 }
 
 $(document).ready(function(){
-	
+	// 
 	window.addEventListener("hashchange", function(){
-		console.log('hashchange Callback fired!');
 		if (window.location.hash.substr(0,15) === "#/access_token=") {
+			console.log("User just got back from Auth0!");
+			localStorage.setItem('auth0Hash', window.location.hash.replace('/', ''));
 			window.location.hash = '/dashboard';
 		};
 	});
