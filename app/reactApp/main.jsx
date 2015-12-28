@@ -50,6 +50,7 @@ class App extends React.Component {
 	}
 	getIdToken() {
 		var idToken = localStorage.getItem('userToken');
+		debugger;
 		var authHash = this.lock.parseHash(window.location.hash);
 		if (!idToken && authHash) {
 			if (authHash.id_token) {
@@ -84,6 +85,14 @@ class App extends React.Component {
 }
 
 $(document).ready(function(){
+	
+	window.addEventListener("hashchange", function(){
+		console.log('hashchange Callback fired!');
+		if (window.location.hash.substr(0,15) === "#/access_token=") {
+			window.location.hash = '/dashboard';
+		};
+	});
+
 	if (document.getElementById('home')) {
 		// ReactDom.render(<App />, document.getElementById('home'));
 
