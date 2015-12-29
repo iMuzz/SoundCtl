@@ -1,7 +1,8 @@
 import AppDispatcher from   '../dispatcher/AppDispatcher';
 import {FluxStore}from      './fluxStore';
+import $ from               'jquery'
 
-let userState;
+let userState = {};
 
 function reset() {
 	userState = {};
@@ -13,7 +14,7 @@ class UserStore extends FluxStore {
 	}
 
 	getState() {
-		return userState;
+		
 	}
 }
 
@@ -23,8 +24,7 @@ AppDispatcher.register( action => {
 	switch(action.actionType) {
 		case "LOGOUT_USER":
 			localStorage.removeItem('userToken');
-			userStoreInstance.emitChange();
-			window.location.hash = '/';
+			window.location = 'http://localhost:3045/';
 			break;
 		case "LOGIN_USER":
 			// localStorage.setItem(action.data);

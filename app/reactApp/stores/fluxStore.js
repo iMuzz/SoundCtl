@@ -13,7 +13,6 @@ export class FluxStore extends EventEmitter {
 	}
 
 	addChangeListener(callback){
-		console.log('Create event listener when ' + CHANGE_EVENT + ' fires.');
 		this.on(CHANGE_EVENT, callback);
 	}
 

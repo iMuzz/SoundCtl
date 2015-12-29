@@ -1,5 +1,7 @@
-import React from         'react';
-import $ from             'jquery';
+import React from           'react';
+import $ from               'jquery';
+import AppDispatcher from   '../dispatcher/AppDispatcher';
+
 
 export class StationCreator extends React.Component {
 

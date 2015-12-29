@@ -2,8 +2,7 @@ import React from                                'react';
 import ReactDom from                             'react-dom';
 import { Router, Route, Link, IndexRoute } from  'react-router';
 import $ from                                    'jquery';
-import {Navbar} from                             './components/navbar';
-import {Dashboard} from             './components/dashboard';
+import {DashboardController} from                './components/dashboardController';
 import {Home} from                               './components/home'
 import {Mixer} from                              './components/mixer';
 import {socketManager} from                      './modules/websocket';
@@ -21,13 +20,12 @@ class App extends React.Component {
 	componentWillMount() {
 		this.setupAjax();
 		this.createLock();
-		
+
 		this.setState({ idToken: this.getIdToken()});
 	}
 
 	componentDidMount() {
 		userStoreInstance.addChangeListener(()=>{
-			console.log('Callback fired after auth-change event');
 			this.setState({ idToken: null});
 		});
 	}
@@ -51,8 +49,7 @@ class App extends React.Component {
 	getIdToken() {
 		var idToken = localStorage.getItem('userToken');
 		var authHash = this.lock.parseHash(localStorage.getItem('auth0Hash'));
-		
-		// console.log('Parsed Hash..', authHash);
+		localStorage.removeItem('auth0Hash') //remove the hash or the user will login with oldToken
 
 		if (!idToken && authHash) {
 			if (authHash.id_token) {
@@ -73,11 +70,6 @@ class App extends React.Component {
 	}
 
 	render() {
-		// if (this.state.idToken) { // If user is logged in 
-		// 	return (<Dashboard lock={this.lock} idToken={this.state.idToken}/>);
-		// } else { // If user is not logged in
-		// 	return ( <div> <Home lock={this.lock}/> </div> );
-		// }
 		return(
 			<div>
 				{this.renderChildren()}
@@ -97,14 +89,11 @@ $(document).ready(function(){
 	});
 
 	if (document.getElementById('home')) {
-		// ReactDom.render(<App />, document.getElementById('home'));
-
 		ReactDom.render((
 			<Router>
 				<Route path="/" component={App}>
 					<IndexRoute component={Home} />
-					<Route path="/dashboard" component={Dashboard} />
-					<Route path="/access_token" component={Dashboard} />
+					<Route path="/dashboard" component={DashboardController} />
 				</Route>
 			</Router>
 		), document.getElementById('home'));
@@ -112,12 +101,12 @@ $(document).ready(function(){
 
 	if (document.getElementById('mixers')) {
 		console.log("Calling render() on page load...");
-		rend();
+		render();
 	};
 });
 // var station = new socketManager('radio45', render);
 
-function rend() {
+function render() {
 		let hardcodedObject = [
 			{
 				data: {

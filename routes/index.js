@@ -28,10 +28,19 @@ router.get('/api/stations', function(req, res, next){
 			if(response.error) {
 				res.status(503).end();
 			} else {
-				console.log('Came into the API!', response);
+				console.log("app data: ", response);
 				res.send(response);
 			}
 		});
+	
+	// auth0Client.getUser(userId)
+	// 	.then(function(response){
+	// 		if(response.error) {
+	// 			res.status(503).end();
+	// 		} else {
+	// 			res.send(response);
+	// 		}
+	// 	});
 
 });
 
@@ -42,8 +51,6 @@ router.post('/api/stations', function(req, res, next){
     .then(function(response){
       res.status(200).end();
     })
-
-  res.status(200).end();
 });
 
 router.get('/websocket', function(req, res, next) {

@@ -23,12 +23,12 @@ export class Home extends React.Component {
 	}
 
 	render() {
+		// <div className="nav-item"> <Link to="/dashboard"> Dashboard </Link> </div>
 		return (
 			<div>
 				<nav className="nav">
 					<div className="nav-item"> SoundCtl </div>
 					<div className="nav-right"> 
-						<div className="nav-item"> <Link to="/dashboard"> Dashboard </Link> </div>
 						<div className="nav-item" onClick={this.showLock}> Login</div>
 					</div>
 				</nav>

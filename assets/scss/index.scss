@@ -1,5 +1,6 @@
 $soundCtl-main: #CF1C22;
 $soundCtl-accent: darken(#211B2B, 0%);
+$nav-height: 80px;
 
 @mixin primary-font-family {
 	font-family: "Gotham Rounded A", "Gotham Rounded B";
@@ -34,8 +35,8 @@ $main: #D8D8D8;
 }
 
 .nav {
-	height: 80px;
-	max-height: 80px;
+	height: $nav-height;
+	max-height: $nav-height;
 	padding: 0px 5%;
 	width: 100%;
 	display: flex;
@@ -222,6 +223,10 @@ a {
 }
 
 
+.dash-view {
+	height: calc(100vh - #{$nav-height});
+}
+
 //(Dropdown) Menu componenent
 .arrow-up {
 	width: 0; 
@@ -269,11 +274,8 @@ a {
 	}
 }
 
-//Station Creator
-html, body, #home, #dashboard, .panel-wrap{
-	height: 100%;
-}
 .panel-wrap {
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -303,4 +305,13 @@ html, body, #home, #dashboard, .panel-wrap{
 			font-size: 1.2em;
 		}
 	}
+}
+
+.station-manager {
+	background-color: $main;
+	padding: 20px;
+	line-height: 2;
+	margin: 20px 10% 0px 10%;
+	display: flex;
+	justify-content: space-between;
 }
