@@ -5,7 +5,11 @@ var request = require('request');
 
 var stationManager = require('../modules/stationManager');
 var kradEngine = require('../modules/kradEngine');
+var auth0Client = require('../modules/auth0Client');
 
+function parseGoogleUserID(token){
+	 return token.replace("google-oauth2|", "");
+};
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,13 +20,29 @@ router.get('/player', function(req, res, next) {
   res.render('player', { title: 'Express' });
 });
 
+router.get('/api/stations', function(req, res, next){
+	var userId = parseGoogleUserID(req.user.sub);
+
+	auth0Client.getUserAppData(userId)
+		.then(function(response){
+			if(response.error) {
+				res.status(503).end();
+			} else {
+				console.log('Came into the API!', response);
+				res.send(response);
+			}
+		});
+
+});
+
 router.post('/api/stations', function(req, res, next){
-  var userId = req.user.sub.replace("google-oauth2|", "");
+  var userId = parseGoogleUserID(req.user.sub);
 
   stationManager.createStation(userId, req.body.callsign)
     .then(function(response){
       res.status(200).end();
-    });
+    })
+
   res.status(200).end();
 });
 

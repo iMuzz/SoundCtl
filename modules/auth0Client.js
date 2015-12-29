@@ -1,36 +1,47 @@
 var request = require('request-promise');
+var chalk = require('chalk'); //module used to change color of errors in terminal
+
+require('dotenv').load();
 
 // Generic header Options for Auth0 Requests
-
 function getRequestOptions(){
 	var options = {
 		url: 'https://soundctl.auth0.com/api/v2/users/google-oauth2%7C',
 		headers: {
 			'User-Agent': 'request',
-			// 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiI2aVRqUjJIa2hBTFBQb0RmSThmZU4wWjFmbFhKOVlKTyIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInVwZGF0ZSJdfX0sImlhdCI6MTQ0OTAzOTY1NywianRpIjoiNjc1ZDNiNzYxYTE4NWU5MTM4OTQzMGFlOGI5Yzg3NTAifQ.Mt2joRGm8wR-5P5rRwvqb5xsCdiGHo7bNiwJXz2Lfu4'
-			'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiI2aVRqUjJIa2hBTFBQb0RmSThmZU4wWjFmbFhKOVlKTyIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInVwZGF0ZSJdfX0sImlhdCI6MTQ1MTEwMDg0NywianRpIjoiYTY1NDBjNTUxODExZjliOTY1YWU2YjI4OTM0Y2YzY2EifQ.rQfhn_iDZX0FUa3R0VjB3AL7-14gnr-38ML7t7-KQ3Y'
+			'Authorization': 'Bearer ' + process.env.auth0JwtToken
 		}
 	}
 	return options;
 }
 
 var auth0Client = {
+
+	// @param userID (Auth0 user_id of a single user)
+	// Returns a users app_metadata from Auth0
+	getUserAppData: function(userId) {
+		return this.getUser(userId)
+			.then(function(response){
+				return response.app_metadata;
+			})
+	},
 	
 	// @param userID (Auth0 user_id of a single user)
-	// @param AuthToken (Auth0 refresh token)
-	getUser: function(userID){
+	// Returns the entire user object from Auth0
+	getUser: function(userId){
 		options = getRequestOptions();
-		options.url = options.url + userID;
+		options.url = options.url + userId;
 
-		request(options, function(error, response, body){
-			//TODO: Add error check at this point
-			if(!error && response.statusCode == 200) {
-			  console.log("Response from getUser", body);
-			}
-		});
+		return request(options)
+			.then(function(response){
+				return JSON.parse(response)
+			})
+			.catch(function(err){
+				console.error(chalk.red('Auth0Client -- ERROR GETTING USER: ' + err.message));
+				return err;
+			});
 	},
 
-	// 
 	updateAppMetaData: function(userID, payLoad){
 		options = getRequestOptions();
 		console.log('updateAppData called!');
@@ -46,7 +57,7 @@ var auth0Client = {
 				return response;
 			})
 			.catch(function(err){
-				console.error(err);
+				console.error(chalk.red('Auth0Client -- ERROR updating app_metadata: ' + err.message));
 			})
 
 	}

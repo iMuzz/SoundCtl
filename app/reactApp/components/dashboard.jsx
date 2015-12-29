@@ -17,9 +17,7 @@ export class Dashboard extends React.Component {
 		this.props.lock.getProfile(this.props.idToken, (err, profile) => {
 			if(err) {
 				console.log("Error loading the profile", err);
-				UserActions.logout();
-				// alert("Error loading the profile. Please check the console");
-			}
+				UserActions.logout();			}
 			this.setState({profile: profile});
 		});
 	}

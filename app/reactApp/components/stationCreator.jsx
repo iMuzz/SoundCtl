@@ -16,10 +16,8 @@ export class StationCreator extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		let callsign = this.state.callsign.trim();
-		console.log('Header Object: ', {'Authorization': 'Bearer ' + localStorage.getItem('userToken') });
 
 		$.ajax({
-			headers: {'Authorization': 'Bearer ' + localStorage.getItem('userToken') },
 			url: '/api/stations',
 			method: 'POST',
 			data: {'callsign': callsign}
@@ -28,6 +26,16 @@ export class StationCreator extends React.Component {
 		}).error(err => {
 			console.log('POST failed with..', err)
 		});
+
+		// $.ajax({
+		// 	url: '/api/stations',
+		// 	method: 'GET',
+		// }).done((data) => {
+		// 	console.log("GET /api/stations was Successful");
+		// 	console.log('DATA: ', data);
+		// }).error(err => {
+		// 	console.log('GET failed with..', err)
+		// });
 	}
 
 	handleCallsignChange(e){
