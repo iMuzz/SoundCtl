@@ -2,10 +2,16 @@ import {FluxStore} from     './fluxStore';
 import AppDispatcher from   '../dispatcher/AppDispatcher';
 import $ from               'jquery';
 
-let dashState = {};
+let dashState = {
+	progressState: 100,
+	stationLoaded: false
+};
 
 function reset() {
-	dashState = {};
+	dashState = {
+		progressState: 50,
+		stationLoaded: false
+	};
 }
 
 class DashStore extends FluxStore {
@@ -14,27 +20,40 @@ class DashStore extends FluxStore {
 	}
 
 	getState(){
-		if (!Object.keys(dashState).length) { //if user object is empty
+		if (Object.keys(dashState).length === 2) { // If station not retrieved from API
+			console.log('station not here so getting the station....')
+			this.loading();
 			$.ajax({
 				headers: {'Authorization': 'Bearer ' + localStorage.getItem('userToken') },
 				url: '/api/stations',
 				method: 'GET',
 			}).done((data) => {
-				dashState = data;
-				console.log(dashState);
+				dashState.stationLoaded = true;
+				Object.assign(dashState, data);
+				this.finishProgress();
 				this.emitChange();
 			}).error(err => {
 				console.log('GET failed with..', err)
 			});
 		} else {
+			console.log('Returning cached station....')
 			return dashState;
 		};
 	}
 
 	deleteStation(){
 		reset();
+		this.emitChange();
+	}
 
-		// Call API?
+	loading(){
+		dashState.progressState = 50;
+		this.emitChange();
+	}
+
+	finishProgress(){
+		dashState.progressState = 100;
+		this.emitChange();
 	}
 }
 
@@ -48,7 +67,6 @@ AppDispatcher.register( action => {
 			break;
 		case "DELETE_STATION":
 			DashStoreInstance.deleteStation();
-			DashStoreInstance.emitChange();
 		default:
 			break;
 	}

@@ -3,6 +3,7 @@ import {Navbar} from                    './navbar'
 import {StationManager} from            './stationManager'
 import {StationCreator} from            './stationCreator'
 import dashStoreInstance from           '../stores/DashStore'
+import ProgressBar from                 'react-progress-bar-plus'
 
 let UserActions = require('../actions/UserActions');
 
@@ -33,7 +34,6 @@ export class DashboardController extends React.Component {
 			console.log('callback executed after change event fired!');
 			
 			this.setState(dashStoreInstance.getState());
-			this.forceUpdate();
 		})
 	}
 
@@ -43,14 +43,16 @@ export class DashboardController extends React.Component {
 	}
 
 	getView() {
-		if (this.state.station) {
-			return(
-				<StationManager station={this.state.station}/>
-			);
-		} else {
-			return(
-				<StationCreator />
-			);
+		if (this.state.stationLoaded) {
+			if (this.state.station) {
+				return(
+					<StationManager station={this.state.station}/>
+				);
+			} else {
+				return(
+					<StationCreator />
+				);
+			};
 		};
 	}
 
@@ -59,6 +61,7 @@ export class DashboardController extends React.Component {
 		return  ( 
 			<div id="dashboard">
 				<Navbar userProfile={this.state.profile}/>
+				<ProgressBar percent={this.state.progressState} />
 				<div className="dash-view">
 					{this.getView()}
 				</div>
