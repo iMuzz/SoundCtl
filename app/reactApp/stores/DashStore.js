@@ -41,6 +41,22 @@ class DashStore extends FluxStore {
 		};
 	}
 
+	createStation(callsign){
+		this.loading();
+		$.ajax({
+			headers: {'Authorization': 'Bearer ' + localStorage.getItem('userToken') },
+			url: '/api/stations',
+			method: 'POST',
+			data: {'callsign': callsign}
+		}).done(() => {
+			dashState.station = callsign;
+			this.emitChange();
+			this.finishProgress();
+		}).error(err => {
+			this.finishProgress();
+		});
+	}
+
 	deleteStation(){
 		reset();
 		this.emitChange();
@@ -62,7 +78,8 @@ let DashStoreInstance = new DashStore();
 AppDispatcher.register( action => {
 	switch(action.actionType) {
 		case "CREATE_STATION":
-			console.log("calling emitChange() from the DashStore....");
+			console.log("case CREATE_STATION");
+			DashStoreInstance.createStation(action.payload);
 			DashStoreInstance.emitChange();
 			break;
 		case "DELETE_STATION":

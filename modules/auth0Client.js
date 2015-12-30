@@ -22,7 +22,11 @@ var auth0Client = {
 	getUserAppData: function(userId) {
 		return this.getUser(userId)
 			.then(function(response){
-				return response.app_metadata;
+				console.log(response)
+				if (response.app_metadata) {
+					return response.app_metadata;
+				};
+				return {station: ''};
 			})
 	},
 	

@@ -19,25 +19,10 @@ export class StationCreator extends React.Component {
 		e.preventDefault();
 		let callsign = this.state.callsign.trim();
 
-		$.ajax({
-			url: '/api/stations',
-			method: 'POST',
-			data: {'callsign': callsign}
-		}).done(() => {
-			console.log("Successful?");
-		}).error(err => {
-			console.log('POST failed with..', err)
+		AppDispatcher.dispatch({
+			actionType: 'CREATE_STATION',
+			payload: callsign
 		});
-
-		// $.ajax({
-		// 	url: '/api/stations',
-		// 	method: 'GET',
-		// }).done((data) => {
-		// 	console.log("GET /api/stations was Successful");
-		// 	console.log('DATA: ', data);
-		// }).error(err => {
-		// 	console.log('GET failed with..', err)
-		// });
 	}
 
 	handleCallsignChange(e){
