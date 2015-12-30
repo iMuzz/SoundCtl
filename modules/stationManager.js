@@ -2,6 +2,8 @@ var request = require('request-promise');
 var auth0Client = require('./auth0Client');
 var kradEngine = require('./kradEngine');
 
+var SHOULD_AUTO_START = true;
+
 var stationManager = {
 	
 	// Get all station associated with a user
@@ -12,12 +14,11 @@ var stationManager = {
 	createStation: function(userID, callsign){
 		// Create station through kradengine
 		// Then create stations object and add it to auth0 app_metadata
-		console.log("Station Name", callsign);
-		console.log('kradengine create!');
 		var prom =  kradEngine.station(callsign, 'create')
 			.then(function(response){
-				console.log('kradEngine resp', response);
-				console.log('kradengine succeeded');
+				if (SHOULD_AUTO_START) {
+					kradEngine.station(callsign, 'start')
+				};
 				return updateUserStation(userID, callsign);
 			})
 
