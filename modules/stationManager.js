@@ -30,12 +30,32 @@ var stationManager = {
 			return auth0Client.updateAppMetaData(userID, station)
 				.then(function(response){
 					console.log("app_metadata updated!");
-					console.log(response);
+					// console.log(response);
 				});
 		}
 
 		return prom;
-	} 
+	},
+
+	deleteStation: function(userID, callsign) {
+		var prom =  kradEngine.station(callsign, 'destroy')
+			.then(function(response){
+				return updateUserStation(userID, callsign);
+			})
+
+		function updateUserStation(userID, callsign) {
+			var station = {
+				"station": ''
+			};
+
+			return auth0Client.updateAppMetaData(userID, station)
+				.then(function(response){
+					console.log("app_metadata updated!");
+				});
+		}
+
+		return prom;
+	}
 }
 
 module.exports = stationManager;

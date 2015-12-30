@@ -57,9 +57,20 @@ class DashStore extends FluxStore {
 		});
 	}
 
-	deleteStation(){
-		reset();
-		this.emitChange();
+	deleteStation(callsign){
+		this.loading();
+		$.ajax({
+			headers: {'Authorization': 'Bearer ' + localStorage.getItem('userToken') },
+			url: '/api/stations/' + callsign,
+			type: 'DELETE'
+		}).done((data) => {
+			dashState.station = '';
+			this.emitChange()
+			this.finishProgress();
+		}).error(err => {
+			console.log('Delete Failed!');
+			this.finishProgress();
+		});
 	}
 
 	loading(){
@@ -78,12 +89,11 @@ let DashStoreInstance = new DashStore();
 AppDispatcher.register( action => {
 	switch(action.actionType) {
 		case "CREATE_STATION":
-			console.log("case CREATE_STATION");
 			DashStoreInstance.createStation(action.payload);
 			DashStoreInstance.emitChange();
 			break;
 		case "DELETE_STATION":
-			DashStoreInstance.deleteStation();
+			DashStoreInstance.deleteStation(action.payload);
 		default:
 			break;
 	}

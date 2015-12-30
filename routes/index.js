@@ -32,16 +32,6 @@ router.get('/api/stations', function(req, res, next){
 				res.send(response);
 			}
 		});
-	
-	// auth0Client.getUser(userId)
-	// 	.then(function(response){
-	// 		if(response.error) {
-	// 			res.status(503).end();
-	// 		} else {
-	// 			res.send(response);
-	// 		}
-	// 	});
-
 });
 
 router.post('/api/stations', function(req, res, next){
@@ -52,6 +42,16 @@ router.post('/api/stations', function(req, res, next){
       res.status(200).end();
     })
 });
+
+router.delete('/api/stations/:callsign', function(req, res, next){
+  var userId = parseGoogleUserID(req.user.sub);
+
+  stationManager.deleteStation(userId, req.params.callsign)
+    .then(function(response){
+      res.status(200).end();
+    })
+});
+
 
 router.get('/websocket', function(req, res, next) {
   res.render('websocket');

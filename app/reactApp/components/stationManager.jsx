@@ -13,7 +13,8 @@ export class StationManager extends React.Component {
 
 	handleDelete(){
 		AppDispatcher.dispatch({
-			actionType: "DELETE_STATION"
+			actionType: "DELETE_STATION",
+			payload: this.props.station
 		});
 	}
 
@@ -26,8 +27,7 @@ export class StationManager extends React.Component {
 					<a target="_blank" href={url}>http://{this.props.station}.soundctl.com </a> 
 				</div>
 				<div>
-					<button className="button"> Start </button>
-					<button className="button"> Stop </button>
+					<button className="button" onClick={this.handleDelete}> Delete </button>
 				</div>
 			</div>
 		);
