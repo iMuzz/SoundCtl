@@ -20,8 +20,8 @@ time, mark, audio, video {
 	padding: 0 0px;
 	border: 0 0px;
 	font-size: 100%;
-	font-family: "Gotham Rounded A", "Gotham Rounded B";
 	font: inherit;
+	font-family: "Gotham Rounded A", "Gotham Rounded B" !important;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -74,6 +74,10 @@ a, u {
 input {
 	border: 0px;
 	padding: 0px;
+
+	&:placeholder-shown {
+		font-family: "Gotham Rounded A", "Gotham Rounded B";
+	}
 }
 
 button, input[type='submit'] {
