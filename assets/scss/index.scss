@@ -9,7 +9,6 @@ $nav-height: 80px;
 }
 
 body {
-	@include primary-font-family;
 	position: relative;
 }
 
@@ -62,7 +61,6 @@ $main: #D8D8D8;
 		}
 	}
 	div.nav-item {
-		@include primary-font-family;
 		font-size: 1.2em;
 		display: flex;
 		align-items: center;
@@ -111,14 +109,12 @@ $main: #D8D8D8;
 	
 	/* Temporary landing page style. Remove when landing page updated*/
 	.company {
-		@include primary-font-family;
 		color: white;
 		font-size: 4em;
 		position: relative;
 		bottom: 30px;
 	}
 	.hero-title {
-		@include primary-font-family;
 		font-size: 1.6em;
 		color: white;
 	    text-align: center;
@@ -140,7 +136,6 @@ $main: #D8D8D8;
 			width: 300px;
 			height: 44px;
 
-			@include primary-font-family;
 			font-size: 1em;
 			text-align: center;
 
@@ -159,7 +154,6 @@ $main: #D8D8D8;
 		}
 		/* Height 44px */
 	    .cta-base {
-	    	@include primary-font-family;
 	    	font-size: 1em;
 	    	display: inline-block;
 	    	line-height: 1.5;

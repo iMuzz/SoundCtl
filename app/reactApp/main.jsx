@@ -99,42 +99,41 @@ $(document).ready(function(){
 		), document.getElementById('home'));
 	};
 
-	if (document.getElementById('mixers')) {
-		console.log("Calling render() on page load...");
-		render();
-	};
-});
-// var station = new socketManager('radio45', render);
-
-function render() {
-		let hardcodedObject = [
-			{
-				data: {
-					afx: [
-						{
-							volume: {
-								fader: 10
-							}
-						}
-					]
-				},
-				path: "/mixer/Deck1"
-			},
-			{
-				data: {
-					afx: [
-						{
-							volume: {
-								fader: 20
-							}
-						}
-					]
-				},
-				path: "/mixer/Deck2"
-			}
-		]
-		ReactDom.render(<Mixer soundPaths={hardcodedObject} />, document.getElementById('mixers'));
-	// if (station.dataStore.soundPaths[0]) {
-	// 	ReactDom.render(<Mixer soundPaths={station.dataStore.soundPaths} />, document.getElementById('mixers'));
+	// if (document.getElementById('mixers')) {
+	// 	console.log("Calling render() on page load...");
+	// 	render();
 	// };
-}
+});
+
+// function render() {
+// 		let hardcodedObject = [
+// 			{
+// 				data: {
+// 					afx: [
+// 						{
+// 							volume: {
+// 								fader: 10
+// 							}
+// 						}
+// 					]
+// 				},
+// 				path: "/mixer/Deck1"
+// 			},
+// 			{
+// 				data: {
+// 					afx: [
+// 						{
+// 							volume: {
+// 								fader: 20
+// 							}
+// 						}
+// 					]
+// 				},
+// 				path: "/mixer/Deck2"
+// 			}
+// 		]
+// 		ReactDom.render(<Mixer soundPaths={hardcodedObject} />, document.getElementById('mixers'));
+// 	// if (station.dataStore.soundPaths[0]) {
+// 	// 	ReactDom.render(<Mixer soundPaths={station.dataStore.soundPaths} />, document.getElementById('mixers'));
+// 	// };
+// }
