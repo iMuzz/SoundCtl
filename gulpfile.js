@@ -19,7 +19,7 @@ var source = require('vinyl-source-stream');
 
 // CONSTANT PATHS
 var PATH =  {
-	scss_src: './assets/scss/**/*.scss',
+	scss_src: './assets/scss/**/index.scss',
 	js_src: './app/js/app.js',
 	js_dist: './public/scripts/'
 }

@@ -20,6 +20,7 @@ time, mark, audio, video {
 	padding: 0 0px;
 	border: 0 0px;
 	font-size: 100%;
+	font-family: "Gotham Rounded A", "Gotham Rounded B";
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -79,4 +80,8 @@ button, input[type='submit'] {
 	&:hover {
 		cursor: pointer;
 	}
+}
+
+.faraaz {
+	display: none;
 }
