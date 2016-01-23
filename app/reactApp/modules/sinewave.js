@@ -1,8 +1,4 @@
-// Constructs the sinewave that is shown on the homepage
-
-(function() {
-
-function SiriWave(opt) {
+var SiriWave = function(opt) {
 	opt = opt || {};
 
 	this.phase = 0;
@@ -139,19 +135,4 @@ SiriWave.prototype.setNoise = SiriWave.prototype.setAmplitude = function(v) {
 	this.amplitude = Math.max(Math.min(v, 1), 0);
 };
 
-
-if (typeof define === 'function' && define.amd) {
-	define(function(){ return SiriWave; });
-	return;
-};
-window.SiriWave = SiriWave;
-
-})();
-
-new SiriWave({
-  width: 1000,
-  height: 300,
-  speed: 0.009,
-  container: document.getElementById('container'),
-  autostart: true,
-});
+module.exports = SiriWave

@@ -1,19 +1,23 @@
 var express = require('express');
+var app = express();
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+require('dotenv').load();
 
-var passport = require('passport');
-// This will configure Passport to use Auth0
-var strategy = require('./setup-passport');
-var session = require('express-session');
+var jwt = require('express-jwt');
+
+var jwtCheck = jwt({
+  secret: new Buffer(process.env.auth0ClientSecret, 'base64'),
+  audience: process.env.auth0ClientID
+});
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,21 +29,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({ 
-  secret: 'shhhhhhhhh',
-  resave: true,
-  saveUninitialized: true 
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api/stations', jwtCheck);
+
 app.use('/', routes);
 app.use('/users', users);
-
-
 
 //Dynamically get templates for AngularJS
 app.use('/templates/:id', function(req, res, next){
@@ -76,6 +72,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

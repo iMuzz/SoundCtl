@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+$font-family: "Gotham Rounded A", "Gotham Rounded B" !important;
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -21,6 +22,7 @@ time, mark, audio, video {
 	border: 0 0px;
 	font-size: 100%;
 	font: inherit;
+	font-family: $font-family;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -61,6 +63,7 @@ a, u {
     text-decoration: none;
 
     &:hover {
+    	text-decoration: none;
     	cursor: pointer;
     }
 }
@@ -72,6 +75,10 @@ a, u {
 input {
 	border: 0px;
 	padding: 0px;
+
+	&:placeholder-shown {
+		font-family: $font-family;
+	}
 }
 
 button, input[type='submit'] {

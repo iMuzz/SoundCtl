@@ -1,0 +1,11 @@
+#dashboard {
+	display: flex;
+}
+
+.left-nav {
+	flex-grow: 1.5;
+}
+
+.dash-view-wrap {
+	flex-grow: 10;
+}

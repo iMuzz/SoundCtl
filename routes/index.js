@@ -1,8 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('passport');
 var requiresLogin = require('../requiresLogin');
 var request = require('request');
+
+var stationManager = require('../modules/stationManager');
+var kradEngine = require('../modules/kradEngine');
+var auth0Client = require('../modules/auth0Client');
+
+function parseGoogleUserID(token){
+	 return token.replace("google-oauth2|", "");
+};
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -12,46 +20,57 @@ router.get('/player', function(req, res, next) {
   res.render('player', { title: 'Express' });
 });
 
-router.get('/dashboard', requiresLogin, function(req, res, next) {
-  res.render('dashboard', {user: req.user});
+router.get('/api/stations', function(req, res, next){
+	var userId = parseGoogleUserID(req.user.sub);
+
+	auth0Client.getUserAppData(userId)
+		.then(function(response){
+			if(response.error) {
+				res.status(503).end();
+			} else {
+				console.log("app data: ", response);
+				res.send(response);
+			}
+		});
 });
 
-router.get('/callback',
-  passport.authenticate('auth0', { failureRedirect: '/player' }),
-  function(req, res) {
-    if (!req.user) {
-      throw new Error('user null');
-    }
-    console.log(req.user);
-    // res.render('dashboard', {user: req.user});
-    res.redirect('/dashboard');
-  });
+router.post('/api/stations', function(req, res, next){
+  var userId = parseGoogleUserID(req.user.sub);
 
-router.get('/updateData', function(req, res, next) {
-  getUser('/google-oauth2%7C107749376288480166720')
-  res.redirect('/dashboard');
+  stationManager.createStation(userId, req.body.callsign)
+    .then(function(response){
+      res.status(200).end();
+    })
 });
 
-function getUser(userID){
-    console.log('Starting to get user!');
-    
-    var options = {
-      url: 'https://soundctl.auth0.com/api/v2/users' + userID,
-      headers: {
-        'User-Agent': 'request',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiI2MlRObWZOWTI0VnRXTDBkd2RNMW84aUdkSHd2RGNlUSIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInVwZGF0ZSIsInJlYWQiXX19LCJpYXQiOjE0NDgxOTA4MjcsImp0aSI6ImI1MmM2ZTNhMGMzNjk3ZWZhMDM3MGM0OTEzOTBlMTY1In0.jd4HH5RyYNZ6qA4RNdskRmn4ReLYnQmgnPx-fSaBx2k'
-      }
-    };
+router.delete('/api/stations/:callsign', function(req, res, next){
+  var userId = parseGoogleUserID(req.user.sub);
 
-  request(options, function(error, response, body){
-    //TODO: Add error check at this point
-    if(!error && response.statusCode == 200) {
-      console.log("Response from getUser", body);
-    }
-  });
-}
+  stationManager.deleteStation(userId, req.params.callsign)
+    .then(function(response){
+      res.status(200).end();
+    })
+});
 
-function updateUser(userID, authToken){
 
-}
+router.get('/websocket', function(req, res, next) {
+  res.render('websocket');
+});
+
+
+// router.get('/createrandstations', function(req, res, next){
+//   for (var i = 0; i < 5; i++) {
+//     kradEngine.station('soundctl'+i, 'create');
+//   };
+
+//   res.status(200).end();
+// });
+
+// // Destroy all stations (testing purposes)
+// router.get('/destroystations', function(req, res, next) {
+//   kradEngine.destroyAllStations();
+//   res.status(200).end();
+// });
+
+
 module.exports = router;

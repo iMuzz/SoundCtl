@@ -13,12 +13,9 @@ var concatCss = require('gulp-concat-css');
 var minifyCss = require('gulp-minify-css');
 
 // Javscript Build Dependencies
-var fs = require('fs');
-var watchify = require('watchify');
-var browserify = require('gulp-browserify');
+var browserify = require('browserify');
+var babelify = require('babelify');
 var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var assign = require('lodash.assign');
 
 // CONSTANT PATHS
 var PATH =  {
@@ -39,5 +36,14 @@ gulp.task('css-build', function () {
 
 gulp.task('watch', function() {
   gulp.watch(PATH.scss_src, ['css-build']);
+  gulp.watch('./app/reactApp/**/*.jsx', ['js-build']);
+  gulp.watch('./app/reactApp/**/*.js', ['js-build']);
 });
 
+gulp.task('js-build', function () {
+  return browserify({entries: './app/reactApp/main.jsx', extensions: ['.jsx', '.js'], debug: true})
+      .transform(babelify, {presets: ["es2015", "react"]})
+      .bundle()
+      .pipe(source('bundle.js'))
+      .pipe(gulp.dest('./public/scripts/dist'));
+});
