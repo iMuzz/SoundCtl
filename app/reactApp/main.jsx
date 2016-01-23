@@ -2,7 +2,7 @@ import React from                                'react';
 import ReactDom from                             'react-dom';
 import { Router, Route, Link, IndexRoute } from  'react-router';
 import $ from                                    'jquery';
-import {DashboardController} from                './components/dashboardController';
+import {AppController} from                      './components/appController';
 import {Home} from                               './components/home'
 import {Mixer} from                              './components/mixer';
 import {socketManager} from                      './modules/websocket';
@@ -50,11 +50,11 @@ class App extends React.Component {
 		var idToken = localStorage.getItem('userToken');
 		var authHash = this.lock.parseHash(localStorage.getItem('auth0Hash'));
 		localStorage.removeItem('auth0Hash') //remove the hash or the user will login with oldToken
-
 		if (!idToken && authHash) {
 			if (authHash.id_token) {
 				idToken = authHash.id_token
 				localStorage.setItem('userToken', authHash.id_token);
+				console.log('userToken set..', localStorage.getItem('userToken'));
 			}
 			if (authHash.error) {
 				console.log("Error signing in", authHash);
@@ -79,12 +79,11 @@ class App extends React.Component {
 }
 
 $(document).ready(function(){
-	// 
+	
 	window.addEventListener("hashchange", function(){
 		if (window.location.hash.substr(0,15) === "#/access_token=") {
-			console.log("User just got back from Auth0!");
 			localStorage.setItem('auth0Hash', window.location.hash.replace('/', ''));
-			window.location.hash = '/dashboard';
+			window.location.hash = '/app';
 		};
 	});
 
@@ -93,16 +92,11 @@ $(document).ready(function(){
 			<Router>
 				<Route path="/" component={App}>
 					<IndexRoute component={Home} />
-					<Route path="/dashboard" component={DashboardController} />
+					<Route path="/app" component={AppController} />
 				</Route>
 			</Router>
 		), document.getElementById('home'));
 	};
-
-	// if (document.getElementById('mixers')) {
-	// 	console.log("Calling render() on page load...");
-	// 	render();
-	// };
 });
 
 // function render() {

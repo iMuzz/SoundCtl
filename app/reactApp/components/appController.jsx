@@ -8,8 +8,7 @@ import ProgressBar from                 'react-progress-bar-plus'
 
 let UserActions = require('../actions/UserActions');
 
-
-export class DashboardController extends React.Component {
+export class AppController extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -19,7 +18,6 @@ export class DashboardController extends React.Component {
 		};
 
 		Object.assign(this.state, dashStoreInstance.getState());
-		// console.log("state currenty.. ", this.state);
 	}
 
 	componentDidMount(){
@@ -32,14 +30,11 @@ export class DashboardController extends React.Component {
 		});
 
 		dashStoreInstance.addChangeListener(()=>{
-			// console.log('callback executed after change event fired!');
-			
 			this.setState(dashStoreInstance.getState());
 		})
 	}
 
 	componentWillUnmount(){
-		// console.log('removing listener...');
 		dashStoreInstance.removeChangeListener();
 	}
 
@@ -65,7 +60,6 @@ export class DashboardController extends React.Component {
 					<div className="user-bg">
 						<div>
 							<Avatar imageUrl={"/images/Apple-Beats-1-logo.jpg"} />
-
 						</div>
 					</div>
 					<nav>
