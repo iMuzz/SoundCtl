@@ -1,8 +1,13 @@
 import React from                                'react';
 import ReactDom from                             'react-dom';
-import { Router, Route, Link, IndexRoute } from  'react-router';
+
+import { Router, Route, Link, IndexRoute, useRouterHistory } from  'react-router';
+import { createHashHistory } from                'history'
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false })
+
 import $ from                                    'jquery';
 import {AppController} from                      './components/appController';
+import {DashboardController, SettingsController} from                './components/DashboardController';
 import {Home} from                               './components/home'
 import {Mixer} from                              './components/mixer';
 import {socketManager} from                      './modules/websocket';
@@ -88,14 +93,25 @@ $(document).ready(function(){
 	});
 
 	if (document.getElementById('home')) {
+		// ReactDom.render((
+		// 	<Router>
+		// 		<Route path="/" component={App}>
+		// 			<IndexRoute component={Home} />
+		// 			<Route path="app" component={AppController} />
+		// 				<Route path="/dashboard" component={DashboardController}/>
+		// 		</Route>
+		// 	</Router>
+		// ), document.getElementById('home'));
 		ReactDom.render((
-			<Router>
-				<Route path="/" component={App}>
-					<IndexRoute component={Home} />
-					<Route path="/app" component={AppController} />
+			<Router history={appHistory}>
+				<Route path="/" component={AppController}>
+					<IndexRoute component={DashboardController} />
+					<Route path="dashboard" component={DashboardController} />
+					<Route path="settings" component={SettingsController} />
 				</Route>
 			</Router>
 		), document.getElementById('home'));
+
 	};
 });
 

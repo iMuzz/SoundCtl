@@ -44,6 +44,7 @@
 			text-align: center;
 			color: $white;
 			transition: border .5s;
+			display: block;
 
 			&:hover {
 				cursor: pointer;
