@@ -1,5 +1,6 @@
 import React from                       'react'
 import {Navbar} from                    './navbar'
+import {Avatar} from                    './avatar'
 import {StationManager} from            './stationManager'
 import {StationCreator} from            './stationCreator'
 import dashStoreInstance from           '../stores/DashStore'
@@ -18,7 +19,7 @@ export class DashboardController extends React.Component {
 		};
 
 		Object.assign(this.state, dashStoreInstance.getState());
-		console.log("state currenty.. ", this.state);
+		// console.log("state currenty.. ", this.state);
 	}
 
 	componentDidMount(){
@@ -31,14 +32,14 @@ export class DashboardController extends React.Component {
 		});
 
 		dashStoreInstance.addChangeListener(()=>{
-			console.log('callback executed after change event fired!');
+			// console.log('callback executed after change event fired!');
 			
 			this.setState(dashStoreInstance.getState());
 		})
 	}
 
 	componentWillUnmount(){
-		console.log('removing listener...');
+		// console.log('removing listener...');
 		dashStoreInstance.removeChangeListener();
 	}
 
@@ -60,11 +61,49 @@ export class DashboardController extends React.Component {
 
 		return  ( 
 			<div id="dashboard">
-				<Navbar userProfile={this.state.profile}/>
-				<ProgressBar percent={this.state.progressState} />
-				<div className="dash-view">
-					{this.getView()}
+				<div className="left-nav">
+					<div className="user-bg">
+						<div>
+							<Avatar imageUrl={"/images/Apple-Beats-1-logo.jpg"} />
+
+						</div>
+					</div>
+					<nav>
+						<div className="tab"> Dashboard </div>
+						<div className="tab"> Settings </div>
+					</nav>
 				</div>
+
+				<div className="dash-view-wrap">
+					<ProgressBar percent={this.state.progressState} />
+					<Navbar userProfile={this.state.profile}/>
+					<div className="dash-view">
+						{this.getView()}
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
+
+class SideNav extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return  ( 
+			<div className="left-nav">
+				<div className="user-bg">
+					<div>
+						<Avatar imageUrl={"/images/Apple-Beats-1-logo.jpg"} />
+
+					</div>
+				</div>
+				<nav>
+					<div className="tab active"> Dashboard </div>
+					<div className="tab"> Settings </div>
+				</nav>
 			</div>
 		);
 	}

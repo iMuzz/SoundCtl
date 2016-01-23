@@ -1,7 +1,8 @@
-import React from         'react';
-import ReactDom from      'react-dom';
-import classNames from    'classnames';
-import { Link } from      'react-router';
+import React from         'react'
+import ReactDom from      'react-dom'
+import classNames from    'classnames'
+import { Link } from      'react-router'
+import { Avatar } from    './avatar'
 
 
 let UserActions = require('../actions/UserActions');
@@ -94,13 +95,3 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.defaultProps = { isOpen: false };
-
-class Avatar extends React.Component {
-	render() {
-		return (
-			<div className="avatar">
-				<img src={this.props.imageUrl} />
-			</div>
-		);
-}
-	}
