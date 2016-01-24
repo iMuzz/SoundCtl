@@ -41,12 +41,15 @@
 
 	nav {
 		.tab {
-			padding: 25px;
-			text-align: center;
-			color: $white;
-			transition: border .5s;
-			display: block;
+			list-style-type: none;
+			a {
+				padding: 25px;
+				text-align: center;
+				color: $white;
+				transition: border .5s;
+				display: block;
 
+			}
 			&:hover {
 				cursor: pointer;
 			}
@@ -57,7 +60,7 @@
 				transition-timing-function: linear;
 			}
 		}
-
+		
 		> * {
 			border-top: 1px solid $grey-dark;
 			border-left: 5px solid $primary-color;

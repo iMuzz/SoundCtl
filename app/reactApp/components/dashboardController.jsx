@@ -17,8 +17,6 @@ export class DashboardController extends React.Component {
 	}
 
 	componentDidMount(){
-		console.log('Dashboard Propsuser..', this.props.profile);
-
 		dashStoreInstance.addChangeListener(()=>{
 			this.setState(dashStoreInstance.getState());
 		});
@@ -63,7 +61,9 @@ export class SettingsController extends React.Component {
 
 	render() {
 		return  ( 
-			<div> This is the settings page</div>
+			<div>
+				<div> This is the settings.</div>
+			</div>
 		);
 	}
 }

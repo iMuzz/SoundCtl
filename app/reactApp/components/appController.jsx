@@ -7,6 +7,9 @@ import {StationCreator} from                     './stationCreator'
 import dashStoreInstance from                    '../stores/DashStore'
 import ProgressBar from                          'react-progress-bar-plus'
 
+
+import activeComponent from                      'react-router-active-component'
+
 let UserActions = require('../actions/UserActions');
 
 export class AppController extends React.Component {
@@ -46,6 +49,8 @@ class SideNav extends React.Component {
 	}
 
 	render() {
+		let NavItem = activeComponent("li");
+
 		return  ( 
 			<div className="left-nav">
 				<div className="user-bg">
@@ -54,8 +59,8 @@ class SideNav extends React.Component {
 					</div>
 				</div>
 				<nav>
-					<Link className="tab active" to="app/dashboard"> Dashboard </Link> 
-					<Link className="tab" to="app/settings"> Settings </Link>
+					<NavItem className="tab" to="app/dashboard"> Dashboard </NavItem>
+					<NavItem className="tab" to="app/settings"> Settings </NavItem>
 				</nav>
 			</div>
 		);
