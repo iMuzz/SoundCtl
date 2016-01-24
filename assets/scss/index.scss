@@ -278,10 +278,10 @@ a {
 
 	.panel {
 		background-color: $main;
-		min-width: 500px;
 		height: 550px;
 		text-align: center;
 		box-shadow: 0px 15px 72px -35px rgba(0,0,0,0.75);
+		padding: 0px 100px;
 	}
 
 	form {

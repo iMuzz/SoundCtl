@@ -1,11 +1,12 @@
 #dashboard {
 	display: flex;
+	min-height: 100vh;
 }
 
 .left-nav {
-	flex-grow: 1.5;
+	width: 15%;
 }
 
 .dash-view-wrap {
-	flex-grow: 10;
+	width: 85%;
 }

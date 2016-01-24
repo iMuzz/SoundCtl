@@ -7,11 +7,9 @@ export class Avatar extends React.Component {
 	}
 
 	componentDidMount(){
-		console.log("REFS are", this.refs);
 	}
 
 	render() {
-				// <img src={this.props.imageUrl} />
 		return (
 			<div className="avatar">
 				<div className="image" style={{backgroundImage: 'url(' + this.props.imageUrl + ')'}}></div>

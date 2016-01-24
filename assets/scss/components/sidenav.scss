@@ -2,7 +2,8 @@
 
 .left-nav {
 	background-color: $primary-color;
-	box-shadow: 1px 2px 21px -3px rgba(0,0,0,0.83);
+	box-shadow: -6px 0px 6px 7px rgba(0,0,0,.83);
+	z-index: 1;
 
 	.user-bg {
 		min-height: 230px;
@@ -40,11 +41,15 @@
 
 	nav {
 		.tab {
-			padding: 25px;
-			text-align: center;
-			color: $white;
-			transition: border .5s;
+			list-style-type: none;
+			a {
+				padding: 25px;
+				text-align: center;
+				color: $white;
+				transition: border .5s;
+				display: block;
 
+			}
 			&:hover {
 				cursor: pointer;
 			}
@@ -55,7 +60,7 @@
 				transition-timing-function: linear;
 			}
 		}
-
+		
 		> * {
 			border-top: 1px solid $grey-dark;
 			border-left: 5px solid $primary-color;
