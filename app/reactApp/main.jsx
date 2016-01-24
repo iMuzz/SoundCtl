@@ -88,21 +88,12 @@ $(document).ready(function(){
 	window.addEventListener("hashchange", function(){
 		if (window.location.hash.substr(0,15) === "#/access_token=") {
 			localStorage.setItem('auth0Hash', window.location.hash.replace('/', ''));
-			window.location.hash = '/app';
+			window.location.hash = '/app/dashboard';
 		};
 	});
 
 	if (document.getElementById('home')) {
-		// ReactDom.render((
-		// 	<Router>
-		// 		<Route path="/" component={App}>
-		// 			<IndexRoute component={Home} />
-		// 			<Route path="app" component={AppController} />
-		// 				<Route path="/dashboard" component={DashboardController}/>
-		// 		</Route>
-		// 	</Router>
-		// ), document.getElementById('home'));
-		ReactDom.render((
+			ReactDom.render((
 			<Router history={appHistory}>
 				<Route path="/" component={App}>
 					<IndexRoute component={Home}/>

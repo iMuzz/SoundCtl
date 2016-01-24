@@ -206,7 +206,12 @@ a {
 // Dashboard
 .nav.dash {
 	position: static;
-	background-color: $main;
+	background-color: $white;
+	box-shadow: 0px 0 3px 0px rgba(0,0,0,.83);
+
+	.nav-item {
+		color: $primary-color;
+	}
 }
 
 
@@ -266,39 +271,6 @@ a {
 
 		&:hover {
 			background-color: darken(#ECEAEA, 12%);
-		}
-	}
-}
-
-.panel-wrap {
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	.panel {
-		background-color: $main;
-		height: 550px;
-		text-align: center;
-		box-shadow: 0px 15px 72px -35px rgba(0,0,0,0.75);
-		padding: 0px 100px;
-	}
-
-	form {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		justify-content: space-around;
-
-		h1 {
-			font-size: 2em;
-		}
-
-		.submit {
-			margin: auto;
-			display: block;
-			padding: 10px 40px;
-			font-size: 1.2em;
 		}
 	}
 }

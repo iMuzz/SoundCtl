@@ -1,5 +1,6 @@
-// Config file with that has all the imports
+@import "modules/_mixins";
 
+// Config file with that has all the imports
 @import "_reset";
 @import "_variables";
 @import "_base";
@@ -7,3 +8,4 @@
 // import components
 @import "components/sidenav.scss";
 @import "components/avatar.scss";
+@import "components/intro-view.scss";
