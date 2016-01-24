@@ -104,10 +104,13 @@ $(document).ready(function(){
 		// ), document.getElementById('home'));
 		ReactDom.render((
 			<Router history={appHistory}>
-				<Route path="/" component={AppController}>
-					<IndexRoute component={DashboardController} />
-					<Route path="dashboard" component={DashboardController} />
-					<Route path="settings" component={SettingsController} />
+				<Route path="/" component={App}>
+					<IndexRoute component={Home}/>
+					<Route path="/app" component={AppController}>
+						<IndexRoute component={DashboardController} user={"faraaz"}/>
+						<Route path="dashboard" {...this.props} component={DashboardController} />
+						<Route path="settings" component={SettingsController} />
+					</Route>
 				</Route>
 			</Router>
 		), document.getElementById('home'));

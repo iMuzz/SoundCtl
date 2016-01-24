@@ -16,7 +16,7 @@ export class FluxStore extends EventEmitter {
 		this.on(CHANGE_EVENT, callback);
 	}
 
-	removeChangeListener(){
+	removeChangeListener(callback){
 		console.log('Remove event listener: ', CHANGE_EVENT);
 		this.removeListener(CHANGE_EVENT, callback);
 	}

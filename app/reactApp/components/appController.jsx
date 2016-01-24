@@ -17,26 +17,15 @@ export class AppController extends React.Component {
 		this.state = { 
 			profile: null
 		};
-
-		Object.assign(this.state, dashStoreInstance.getState());
 	}
 
 	componentDidMount(){
 		this.props.lock.getProfile(this.props.idToken, (err, profile) => {
 			if(err) {
-				console.log("Error loading the profile", err);
 				UserActions.logout();
 			}
 			this.setState({profile: profile});
 		});
-
-		dashStoreInstance.addChangeListener(()=>{
-			this.setState(dashStoreInstance.getState());
-		})
-	}
-
-	componentWillUnmount(){
-		dashStoreInstance.removeChangeListener();
 	}
 
 	render() {
@@ -44,9 +33,9 @@ export class AppController extends React.Component {
 			<div id="dashboard">
 				<SideNav />
 				<div className="dash-view-wrap">
-					{this.props.children}
+					{ React.cloneElement(this.props.children, {profile: this.state.profile}) }
 				</div>
-			</div>
+		</div>
 		);
 	}
 }
@@ -65,8 +54,8 @@ class SideNav extends React.Component {
 					</div>
 				</div>
 				<nav>
-					<Link className="tab active" to="/dashboard"> Dashboard </Link> 
-					<Link className="tab" to="/settings"> Settings </Link>
+					<Link className="tab active" to="app/dashboard"> Dashboard </Link> 
+					<Link className="tab" to="app/settings"> Settings </Link>
 				</nav>
 			</div>
 		);
