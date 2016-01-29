@@ -1,6 +1,7 @@
 #dashboard {
 	display: flex;
 	min-height: 100vh;
+	min-width: 1100px;
 }
 
 .left-nav {
@@ -9,4 +10,11 @@
 
 .dash-view-wrap {
 	width: 85%;
+}
+
+.settings-view {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

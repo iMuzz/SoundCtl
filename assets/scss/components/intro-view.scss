@@ -1,0 +1,61 @@
+@import "../_variables";
+@import "../modules/_mixins";
+
+.intro-view {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+
+
+	.icon-wrap {
+		// text-align: center;
+		// margin: 70px 0px;
+	}
+
+	.content-wrap {
+		width: 70%;
+
+		.content {
+			padding: 70px 0px;
+			&> * {
+				margin-bottom: 20px;
+			}
+			h1 {
+				font-weight: 500;
+				font-size: 18px;
+			}
+			
+			#callsign-form {
+				input {
+					display: block;
+				}
+
+				input:placeholder-shown {
+					font-size: 16px;
+				}
+
+				input[type=text] {
+					padding: 15px;
+					border: 1px solid #333;
+					width: 100%;
+					margin-bottom: 20px;
+					font-size: 16px;
+				}
+
+				input[type=submit] {
+					font-size: 18px;
+					color: white;
+					padding: 15px;
+					width: 100%;
+					background-color: $secondary-color;
+				}
+			}
+		}
+	}
+
+	.progress-trail {
+		margin-bottom: 15%;
+	}
+}
