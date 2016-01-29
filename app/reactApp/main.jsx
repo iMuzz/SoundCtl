@@ -7,7 +7,7 @@ const appHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 
 import $ from                                    'jquery';
 import {AppController} from                      './components/appController';
-import {DashboardController, SettingsController} from                './components/DashboardController';
+import {DashboardController, SettingsController} from                './components/dashboardController';
 import {Home} from                               './components/home'
 import {Mixer} from                              './components/mixer';
 import {socketManager} from                      './modules/websocket';
@@ -84,7 +84,7 @@ class App extends React.Component {
 }
 
 $(document).ready(function(){
-	
+
 	window.addEventListener("hashchange", function(){
 		if (window.location.hash.substr(0,15) === "#/access_token=") {
 			localStorage.setItem('auth0Hash', window.location.hash.replace('/', ''));
