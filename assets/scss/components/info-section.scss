@@ -1,0 +1,27 @@
+.info-section-container {
+	display: flex;
+	padding: 50px 0px;
+	.group-right {
+		width: 50%;
+		display: flex;
+		justify-content: center;
+	}
+	.group-left {
+		width: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-flow: column;
+
+		h1 {
+			margin-bottom: 20px;
+			font-weight: 400;
+			font-size: 22px;
+		}
+
+		p {
+			line-height: 1.5;
+			padding: 0px 150px;
+		}
+	}
+}
