@@ -1,13 +1,12 @@
 @import "../_variables";
 @import "../modules/_mixins";
 
-.station-creator {
+.intro-cta-wrap {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 	height: 100%;
-
 
 	.icon-wrap {
 		// text-align: center;

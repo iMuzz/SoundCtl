@@ -31,7 +31,7 @@ export class StationCreator extends React.Component {
 
 	render() {
 		return  ( 
-			<div className="station-creator">
+			<div className="intro-cta-wrap station-creator">
 				<div className="icon-wrap"> 
 					<img src="/images/icons/tower.svg"/>
 				</div>

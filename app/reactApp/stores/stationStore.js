@@ -60,8 +60,9 @@ class StationStore extends FluxStore {
 		});
 	}
 
-	deleteStation(callsign){
-		this.loading();
+	deleteStation(){
+		var callsign = dashState.station;
+
 		$.ajax({
 			headers: {'Authorization': 'Bearer ' + localStorage.getItem('userToken') },
 			url: '/api/stations/' + callsign,
@@ -69,10 +70,8 @@ class StationStore extends FluxStore {
 		}).done((data) => {
 			dashState.station = '';
 			this.emitChange()
-			this.finishProgress();
 		}).error(err => {
 			console.log('Delete Failed!');
-			this.finishProgress();
 		});
 	}
 }
@@ -86,7 +85,7 @@ AppDispatcher.register( action => {
 			stationStoreInstance.emitChange();
 			break;
 		case "DELETE_STATION":
-			stationStoreInstance.deleteStation(action.payload);
+			stationStoreInstance.deleteStation();
 		default:
 			break;
 	}
