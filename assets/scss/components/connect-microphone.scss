@@ -1,0 +1,10 @@
+@import "../_variables";
+@import "../modules/_mixins";
+
+.connect-mic {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+}

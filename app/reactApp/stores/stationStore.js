@@ -2,35 +2,40 @@ import {FluxStore} from     './fluxStore';
 import AppDispatcher from   '../dispatcher/AppDispatcher';
 import $ from               'jquery';
 
+let privateVars = {
+	cacheAvailable: false
+};
+
 let dashState = {
 	progressState: 100,
-	stationLoaded: false
+	stationLoaded: false,
+	station: ""
 };
 
 function reset() {
 	dashState = {
 		progressState: 50,
-		stationLoaded: false
+		stationLoaded: false,
+		station: ""
 	};
 }
 
-class DashStore extends FluxStore {
+class StationStore extends FluxStore {
 	constructor(){
 		super();
 	}
 
 	getState(){
-		if (Object.keys(dashState).length === 2) { // If station not retrieved from API
+		if (!privateVars.cacheAvailable) { // If station not retrieved from API
 			console.log('station not here so getting the station....')
-			this.loading();
 			$.ajax({
 				headers: {'Authorization': 'Bearer ' + localStorage.getItem('userToken') },
 				url: '/api/stations',
 				method: 'GET',
 			}).done((data) => {
-				dashState.stationLoaded = true;
+				privateVars.cacheAvailable = true;
 				Object.assign(dashState, data);
-				this.finishProgress();
+				console.log("Dash State", dashState)
 				this.emitChange();
 			}).error(err => {
 				console.log('GET failed with..', err)
@@ -42,7 +47,6 @@ class DashStore extends FluxStore {
 	}
 
 	createStation(callsign){
-		this.loading();
 		$.ajax({
 			headers: {'Authorization': 'Bearer ' + localStorage.getItem('userToken') },
 			url: '/api/stations',
@@ -50,10 +54,9 @@ class DashStore extends FluxStore {
 			data: {'callsign': callsign}
 		}).done(() => {
 			dashState.station = callsign;
+			console.log("Dash state: ", dashState);
 			this.emitChange();
-			this.finishProgress();
 		}).error(err => {
-			this.finishProgress();
 		});
 	}
 
@@ -72,31 +75,21 @@ class DashStore extends FluxStore {
 			this.finishProgress();
 		});
 	}
-
-	loading(){
-		dashState.progressState = 50;
-		this.emitChange();
-	}
-
-	finishProgress(){
-		dashState.progressState = 100;
-		this.emitChange();
-	}
 }
 
-let DashStoreInstance = new DashStore();
+let stationStoreInstance = new StationStore();
 
 AppDispatcher.register( action => {
 	switch(action.actionType) {
 		case "CREATE_STATION":
-			DashStoreInstance.createStation(action.payload);
-			DashStoreInstance.emitChange();
+			stationStoreInstance.createStation(action.payload);
+			stationStoreInstance.emitChange();
 			break;
 		case "DELETE_STATION":
-			DashStoreInstance.deleteStation(action.payload);
+			stationStoreInstance.deleteStation(action.payload);
 		default:
 			break;
 	}
 });
 
-export default DashStoreInstance;
+export default stationStoreInstance;

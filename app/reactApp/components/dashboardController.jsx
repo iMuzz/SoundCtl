@@ -2,7 +2,7 @@ import React from                       'react'
 import {Navbar} from                    './navbar'
 import {StationManager} from            './stationManager'
 import {StationCreator} from            './stationCreator'
-import dashStoreInstance from           '../stores/DashStore'
+import stationStoreInstance from           '../stores/stationStore'
 import ProgressBar from                 'react-progress-bar-plus'
 
 let UserActions = require('../actions/UserActions');
@@ -13,17 +13,17 @@ export class DashboardController extends React.Component {
 		super(props);
 
 		this.state = {};
-		Object.assign(this.state, dashStoreInstance.getState());
+		Object.assign(this.state, stationStoreInstance.getState());
 	}
 
 	componentDidMount(){
-		dashStoreInstance.addChangeListener(()=>{
-			this.setState(dashStoreInstance.getState());
+		stationStoreInstance.addChangeListener(()=>{
+			this.setState(stationStoreInstance.getState());
 		});
 	}
 
 	componentWillUnmount(){
-		dashStoreInstance.removeChangeListener(() => {});
+		stationStoreInstance.removeChangeListener(() => {});
 	}
 
 	getView() {
@@ -54,6 +54,45 @@ export class DashboardController extends React.Component {
 	}
 }
 
+class IntroUser extends React.Component {
+
+	constructor(props) {
+		super(props);
+
+		this.state = {}
+		Object.assign(this.state, stationStoreInstance.getState());
+		console.log("IntroUser State in constructor: ", this.state);
+
+	}
+
+	componentDidMount(){
+		stationStoreInstance.addChangeListener(()=>{
+			console.log("IntroUser State when stationStore updates...: ", this.state);
+			console.log("componentDidMount: ", stationStoreInstance.getState());
+			this.setState(stationStoreInstance.getState());
+		});
+	}
+
+	componentWillUnmount(){
+		stationStoreInstance.removeChangeListener(() => {});
+	}
+
+	render() {
+		var component;
+
+		if (this.state.station !== "") { //if the user doesn't have a station or has deleted a station
+			component = <ConnectMicrophone />;
+		} else{
+			component = <StationCreator />;
+		};
+		return  ( 
+			<div className="intro-view">
+				{ component }
+			</div>
+		);
+	}
+}
+
 export class SettingsController extends React.Component {
 
 	constructor(props) {
@@ -69,33 +108,18 @@ export class SettingsController extends React.Component {
 	}
 }
 
-class IntroUser extends React.Component {
+class ConnectMicrophone extends React.Component {
 
 	constructor(props) {
 		super(props);
 	}
 
-	handleCallsignChange(e){
-		this.setState({callsign: e.target.value});
-	}
-
 	render() {
 		return  ( 
-			<div className="intro-view">
+			<div className="connect-mic">
 				<div className="icon-wrap"> 
-					<img src="/images/icons/tower.svg"/>
+					<img src="/images/icons/mic.svg"/>
 				</div>
-				<div className="content-wrap">
-					<div className="content">
-						<h1>Create Station</h1>
-						<h3>Please enter the name of the station that you would like to create.</h3>
-						<form id="callsign-form" ref="form" onSubmit={this.handleSubmit}>
-							<input type="text" name="callsign" placeholder="Station Name" onChange={this.handleCallsignChange}/>
-							<input type="submit" value="Create" className="primary-cta"/>
-						</form>
-					</div>
-				</div>
-				<div className="progress-trail"> Progress trail </div>
 			</div>
 		);
 	}

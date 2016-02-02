@@ -4,7 +4,6 @@ import {Navbar} from                             './navbar'
 import {Avatar} from                             './avatar'
 import {StationManager} from                     './stationManager'
 import {StationCreator} from                     './stationCreator'
-import dashStoreInstance from                    '../stores/DashStore'
 import ProgressBar from                          'react-progress-bar-plus'
 
 

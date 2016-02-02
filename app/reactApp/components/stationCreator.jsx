@@ -31,18 +31,19 @@ export class StationCreator extends React.Component {
 
 	render() {
 		return  ( 
-			<div className="panel-wrap">
-				<div className="panel">
-					<form ref="form" onSubmit={this.handleSubmit}>
-						<h1> Enter Station Name</h1>
-						<div>
-							<input name="callsign" placeholder="radio" value={this.state.callsign} onChange={this.handleCallsignChange}/>
-							<span>.soundctl.com</span>
-						</div>
-						<div className="buttonWrap">
-							<input className="submit" type="submit" value="Create Station"/>
-						</div>
-					</form>
+			<div className="station-creator">
+				<div className="icon-wrap"> 
+					<img src="/images/icons/tower.svg"/>
+				</div>
+				<div className="content-wrap">
+					<div className="content">
+						<h1>Create Station</h1>
+						<h3>Please enter the name of the station that you would like to create.</h3>
+						<form id="callsign-form" ref="form" onSubmit={this.handleSubmit}>
+							<input type="text" name="callsign" placeholder="Station Name" onChange={this.handleCallsignChange}/>
+							<input type="submit" value="Create" className="primary-cta"/>
+						</form>
+					</div>
 				</div>
 			</div>
 		);

@@ -66,11 +66,11 @@ router.get('/websocket', function(req, res, next) {
 //   res.status(200).end();
 // });
 
-// // Destroy all stations (testing purposes)
-// router.get('/destroystations', function(req, res, next) {
-//   kradEngine.destroyAllStations();
-//   res.status(200).end();
-// });
+// Destroy all stations (testing purposes)
+router.get('/destroystations', function(req, res, next) {
+  kradEngine.destroyAllStations();
+  res.status(200).end();
+});
 
 
 module.exports = router;
