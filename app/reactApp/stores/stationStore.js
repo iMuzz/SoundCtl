@@ -1,6 +1,12 @@
-import {FluxStore} from     './fluxStore';
-import AppDispatcher from   '../dispatcher/AppDispatcher';
-import $ from               'jquery';
+import {FluxStore} from       './fluxStore';
+import AppDispatcher from     '../dispatcher/AppDispatcher';
+import $ from                 'jquery';
+import {EventEmitter} from    'fbemitter';
+
+const CHANGE_EVENT = 'IntroStoreChange';
+let emitter = new EventEmitter();
+
+let token;
 
 let privateVars = {
 	cacheAvailable: false
@@ -20,14 +26,25 @@ function reset() {
 	};
 }
 
-class StationStore extends FluxStore {
-	constructor(){
-		super();
+class StationStore {
+	constructor(){}
+
+	emitChange() {
+		console.log('StationStore has changed! Emitting event...', CHANGE_EVENT );
+		emitter.emit(CHANGE_EVENT);
+	}
+
+	addChangeListener(callback){
+		token = emitter.addListener(CHANGE_EVENT, callback);
+	}
+
+	removeChangeListener(callback){
+		console.log('REMOVE event listener from stationStore ', CHANGE_EVENT);
+		token.remove();
 	}
 
 	getState(){
 		if (!privateVars.cacheAvailable) { // If station not retrieved from API
-			console.log('station not here so getting the station....')
 			$.ajax({
 				headers: {'Authorization': 'Bearer ' + localStorage.getItem('userToken') },
 				url: '/api/stations',
@@ -35,13 +52,11 @@ class StationStore extends FluxStore {
 			}).done((data) => {
 				privateVars.cacheAvailable = true;
 				Object.assign(dashState, data);
-				console.log("Dash State", dashState)
 				this.emitChange();
 			}).error(err => {
 				console.log('GET failed with..', err)
 			});
 		} else {
-			console.log('Returning cached station....')
 			return dashState;
 		};
 	}

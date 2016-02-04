@@ -7,7 +7,8 @@ const appHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 
 import $ from                                    'jquery';
 import {AppController} from                      './components/appController';
-import {DashboardController, SettingsController} from                './components/dashboardController';
+import {DashboardController} from                './components/dashboardController';
+import {SettingsController} from                 './components/SettingsController';
 import {Home} from                               './components/home'
 import {Mixer} from                              './components/mixer';
 import {socketManager} from                      './modules/websocket';

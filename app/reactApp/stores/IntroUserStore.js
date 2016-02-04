@@ -1,26 +1,46 @@
 import {FluxStore} from     './fluxStore';
 import AppDispatcher from   '../dispatcher/AppDispatcher';
 import $ from               'jquery';
+import {EventEmitter} from    'fbemitter';
 
-let dashState = {
-	progressState: 100,
-	stationLoaded: false
+const CHANGE_EVENT = 'IntroStoreChange';
+let emitter = new EventEmitter();
+
+let IntroUserViewState = {
+	hasChanged:  false
 };
 
 function reset() {
-	dashState = {
-		progressState: 50,
-		stationLoaded: false
+	IntroUserViewState = {
+		hasChanged: false
 	};
 }
 
-class IntroUserStore extends FluxStore {
-	constructor(){
-		super();
+let token;
+
+class IntroUserStore {
+	constructor(){}
+
+	emitChange() {
+		console.log('emitting event..', CHANGE_EVENT );
+		emitter.emit(CHANGE_EVENT);
+	}
+
+	addChangeListener(callback){
+		token = emitter.addListener(CHANGE_EVENT, callback);
+	}
+
+	removeChangeListener(callback){
+		console.log('REMOVE event listener from IntroStore for BUTTON: ', CHANGE_EVENT);
+		token.remove();
 	}
 
 	getState(){
+		return IntroUserViewState;
+	}
 
+	changeSomething(){
+		IntroUserViewState.hasChanged = true;
 	}
 }
 
@@ -28,14 +48,13 @@ let introUserStoreInstance = new IntroUserStore();
 
 AppDispatcher.register( action => {
 	switch(action.actionType) {
-		// case "CREATE_STATION":
-		// 	introUserStoreInstance.createStation(action.payload);
-		// 	introUserStoreInstance.emitChange();
-		// 	break;
-		// case "DELETE_STATION":
-		// 	introUserStoreInstance.deleteStation(action.payload);
-		// default:
-		// 	break;
+		case "TEST":
+			introUserStoreInstance.changeSomething();
+			console.log("IntroUserStore emitting change...");
+			introUserStoreInstance.emitChange();
+			break;
+		default:
+			break;
 	}
 });
 

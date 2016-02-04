@@ -1,9 +1,7 @@
 import React from                                'react'
-import { Router, Route, Link, IndexRoute} from  'react-router';
-import {Navbar} from                             './navbar'
+import { Router, Route, Link, IndexRoute} from  'react-router'
 import {Avatar} from                             './avatar'
 import {StationManager} from                     './stationManager'
-import {StationCreator} from                     './stationCreator'
 import ProgressBar from                          'react-progress-bar-plus'
 
 
