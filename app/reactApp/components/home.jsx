@@ -18,10 +18,10 @@ export class Home extends React.Component {
 		// </form>
 		return (
 			<div>
-				<div className="hero-wrapper"> 
+				<div className="hero-wrapper">
 					<nav className="nav">
 						<div className="nav-item"> SoundCtl </div>
-						<div className="nav-right"> 
+						<div className="nav-right">
 							<div className="nav-item" onClick={this.showLock}> Login</div>
 						</div>
 					</nav>
@@ -49,7 +49,9 @@ export class InfoSection extends React.Component {
 			<div className="info-section-container">
 				<div className="group-left">
 					<h1>Communicate Seamlessly</h1>
-					<p>It is a long established fact David Richards is complete asshat. David, if you’re reading this be more of an asshole to the dojo members that waste your time and less of an asshole to me! Also, lose some damn weight! With Love, Faraaz.</p>
+					<p>Audio streaming with simplicity but yet  a powerful tool to reach audiences beyond the horizon.
+					Soundctl powerful audio streaming starts within your reach from your browser.
+					Connect  your microphone and you are ready to broadcast to the world.</p>
 				</div>
 				<div className="group-right">
 					<img src="/images/icons/browser-window.svg" alt=""/>
@@ -83,11 +85,11 @@ export class InfoSection extends React.Component {
 // 			<div>
 // 				<nav className="nav">
 // 					<div className="nav-item"> SoundCtl </div>
-// 					<div className="nav-right"> 
+// 					<div className="nav-right">
 // 						<div className="nav-item" onClick={this.showLock}> Login</div>
 // 					</div>
 // 				</nav>
-// 				<div className="hero-wrapper"> 
+// 				<div className="hero-wrapper">
 // 					<div className="bg-hero bg-hero-1"></div>
 // 					<div className="hero-content">
 // 						<div className="company"> SoundCtl </div>
