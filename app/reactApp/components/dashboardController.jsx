@@ -39,6 +39,7 @@ export class DashboardController extends React.Component {
 				<div className="dash-view">
 					<IntroUser station={this.state.station}/>
 				</div>
+				<ProgressBar />
 			</div>
 		);
 	}
