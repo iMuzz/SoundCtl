@@ -2,6 +2,8 @@ import {FluxStore} from       './fluxStore';
 import AppDispatcher from     '../dispatcher/AppDispatcher';
 import {EventEmitter} from    'fbemitter';
 
+var Source = require('../modules/_source/source.js');
+
 const CHANGE_EVENT = 'MicStore';
 let emitter = new EventEmitter();
 
@@ -39,62 +41,64 @@ class MicrophoneStore {
 	}
 
 	connectMicrophone(){
+		var src;
+		var audioCtx;
+		var AudioContext;
+		AudioContext = window.AudioContext || window.webkitAudioContext;
+		audioCtx = new AudioContext();
+		src = new Source();
 		if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-			// Using new API
-			console.log("Using new API");
-			var p = navigator.mediaDevices.getUserMedia({
-				audio: true,
-				video: false
-			});
-			p.then(function(stream) {
-			  /*console.log("Mediastream: "+ stream);
-			  var tracks = stream.getTracks();
-			  tracks.forEach(function(track) {
-			    console.log(track);
-			    console.log(track.kind + " track: " + track.label + " id = " + track.id);
-			  });*/
-			  list_devices();
-			});
-			p.catch(function(err) {
-			  console.log("Error Connecting to UserMedia: ", err.name);
-			});
-		} else {
-			// Using older API
-			console.log("USing old API");
-			navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.getUserMedia;
-			var success = function(stream) {
-				console.log("Mediastream: " + stream);
-				var tracks = stream.getTracks();
-				tracks.forEach(function(track) {
-					console.log(track.kind + " track: " + track.label + " id = " + track.id);
-				});
-				list_devices();
+			navigator.mediaDevices.getUserMedia({
+			audio: true,
+			video: false
+			}).then(function(stream) {
+			try {
+				src.init(audioCtx, "wss://fun.kradradio.com/incoming/source.occ", stream);
+			} catch(e) {
+				console.log(e);
+				return;
 			}
-		  var error = function(err) {
-		    console.log(err)
-		  }
-		  navigator.getUserMedia({
-		    video: true,
-		    audio: true
-		  }, success, error);
+			src.start();
+			}, function(e) {
+			  console.log(e);
+			});
+		  } else {
+			navigator.getUserMedia = (navigator.getUserMedia ||
+			navigator.webkitGetUserMedia ||
+			navigator.mozGetUserMedia ||
+			navigator.msGetUserMedia);
+			navigator.getUserMedia({
+			audio: true,
+			video: false
+			}, function(stream) {
+			try {
+				src.init(audioCtx, "wss://fun.kradradio.com/incoming/source.occ", stream);
+			} catch(e) {
+				console.log(e);
+				return;
+			}
+			src.start();
+			}, function(e) {
+			console.log(e);
+			});
 		}
 	}
 }
 
 function list_devices() {
   navigator.mediaDevices.enumerateDevices()
-    .then(function(devices) {
-      devices.forEach(function(device) {
-        console.log(device.kind + ": " + device.label +
-          " id: " + device.deviceId +
-          " groupid: " + device.groupId);
-      });
-      //cap_device("TTXEbiGC38MPa8DccEho5kNCkK/ThEv+j6ajjRFiISM=");
-      cap_device(devices[0].deviceId);
-    })
-    .catch(function(err) {
-      //console.log(err.name + ": " + err.message);
-    });
+	.then(function(devices) {
+	  devices.forEach(function(device) {
+		console.log(device.kind + ": " + device.label +
+		  " id: " + device.deviceId +
+		  " groupid: " + device.groupId);
+	  });
+	  //cap_device("TTXEbiGC38MPa8DccEho5kNCkK/ThEv+j6ajjRFiISM=");
+	  cap_device(devices[0].deviceId);
+	})
+	.catch(function(err) {
+	  //console.log(err.name + ": " + err.message);
+	});
 }
 
 let microphoneStoreInstance = new MicrophoneStore();
