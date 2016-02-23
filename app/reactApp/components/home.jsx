@@ -20,14 +20,14 @@ export class Home extends React.Component {
 			<div>
 				<div className="hero-wrapper">
 					<nav className="nav">
-						<div className="nav-item"> SoundCtl </div>
+						<div className="nav-item"> soundCTL </div>
 						<div className="nav-right">
 							<div className="nav-item" onClick={this.showLock}> Login</div>
 						</div>
 					</nav>
 					<div className="bg-hero bg-hero-1"></div>
 					<div className="hero-content">
-						<div className="company"> Audio streaming, simplified </div>
+						<div className="company"> Audio streaming, from the future </div>
 						{/**<button className="hero-cta"> Request Demo </button **/}
 						<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
 							<input placeholder="Enter email address" type="email" name="EMAIL" required/>
