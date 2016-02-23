@@ -60,6 +60,7 @@ export class InfoSection extends React.Component {
 					<div className="info-block">
 						<img src="/images/icons/tower.svg"/>
 						<h1>Take control of Audio</h1>
+						<i className="ti-eye"></i>
 						<p> Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. </p>
 					</div>
 					<div className="info-block">
