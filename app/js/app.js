@@ -55,7 +55,7 @@
 			var mountPoints = [];
 
 			// API call  and get studio paths
-			return $http.get('http://kradradio:5000/studio').then(function(studioPaths){
+			return $http.get('http://fun.kradradio.com/studio').then(function(studioPaths){
 				var promises = [];
 				
 				// change it to forEach

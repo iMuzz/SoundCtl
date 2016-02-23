@@ -56,13 +56,13 @@
 			var mountPoints = [];
 
 			// API call  and get studio paths
-			return $http.get('http://kradradio:5000/studio').then(function(studioPaths){
+			return $http.get('http://fun.kradradio.com/studio').then(function(studioPaths){
 				var promises = [];
 				
 				// change it to forEach
 				for(var i = 0; i < studioPaths.data.length; i++) {
 					console.log('Requesting path ' + studioPaths.data[i]);
-					promises.push($http.get('http://kradradio:5000'+studioPaths.data[i]).success(searchForOutput));
+					promises.push($http.get('http://fun.kradradio.com'+studioPaths.data[i]).success(searchForOutput));
 				}
 				
 				return $q.all(promises).then(function(){
@@ -74,7 +74,7 @@
 			function generateStreamUrls(mountPoints){
 				var urls = [];
 				for (var i = 0; i < mountPoints.length; i++) {
-					urls.push("http://kradradio:5000/" + mountPoints[i]);
+					urls.push("http://fun.kradradio.com/" + mountPoints[i]);
 				}
 				return urls;
 			}

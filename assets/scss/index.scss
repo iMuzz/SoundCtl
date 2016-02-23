@@ -43,7 +43,7 @@ $main: #D8D8D8;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	position: fixed;
+	position: absolute;
 	z-index: 2;
 	color: white;
 	font-size: 16px;
@@ -136,9 +136,11 @@ $main: #D8D8D8;
 		width: 80%;
 		margin: auto;
 		padding: 0px 5%;
+		display: flex;
+		justify-content: center;
 	    input[type='email'] {
 			width: 300px;
-			height: 44px;
+			height: 45px;
 
 			font-size: 1em;
 			text-align: center;
@@ -162,14 +164,14 @@ $main: #D8D8D8;
 	    	display: inline-block;
 	    	line-height: 1.5;
 	    	padding: 10px 40px;
-	    	border: 0px;
-	    	background-color: #CF1C22;
+	    	border: 1px solid white;
+	    	background-color: transparent;
 	    	color: white;
 	    	font-weight: 400;
 	    	height: 45px;
 
 	    	&:hover {
-	    		background-color: lighten(#CF1C22, 10%);
+	    		// background-color: lighten(#CF1C22, 10%);
 	    	}
 			
 			@media only screen and(max-width: 768px) {
@@ -187,7 +189,7 @@ $main: #D8D8D8;
 }
 
 .bg-hero-1 {
-	background: url('../images/hero-1-min.jpg');
+	// background: url('../images/hero-1-min.jpg');
 }
 
 
