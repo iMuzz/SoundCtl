@@ -77,19 +77,19 @@ $main: #D8D8D8;
 		position: absolute;
 		width: 100%;
 		height: 100%;
-        background: -webkit-linear-gradient(95deg,#FF512F,#DD2476);
+        background: linear-gradient(95deg,#FF512F,#DD2476);
 		opacity: .9;
 		z-index: 1;
-		-webkit-animation: back-hue 60s infinite linear;
+		animation: back-hue 60s infinite linear;
 	}
-	@-webkit-keyframes back-hue {
-			from {
-			-webkit-filter: hue-rotate(0deg);
-			}
+	@keyframes back-hue {
+		from {
+		filter: hue-rotate(0deg);
+		}
 
-			to {
-			-webkit-filter: hue-rotate(-360deg);
-			}
+		to {
+		filter: hue-rotate(-360deg);
+		}
 	}
 	
 	.bg-hero {
