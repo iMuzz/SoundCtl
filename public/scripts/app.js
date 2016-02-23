@@ -56,13 +56,13 @@
 			var mountPoints = [];
 
 			// API call  and get studio paths
-			return $http.get('http://demo.soundctl.com/studio').then(function(studioPaths){
+			return $http.get('https://demo.soundctl.com/studio').then(function(studioPaths){
 				var promises = [];
 				
 				// change it to forEach
 				for(var i = 0; i < studioPaths.data.length; i++) {
 					console.log('Requesting path ' + studioPaths.data[i]);
-					promises.push($http.get('http://demo.soundctl.com'+studioPaths.data[i]).success(searchForOutput));
+					promises.push($http.get('https://demo.soundctl.com'+studioPaths.data[i]).success(searchForOutput));
 				}
 				
 				return $q.all(promises).then(function(){
@@ -74,7 +74,7 @@
 			function generateStreamUrls(mountPoints){
 				var urls = [];
 				for (var i = 0; i < mountPoints.length; i++) {
-					urls.push("http://demo.soundctl.com/" + mountPoints[i]);
+					urls.push("https://demo.soundctl.com/" + mountPoints[i] + "?backbuffer=none");
 				}
 				return urls;
 			}
