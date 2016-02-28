@@ -16,12 +16,12 @@ export class Home extends React.Component {
 				<div className="hero-wrapper">
 					<nav className="nav">
 						<div className="nav-item-wrap">
-							<div className="nav-item"> SoundCTL </div>
+							<div className="nav-item logo"> SoundCTL </div>
 							<div className="nav-right">
 								<div className="nav-item"> Features </div>
 								<div className="nav-item"> Pricing </div>
+								<div className="nav-item" onClick={this.showLock}> Docs </div>
 								<div className="nav-item" onClick={this.showLock}> Login</div>
-								<div className="nav-item" onClick={this.showLock}> Register</div>
 							</div>
 						</div>
 					</nav>
@@ -29,13 +29,10 @@ export class Home extends React.Component {
 					<div className="hero-content">
 						<div className="company"> Audio streaming, from the future </div>
 						{/**<button className="hero-cta"> Request Demo </button **/}
-						{ /**
 						<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
 							<input placeholder="Enter email address" type="email" name="EMAIL" required/>
 							<input className="cta-base" type="submit" value="Signup"/>
 						</form>
-						**/
-						}
 					</div>
 					<div id="wave-container"></div>
 				</div>
