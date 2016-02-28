@@ -36,6 +36,24 @@ $main: #D8D8D8;
 }
 
 .nav {
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	&:before {
+		content: "";
+	    height: 80px;
+	    width: 100%;
+	    position: absolute;
+	    background-color: white;
+	    z-index: -1;
+	    opacity: .2;
+	    left: 0px;
+	}
+}
+.nav-item-wrap {
 	height: $nav-height;
 	max-height: $nav-height;
 	padding: 0px 5%;
@@ -43,8 +61,6 @@ $main: #D8D8D8;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	position: absolute;
-	z-index: 2;
 	color: white;
 	font-size: 16px;
 
@@ -56,10 +72,12 @@ $main: #D8D8D8;
 			display: flex;
 			align-items: center;
 			position: relative;
+			justify-content: space-between;
+			margin: 0px 20px;
 		}
 	}
 	div.nav-item {
-		font-size: 1.5em;
+		font-size: 1em;
 		display: flex;
 		align-items: center;
 

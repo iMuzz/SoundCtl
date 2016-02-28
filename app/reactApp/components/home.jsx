@@ -15,13 +15,15 @@ export class Home extends React.Component {
 			<div>
 				<div className="hero-wrapper">
 					<nav className="nav">
-						<div className="nav-item"> SoundCTL </div>
-						<div className="nav-item"> Features </div>
-						<div className="nav-item"> Pricing </div>
-						<div className="nav-right">
-							<div className="nav-item" onClick={this.showLock}> Login</div>
+						<div className="nav-item-wrap">
+							<div className="nav-item"> SoundCTL </div>
+							<div className="nav-right">
+								<div className="nav-item"> Features </div>
+								<div className="nav-item"> Pricing </div>
+								<div className="nav-item" onClick={this.showLock}> Login</div>
+								<div className="nav-item" onClick={this.showLock}> Register</div>
+							</div>
 						</div>
-						<div className="nav-item" onClick={this.showLock}> Register</div>
 					</nav>
 					<div className="bg-hero bg-hero-1"></div>
 					<div className="hero-content">
