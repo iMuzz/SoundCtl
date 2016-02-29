@@ -16,18 +16,18 @@ export class Home extends React.Component {
 				<div className="hero-wrapper">
 					<nav className="nav">
 						<div className="nav-item-wrap">
-							<div className="nav-item logo"> SoundCTL </div>
+							<div className="nav-item logo animated fadeInDown"> SoundCTL </div>
 							<div className="nav-right">
-								<div className="nav-item"> Features </div>
-								<div className="nav-item"> Pricing </div>
-								<div className="nav-item"> Docs </div>
-								<div className="nav-item" onClick={this.showLock}> Login</div>
+								<div className="nav-item animated fadeInDown"> Features </div>
+								<div className="nav-item animated fadeInDown"> Pricing </div>
+								<div className="nav-item animated fadeInDown"> Docs </div>
+								<div className="nav-item animated fadeInDown" onClick={this.showLock}> Login</div>
 							</div>
 						</div>
 					</nav>
 					<div className="bg-hero bg-hero-1"></div>
 					<div className="hero-content">
-						<div className="company"> Audio mixing, from the future </div>
+						<div className="company animated fadeInDown"> Audio mixing, from the future </div>
 						{/**<button className="hero-cta"> Request Demo </button **/}
 						{/*
 						<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
@@ -184,7 +184,7 @@ export class InfoSection extends React.Component {
 					<h1> Features </h1>
 					<div className="info-block-container">
 						<div className="info-block">
-							<img src="/images/icons/wave.svg"/>
+							<img src="/images/icons/tower.svg"/>
 							<h1>Build Powerful Audio-Streaming Apps</h1>
 							<p>SoundCtl is a simple API that allows you mix audio in realtime. SoundCtl is a simple API that allows you mix audio in realtime. SoundCtl is a simple API that allows you mix audio in realtime. </p>
 						</div>
