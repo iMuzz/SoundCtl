@@ -27,12 +27,14 @@ export class Home extends React.Component {
 					</nav>
 					<div className="bg-hero bg-hero-1"></div>
 					<div className="hero-content">
-						<div className="company"> Audio streaming, from the future </div>
+						<div className="company"> Audio mixing, from the future </div>
 						{/**<button className="hero-cta"> Request Demo </button **/}
+						{/*
 						<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
 							<input placeholder="Enter email address" type="email" name="EMAIL" required/>
 							<input className="cta-base" type="submit" value="Signup"/>
 						</form>
+						*/}
 					</div>
 					<div id="wave-container"></div>
 				</div>
@@ -179,21 +181,24 @@ export class InfoSection extends React.Component {
 		return (
 			<div>
 				<div className="info-section-container">
-					<div className="info-block">
-						<img src="/images/icons/tower.svg"/>
-						<h1>Build Powerful Audio-Streaming Apps</h1>
-						<p>SoundCtl is a simple API that allows you mix audio in realtime. SoundCtl is a simple API that allows you mix audio in realtime. SoundCtl is a simple API that allows you mix audio in realtime. </p>
-					</div>
-					<div className="info-block">
-						<img src="/images/icons/tower.svg"/>
-						<h1>Take control of Audio</h1>
-						<i className="ti-eye"></i>
-						<p> Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. </p>
-					</div>
-					<div className="info-block">
-						<img src="/images/icons/tower.svg"/>
-						<h1> SoundCtl grows with you </h1>
-						<p> SoundCtl will automatically spin up more servers based on the number of listeners that you have.  SoundCtl will automatically spin up more servers based on the number of listeners that you have.</p>
+					<h1> Features </h1>
+					<div className="info-block-container">
+						<div className="info-block">
+							<img src="/images/icons/wave.svg"/>
+							<h1>Build Powerful Audio-Streaming Apps</h1>
+							<p>SoundCtl is a simple API that allows you mix audio in realtime. SoundCtl is a simple API that allows you mix audio in realtime. SoundCtl is a simple API that allows you mix audio in realtime. </p>
+						</div>
+						<div className="info-block">
+							<img src="/images/icons/tower.svg"/>
+							<h1>Take control of Audio</h1>
+							<i className="ti-eye"></i>
+							<p> Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. </p>
+						</div>
+						<div className="info-block">
+							<img src="/images/icons/tower.svg"/>
+							<h1> SoundCtl grows with you </h1>
+							<p> SoundCtl will automatically spin up more servers based on the number of listeners that you have.  SoundCtl will automatically spin up more servers based on the number of listeners that you have.</p>
+						</div>
 					</div>
 				</div>
 			</div>

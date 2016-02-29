@@ -1,24 +1,19 @@
 @import "../_variables";
 
 .info-section-container {
-	display: flex;
 	padding: 50px 0px;
-	justify-content: space-around;
 	border-bottom: 1px solid $grey-light; 
-
-	.group-right {
-		width: 50%;
-		display: flex;
-		justify-content: center;
+	
+	h1 {
+		text-align: center;
+		margin-bottom: 50px;
+		font-size: 1.5em;
 	}
-	.group-left {
-		width: 50%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-flow: column;
-
-	}
+}
+.info-block-container {
+	display: flex;
+	justify-content: space-around;
+	
 	.info-block {
 		display: flex;
 		align-items: center;
