@@ -1,0 +1,131 @@
+@import "../_variables";
+
+
+.light-text {
+	color: lighten($grey-light, 10%);
+	color: #AAB6BB;
+	font-size: .35em;
+}
+.pricing-section {
+	padding: 50px 0px;
+	// background: linear-gradient(180deg,rgba(25,35,45,1),rgba(20,30,70,0.75)),linear-gradient(90deg,#f00,#38f);
+	.column-row {
+		display: flex;
+		justify-content: space-between;
+		padding: 0px 8%;
+
+		.pricing-column {
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+			justify-content: center;
+
+			border: 1px solid $grey-light;
+			border-radius: 5px;
+			color: $primary-color;
+			transition: border-color .5s;
+			&:hover {
+				// border-color: lighten($primary-color, 20%);
+			}
+			.pricing-content {
+				// padding: 50px 75px;
+			}
+
+			&:nth-child(1) {
+			}
+			&:nth-child(2) {
+				margin: 0px 10px;
+				.price-tier {
+					background-color: lighten(#297575, 1%);
+				}
+				
+				.price {
+					border-top-color: darken(#297575, 4%);
+					background-color: darken(#297575, 2%);
+				}
+			}
+
+			&:nth-child(3) {
+				.price-tier {
+					background-color: lighten(#3C6D8E, 1%);
+				}
+				
+				.price {
+					border-top-color: darken(#3C6D8E, 4%);
+					background-color: darken(#3C6D8E, 2%);
+				}
+			}
+
+			.price-tier {
+				font-family: $primary-font-family;
+				font-size: 1.5em;
+				text-align: center;
+				padding: 20px 0px;
+				color: white;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+				background-color: #479E82;
+
+				&:nth-child(2) {
+				}
+			}
+
+			.price {
+				background-color: #3E8C72;
+				border-top: 2px solid darken(#3E8C72, 2%);
+				color: white;
+				padding: 20px 0px;
+				font-family: $primary-font-family;
+				text-align: center;
+				font-size: 1.8em;
+			}
+
+			ul {
+				color: darken(#AAB6BB, 10%);
+				font-size: 1em;
+
+				li {
+					padding: 15px 15%;
+					border-bottom: 1px solid $grey-light; 
+
+					&:last-child {
+						border: none;
+					}
+				}
+			}
+
+			.cta {
+				border: none;
+				padding: 15px 0px;
+				background-color: #30a2ac;
+				color: $white;
+				border-top: 1px solid white;
+				font-size: 1.3em;
+				width: 100%;
+				font-family: $primary-font-family;
+				transition: background .3s;
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+
+				&:hover {
+					background-color: lighten(#30a2ac, 20%);
+				}
+			}
+		}
+	}
+
+	.fa-times {
+		color: red;	
+	}
+
+	.fa-check {
+		color: green;
+	}
+
+	h2 {
+		margin-top: 50px; 
+		text-align: center;
+		color: $grey-dark;
+		font-size: 1.2em;
+	}
+}

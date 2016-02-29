@@ -1,7 +1,11 @@
+@import "../_variables";
+
 .info-section-container {
 	display: flex;
 	padding: 50px 0px;
 	justify-content: space-around;
+	border-bottom: 1px solid $grey-light; 
+
 	.group-right {
 		width: 50%;
 		display: flex;
