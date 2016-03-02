@@ -38,7 +38,7 @@ export class Home extends React.Component {
 					</div>
 					<div id="wave-container"></div>
 				</div>
-				<InfoSection />
+				<FeaturesSection />
 				<PricingSection />
 				<Footer />
 			</div>
@@ -118,6 +118,42 @@ class PricingSection extends React.Component {
 					</div>
 				</div>
 				<h2> 100% money back guarantee for the first 30 days on any paid plan. </h2>
+			</div>
+		);
+	}
+}
+
+class FeaturesSection extends React.Component {
+
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return  ( 
+			<div className="features-section">
+				<div className="intro-content">
+					<h5> Let us take care of your audio</h5>
+					<h1> Focus on your users </h1>
+					<p> SoundCtl can power your app's backend, including data storage, user authentication, static hosting, and more. Focus on creating extraordinary user experiences. We'll take care of the rest. </p>
+					<button className="cta"> Start Building </button>
+				</div>
+				<div className="features-content">
+					<img src="/images/icons/tower.svg"/>
+					<div>
+
+						<h3>BUILD FOR ANY DEVICE</h3>
+						<p>	Build cross-platform native mobile and web apps with our Android, iOS, and JavaScript SDKs. You can also connect Firebase to your existing backend using our server-side libraries or our REST API.</p>
+					</div>
+				</div>
+				<div className="features-content">
+					<img src="/images/icons/tower.svg"/>
+					<div>
+
+						<h3>BUILD FOR ANY DEVICE</h3>
+						<p>Build cross-platform native mobile and web apps with our Android, iOS, and JavaScript SDKs. You can also connect Firebase to your existing backend using our server-side libraries or our REST API.</p>
+					</div>
+				</div>
 			</div>
 		);
 	}

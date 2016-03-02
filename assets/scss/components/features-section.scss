@@ -1,0 +1,31 @@
+@import "../_variables";
+
+.features-section {
+	@extend .section;
+
+	.intro-content {
+		margin: auto;
+		text-align: center;
+		max-width: 500px;
+
+		h5 {
+			text-transform: uppercase;
+			font-size: .8em;
+		}
+		h1 {
+			font-size: 1.9em;
+			margin: 20px; 
+		}
+
+		p {
+			font-size: 1.2em;
+			font-weight: 300;
+			line-height: 1.5;
+		}
+		
+		.cta {
+			margin-top: 25px;
+			max-width: 50%; 
+		}
+	}
+}
