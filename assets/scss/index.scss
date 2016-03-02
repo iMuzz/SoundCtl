@@ -122,7 +122,7 @@ $main: #D8D8D8;
         background: linear-gradient(180deg,rgba(25,35,45,1),rgba(20,30,70,0.75)),linear-gradient(90deg,#f00,#38f);
 		opacity: .9;
 		z-index: 1;
-		animation: back-hue 60s infinite linear;
+		// animation: back-hue 60s infinite linear;
 	}
 	@keyframes back-hue {
 		from {
@@ -139,7 +139,7 @@ $main: #D8D8D8;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		height: 600px;
+		height: 400px;
 		background-size: cover;
 		filter: blur(2px)
 	}
