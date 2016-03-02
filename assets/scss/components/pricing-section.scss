@@ -8,11 +8,14 @@
 }
 .pricing-section {
 	padding: 50px 0px;
+	text-align: center;
 	// background: linear-gradient(180deg,rgba(25,35,45,1),rgba(20,30,70,0.75)),linear-gradient(90deg,#f00,#38f);
 	.column-row {
 		display: flex;
 		justify-content: space-between;
 		padding: 0px 8%;
+		max-width: 1400px;
+		margin: auto;
 
 		.pricing-column {
 			display: flex;
