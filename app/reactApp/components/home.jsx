@@ -4,49 +4,48 @@ import { Link } from      'react-router';
 export class Home extends React.Component {
 	constructor(props){
 		super(props);
-		this.showLock = this.showLock.bind(this);
-	}
-	showLock() {
-		this.props.lock.show();
 	}
 
 	render() {
 		return (
 			<div>
-				<div className="hero-wrapper">
-					<nav className="nav">
-						<div className="nav-item-wrap">
-							<div className="nav-item logo animated fadeInDown"> SoundCTL </div>
-							<div className="nav-right">
-								<div className="nav-item animated fadeInDown"> Features </div>
-								<div className="nav-item animated fadeInDown"> Pricing </div>
-								<div className="nav-item animated fadeInDown"> Docs </div>
-								<div className="nav-item animated fadeInDown" onClick={this.showLock}> Login</div>
-							</div>
-						</div>
-					</nav>
-					<div className="bg-hero bg-hero-1"></div>
-					<div className="hero-content">
-						<div className="company animated fadeInDown"> Audio mixing, from the future </div>
-						{/**<button className="hero-cta"> Request Demo </button **/}
-						{/*
-						<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
-							<input placeholder="Enter email address" type="email" name="EMAIL" required/>
-							<input className="cta-base" type="submit" value="Signup"/>
-						</form>
-						*/}
-					</div>
-					<div id="wave-container"></div>
-				</div>
+				<HeroSection {...this.props} />
 				<FeaturesSection />
-				<PricingSection />
 				<Footer />
 			</div>
 		)
 	}
 }
 
-class PricingSection extends React.Component {
+class HeroNav extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.showLock = this.showLock.bind(this);
+	}
+
+	showLock() {
+		this.props.lock.show();
+	}
+
+	render() {
+		return  ( 
+			<nav className="nav">
+				<div className="nav-item-wrap">
+					<Link to="/" className="nav-item logo"> SoundCTL </Link>
+					<div className="nav-right">
+						<div className="nav-item"> Features </div>
+						<Link  to="/features" className="nav-item"> Pricing </Link>
+						<div className="nav-item"> Docs </div>
+						<div className="nav-item" onClick={this.showLock}> Login</div>
+					</div>
+				</div>
+			</nav>
+		);
+	}
+}
+
+class HeroSection extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -54,70 +53,105 @@ class PricingSection extends React.Component {
 
 	render() {
 		return  ( 
-			<div className="pricing-section">
-				<div className="column-row">
-					<div className="pricing-column">
-						<h1 className="price-tier">
-							Hacker
-						</h1>
-						<div className="price">
-							Free
-						</div>
-						<div className="pricing-content">
-							<div className="features-included">
-								<ul>
-									<li> 25 Connections </li>
-									<li> 10 Listeners </li>
-									<li> 2GB Bandwidth </li>
-									<li> 10GB Disk Space </li>
-									<li> Authentication <i className="fa fa-times"></i> </li>
-								</ul>
-							</div>
-						</div>
-						<button className="cta"> Sign Up</button>
-					</div>
-					<div className="pricing-column">
-						<h1 className="price-tier">
-							Developer
-						</h1>
-						<div className="price">
-							$300 <span className="light-text"> per month</span>
-						</div>
-						<div className="pricing-content">
-							<div className="features-included">
-								<ul>
-									<li> Unlimited Connections</li>
-									<li> 500 Listeners </li>
-									<li> 1TB Bandwidth </li>
-									<li> 50GB Disk Space </li>
-									<li> Authentication <i className="fa fa-check"></i> </li>
-								</ul>
-							</div>
-						</div>
-						<button className="cta"> Purchase </button>
-					</div>
-					<div className="pricing-column">
-						<h1 className="price-tier">
-							Enterprise
-						</h1>
-						<div className="price">
-							$1000 <span className="light-text"> per month</span>
-						</div>
-						<div className="pricing-content">
-							<div className="features-included">
-								<ul>
-									<li> Unlimited Connections</li>
-									<li> 500 Listeners </li>
-									<li> 1TB Bandwidth </li>
-									<li> 1TB Disk Space </li>
-									<li> Authentication <i className="fa fa-check"></i> </li>
-								</ul>
-							</div>
-						</div>
-						<button className="cta"> Purchase </button>
+				<div className="hero-wrapper">
+					<HeroNav {...this.props}/>
+					<div className="bg-hero bg-hero-1"></div>
+					<div className="hero-content">
+						<div className="slogan animated fadeInDown delay-1s"> Audio mixing, from the future </div>
+						{/*
+						<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
+							<input placeholder="Enter email address" type="email" name="EMAIL" required/>
+							<input className="cta-base" type="submit" value="Signup"/>
+						</form>
+						*/}
 					</div>
 				</div>
-				<h2> 100% money back guarantee for the first 30 days on any paid plan. </h2>
+		);
+	}
+}
+
+export class PricingPage extends React.Component {
+
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return  (
+			<div className="pricing-page">
+				<div className="hero-wrapper">
+					<HeroNav {...this.props}/>
+					<div className="bg-hero bg-hero-pricing"></div>
+					<div className="hero-content">
+						<div className="slogan animated fadeInDown"> Pricing and Plans </div>
+					</div>
+				</div>
+				<div className="pricing-section">
+					<div className="column-row">
+						<div className="pricing-column">
+							<h1 className="price-tier">
+								Hacker
+							</h1>
+							<div className="price">
+								Free
+							</div>
+							<div className="pricing-content">
+								<div className="features-included">
+									<ul>
+										<li> 25 Connections </li>
+										<li> 10 Listeners </li>
+										<li> 2GB Bandwidth </li>
+										<li> 10GB Disk Space </li>
+										<li> Authentication <i className="fa fa-times"></i> </li>
+									</ul>
+								</div>
+							</div>
+							<button className="cta"> Sign Up</button>
+						</div>
+						<div className="pricing-column">
+							<h1 className="price-tier">
+								Developer
+							</h1>
+							<div className="price">
+								$300 <span className="light-text"> per month</span>
+							</div>
+							<div className="pricing-content">
+								<div className="features-included">
+									<ul>
+										<li> Unlimited Connections</li>
+										<li> 500 Listeners </li>
+										<li> 1TB Bandwidth </li>
+										<li> 50GB Disk Space </li>
+										<li> Authentication <i className="fa fa-check"></i> </li>
+									</ul>
+								</div>
+							</div>
+							<button className="cta"> Purchase </button>
+						</div>
+						<div className="pricing-column">
+							<h1 className="price-tier">
+								Enterprise
+							</h1>
+							<div className="price">
+								$1000 <span className="light-text"> per month</span>
+							</div>
+							<div className="pricing-content">
+								<div className="features-included">
+									<ul>
+										<li> Unlimited Connections</li>
+										<li> 500 Listeners </li>
+										<li> 1TB Bandwidth </li>
+										<li> 1TB Disk Space </li>
+										<li> Authentication <i className="fa fa-check"></i> </li>
+									</ul>
+								</div>
+							</div>
+							<button className="cta"> Purchase </button>
+						</div>
+					</div>
+					<h2> 100% money back guarantee for the first 30 days on any paid plan. </h2>
+				</div>
+				<Footer />
 			</div>
 		);
 	}

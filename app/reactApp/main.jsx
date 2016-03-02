@@ -9,7 +9,7 @@ import $ from                                    'jquery';
 import {AppController} from                      './components/appController';
 import {DashboardController} from                './components/dashboardController';
 import {SettingsController} from                 './components/settingsController';
-import {Home} from                               './components/home'
+import {Home, PricingPage} from                  './components/home'
 import {Mixer} from                              './components/mixer';
 import {socketManager} from                      './modules/websocket';
 import userStoreInstance from                    './stores/UserStore';
@@ -98,6 +98,7 @@ $(document).ready(function(){
 			<Router history={appHistory}>
 				<Route path="/" component={App}>
 					<IndexRoute component={Home}/>
+					<Route path="/features" component={PricingPage} />
 					<Route path="/app" component={AppController}>
 						<IndexRoute component={DashboardController} user={"faraaz"}/>
 						<Route path="dashboard" {...this.props} component={DashboardController} />

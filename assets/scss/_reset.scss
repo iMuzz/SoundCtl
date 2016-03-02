@@ -72,6 +72,7 @@ a, u {
     &:hover {
     	text-decoration: none;
     	cursor: pointer;
+    	color: inherit;
     }
 }
 /* Remove blue outline on focus app wide */

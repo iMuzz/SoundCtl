@@ -2,7 +2,7 @@
 
 $soundCtl-main: #CF1C22;
 $soundCtl-accent: darken(#211B2B, 0%);
-$nav-height: 80px;
+$nav-height: 70px;
 
 @mixin primary-font-family {
 	font-family: "Gotham Rounded A", "Gotham Rounded B";
@@ -87,16 +87,15 @@ $main: #D8D8D8;
 		}
 	}
 
-	div.nav-item {
-		
-		&.logo {
-			font-size: 1.3em;
-		}
-
+	.nav-item {
 		font-size: 1em;
 		display: flex;
 		align-items: center;
 
+		&.logo {
+			font-size: 1.3em;
+		}
+		
 		&:hover {
 			cursor: pointer;
 		}
@@ -133,28 +132,30 @@ $main: #D8D8D8;
 		width: 100%;
 		height: 400px;
 		background-size: cover;
-		filter: blur(2px)
+		filter: blur(2px);
+
+		&.bg-hero-pricing {
+			height: 250px;
+		}
 	}
 	
 	.hero-content {
 		z-index: 2;
 		position: absolute;
-	    top: 50%;
-	    left: 0px;
-	    right: 0px;
-	    transform: translateY(-50%);
-	    margin: 0 auto;
-	    text-align: center;
+		top: 50%;
+		left: 0px;
+		right: 0px;
+		transform: translateY(-50%);
+		margin: 0 auto;
+		text-align: center;
 	}
 	
 	/* Temporary landing page style. Remove when landing page updated*/
-	.company {
+	.slogan {
 		color: white;
 		font-size: 2.5em;
 		position: relative;
-		bottom: 30px;
 		font-weight: 100;
-		animation-delay: 1s;
 	}
 
 	.hero-cta {
@@ -221,10 +222,6 @@ $main: #D8D8D8;
 
 	}
 
-}
-
-.bg-hero-1 {
-	// background: url('../images/hero-1-min.jpg');
 }
 
 
