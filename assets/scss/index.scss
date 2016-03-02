@@ -31,6 +31,10 @@ body {
 
 $main: #D8D8D8;
 
+.section {
+	padding: 50px 0px;
+}
+
 #home {
 	min-height: 100vh;
 }
@@ -41,18 +45,6 @@ $main: #D8D8D8;
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	
-	// nav opacity base
-	// &:before {
-	// 	content: "";
-	//     height: 80px;
-	//     width: 100%;
-	//     position: absolute;
-	//     background-color: white;
-	//     z-index: -1;
-	//     opacity: .2;
-	//     left: 0px;
-	// }
 }
 .nav-item-wrap {
 	height: $nav-height;
