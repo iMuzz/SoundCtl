@@ -108,12 +108,13 @@ export class PricingPage extends React.Component {
 							</div>
 							<button className="cta"> Sign Up</button>
 						</div>
-						<div className="pricing-column">
+						<div className="pricing-column inactive">
+							<div id="coming-soon">Coming Soon</div>
 							<h1 className="price-tier">
 								Developer
 							</h1>
 							<div className="price">
-								$300 <span className="light-text"> per month</span>
+								$ <span className="light-text"> per month</span>
 							</div>
 							<div className="pricing-content">
 								<div className="features-included">
@@ -128,12 +129,13 @@ export class PricingPage extends React.Component {
 							</div>
 							<button className="cta"> Purchase </button>
 						</div>
-						<div className="pricing-column">
+						<div className="pricing-column inactive">
+							<div id="coming-soon">Coming Soon</div>
 							<h1 className="price-tier">
 								Enterprise
 							</h1>
 							<div className="price">
-								$1000 <span className="light-text"> per month</span>
+								$ <span className="light-text"> per month</span>
 							</div>
 							<div className="pricing-content">
 								<div className="features-included">
