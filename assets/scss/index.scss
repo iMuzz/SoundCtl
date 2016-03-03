@@ -8,8 +8,9 @@ $nav-height: 70px;
 	font-family: "Gotham Rounded A", "Gotham Rounded B";
 }
 
-body {
+body, html {
 	position: relative;
+	min-height: 100vh; // this is set so footer is always at bottom
 }
 
 @font-face{ 
@@ -37,6 +38,7 @@ $main: #D8D8D8;
 
 #home {
 	min-height: 100vh;
+	padding-bottom: 240px; // this is set so footer is always at bottom
 }
 
 .nav {

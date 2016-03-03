@@ -1,12 +1,15 @@
 @import "../_variables";
 
 .footer-wrap {
+	height: 240px; // this is set so footer is always at bottom
 	width: 100%;
 	background-color: $midnight-blue;
 	color: white;
 	padding: 30px 0px 60px 0px;
 	display: flex;
 	justify-content: center;
+	position: absolute;
+	bottom: 0px;
 
 	.uk-table {
 		max-width: 800px;
