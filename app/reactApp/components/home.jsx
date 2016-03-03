@@ -170,21 +170,21 @@ class FeaturesSection extends React.Component {
 			<div className="features-section">
 				<div className="intro-content">
 					<h5> Let us take care of your audio</h5>
-					<h1> Focus on your users </h1>
-					<p> SoundCtl can power your app's backend, including data storage, user authentication, static hosting, and more. Focus on creating extraordinary user experiences. We'll take care of the rest. </p>
+					<h1> What is it? </h1>
+					<p> SoundCTL is an API, that allows you to mix audio in real-time. Transmit your audio and we'll do powerful manipulations through simple API calls. We'll decode, signal process, re-encode, and send it back at the speed of light. </p>
 					<button className="cta"> Start Building </button>
 				</div>
 				<div className="features-content">
 					<img src="/images/icons/tower.svg"/>
 					<div>
-						<h3>BUILD FOR ANY DEVICE</h3>
-						<p>	Build cross-platform native mobile and web apps with our Android, iOS, and JavaScript SDKs. You can also connect Firebase to your existing backend using our server-side libraries or our REST API.</p>
+						<h3> The most powerful audio streaming platform </h3>
+						<p>	SoundCTL was designed from the ground up for real-time web mixing. Anything a standard sound mixer does, we do it <bold> better</bold>.</p>
 					</div>
 				</div>
 				<div className="features-content">
 					<div>
-						<h3>BUILD FOR ANY DEVICE</h3>
-						<p>Build cross-platform native mobile and web apps with our Android, iOS, and JavaScript SDKs. You can also connect Firebase to your existing backend using our server-side libraries or our REST API.</p>
+						<h3>Build on any device</h3>
+						<p>Build cross-platform native mobile and web apps with our Android, iOS, and JavaScript SDKs.</p>
 					</div>
 					<img src="/images/icons/tower.svg"/>
 				</div>
@@ -212,26 +212,26 @@ export class Footer extends React.Component {
 							</tr>
 						</thead>
 						<tr>
-							<td><a href=""> Meet The Team </a></td>
-							<td><Link to="/pricing"> Pricing </Link></td> 
-							<td><a href=""> Email Us </a></td>
+							<td>Blog</td>
+							<td>Documentation</td> 
+							<td><a href="mailto:admin@soundctl.com?Subject=Help%20me!"> Email Us </a></td>
 							<td> <span className="fa fa-github"></span> <a href="https://github.com/soundctl" target="_blank"> GitHub </a></td>
 						</tr>
 						<tr>
-							<td>Blog</td>
+							<td>Jobs</td>
 							<td>Features</td> 
 							<td>Call Us</td>
 							<td> <span className="fa fa-twitter"></span><a href="https://twitter.com/soundctl" target="_blank"> Twitter</a></td>
 						</tr>
 						<tr>
-							<td>Jobs</td>
+							<td></td>
 							<td>Uptime & Status</td> 
 							<td></td> 
 							<td> <span className="fa fa-facebook"></span><a href="https://facebook.com/soundctl" target="_blank"> Facebook</a></td>
 						</tr>
 						<tr>
 							<td></td>
-							<td>Documentation</td> 
+							<td><Link to="/pricing"> Pricing </Link></td> 
 							<td></td> 
 						</tr>
 					</tbody>
