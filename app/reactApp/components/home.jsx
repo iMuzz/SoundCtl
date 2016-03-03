@@ -34,9 +34,9 @@ class HeroNav extends React.Component {
 				<div className="nav-item-wrap">
 					<Link to="/" className="nav-item logo"> SoundCTL </Link>
 					<div className="nav-right">
-						<div className="nav-item"> Features </div>
+						{/* <div className="nav-item"> Features </div> 	*/}
 						<Link  to="/features" className="nav-item"> Pricing </Link>
-						<div className="nav-item"> Docs </div>
+						{/* <div className="nav-item"> Docs </div> 	*/}
 						<div className="nav-item" onClick={this.showLock}> Login</div>
 					</div>
 				</div>
@@ -57,7 +57,7 @@ class HeroSection extends React.Component {
 					<HeroNav {...this.props}/>
 					<div className="bg-hero bg-hero-1"></div>
 					<div className="hero-content">
-						<div className="slogan animated fadeInDown delay-1s"> Audio mixing, from the future </div>
+						<div className="slogan animated fadeInDown delay-half-sec"> Audio mixing, from the future </div>
 						{/*
 						<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
 							<input placeholder="Enter email address" type="email" name="EMAIL" required/>
