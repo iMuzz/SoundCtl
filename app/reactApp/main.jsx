@@ -98,7 +98,7 @@ $(document).ready(function(){
 			<Router history={appHistory}>
 				<Route path="/" component={App}>
 					<IndexRoute component={Home}/>
-					<Route path="/features" component={PricingPage} />
+					<Route path="/pricing" component={PricingPage} />
 					<Route path="/app" component={AppController}>
 						<IndexRoute component={DashboardController} user={"faraaz"}/>
 						<Route path="dashboard" {...this.props} component={DashboardController} />

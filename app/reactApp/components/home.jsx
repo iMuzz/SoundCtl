@@ -35,7 +35,7 @@ class HeroNav extends React.Component {
 					<Link to="/" className="nav-item logo"> SoundCTL </Link>
 					<div className="nav-right">
 						{/* <div className="nav-item"> Features </div> 	*/}
-						<Link  to="/features" className="nav-item"> Pricing </Link>
+						<Link  to="/pricing" className="nav-item"> Pricing </Link>
 						{/* <div className="nav-item"> Docs </div> 	*/}
 						<div className="nav-item" onClick={this.showLock}> Login</div>
 					</div>
@@ -213,21 +213,21 @@ export class Footer extends React.Component {
 						</thead>
 						<tr>
 							<td><a href=""> Meet The Team </a></td>
-							<td><a href=""> Pricing </a></td> 
+							<td><Link to="/pricing"> Pricing </Link></td> 
 							<td><a href=""> Email Us </a></td>
-							<td> <span className="fa fa-github"> GitHub </span></td>
+							<td> <span className="fa fa-github"></span> <a href="https://github.com/soundctl" target="_blank"> GitHub </a></td>
 						</tr>
 						<tr>
 							<td>Blog</td>
 							<td>Features</td> 
 							<td>Call Us</td>
-							<td> <span className="fa fa-twitter"> Twitter </span></td>
+							<td> <span className="fa fa-twitter"></span><a href="https://twitter.com/soundctl" target="_blank"> Twitter</a></td>
 						</tr>
 						<tr>
 							<td>Jobs</td>
 							<td>Uptime & Status</td> 
 							<td></td> 
-							<td> <span className="fa fa-facebook"> Facebook </span></td>
+							<td> <span className="fa fa-facebook"></span><a href="https://facebook.com/soundctl" target="_blank"> Facebook</a></td>
 						</tr>
 						<tr>
 							<td></td>
