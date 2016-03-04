@@ -1,0 +1,41 @@
+@import "../_variables";
+
+.countdown {
+	color: white;
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+
+	.time-wrap {
+		padding: 15px 20px 15px;
+		border: 1px solid white;
+		min-width: 250px;
+		// background-color: rgba(0, 0, 0, .1);
+
+		.time {
+			font-size: 2em;
+			padding: 10px;
+			display: inline-block;
+			min-width: 100px;
+
+			// &:not(:last-child) {
+			// 	border-right: 1px solid white;
+			// }
+		}
+	}
+
+	.unit-wrap {
+
+		.unit {
+			display: inline-block;
+			padding: 10px;
+			min-width: 100px;
+			font-size: .7em;
+
+			// &:not(:last-child) {
+			// 	border-right: 1px solid white;
+			// }
+		}
+	}
+
+}

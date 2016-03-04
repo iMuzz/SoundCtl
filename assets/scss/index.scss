@@ -103,7 +103,15 @@ $main: #D8D8D8;
 		}
 	}
 }
+@keyframes shrink {
+	from {
+		min-height: 100vh;
+	}
 
+	to {
+		min-height: 400px;
+	}
+}
 .hero-wrapper {
 	position: relative;
 
@@ -117,24 +125,27 @@ $main: #D8D8D8;
 		z-index: 1;
 		// animation: back-hue 60s infinite linear;
 	}
-	@keyframes back-hue {
-		from {
-		filter: hue-rotate(0deg);
-		}
+	// @keyframes back-hue {
+	// 	from {
+	// 	filter: hue-rotate(0deg);
+	// 	}
 
-		to {
-		filter: hue-rotate(-360deg);
-		}
-	}
+	// 	to {
+	// 	filter: hue-rotate(-360deg);
+	// 	}
+	// }
 	
 	.bg-hero {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		height: 400px;
+		min-height: 400px;
 		background-size: cover;
-		filter: blur(2px);
+		// min-height: 100vh;
+		// animation: shrink 1s 1 ease-in-out;
+		// animation-delay: 2s;
+		// animation-fill-mode: forwards;  
 
 		&.bg-hero-pricing {
 			height: 250px;
