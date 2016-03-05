@@ -42,7 +42,7 @@ $main: #D8D8D8;
 
 .nav {
 	position: absolute;
-	z-index: 2;
+	z-index: 3;
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -105,10 +105,30 @@ $main: #D8D8D8;
 
 
 .hero-wrapper {
-	position:absolute;
-	width: 100%;
-	height: 100vh;
-	z-index: 0;
+	position: relative;
+	&.intro-animation {
+		position:absolute;
+		width: 100%;
+		height: 100vh;
+		z-index: 0;
+
+		.bg-hero {
+
+		}
+
+		.invisible-wrap {
+			position: absolute;
+			z-index: 2;
+			width: 100%;
+			height: 400px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+
+	}
+	
 
 	&:before {
 		content: "";
@@ -123,21 +143,21 @@ $main: #D8D8D8;
 	.bg-hero {
 		width: 100%;
 		min-height: 400px;
-		min-height: 100vh;
 		position: relative;
-
-		.invisible-wrap {
-			position: absolute;
-			z-index: 2;
-			width: 100%;
-			height: 400px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
 		
 		&.bg-hero-pricing {
 			height: 250px;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			.slogan {
+				color: white;
+				font-size: 2.5em;
+				font-weight: 100;
+				text-align: center;
+			}
 		}
 	}
 	
@@ -201,11 +221,6 @@ $main: #D8D8D8;
 			}
 	    }
 	}
-
-	#wave-container {
-
-	}
-
 }
 
 
@@ -213,11 +228,9 @@ $main: #D8D8D8;
 	z-index: 2;
 	text-align: center;
 	min-height: 200px;
-
 	.slogan {
 		color: white;
 		font-size: 2.5em;
-		position: relative;
 		font-weight: 100;
 	}
 }
@@ -234,7 +247,7 @@ $main: #D8D8D8;
 
 
 .transition-wrapper {
-    animation: shrink 1.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation: shrink 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 	animation-delay: .5s;
 	animation-fill-mode: forwards;
     z-index: 0;

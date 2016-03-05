@@ -1,5 +1,9 @@
 @import "../_variables";
-
+.pricing-page {
+	.footer-wrap {
+		transform: translate3d(0,0px,0);
+	}
+}
 .footer-wrap {
 	height: 240px; // this is set so footer is always at bottom
 	width: 100%;
