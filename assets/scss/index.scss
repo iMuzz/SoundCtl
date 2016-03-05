@@ -234,7 +234,7 @@ $main: #D8D8D8;
 
 
 .transition-wrapper {
-    animation: shrink 1.3s ease-in-out;
+    animation: shrink 1.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 	animation-delay: .5s;
 	animation-fill-mode: forwards;
     z-index: 0;
