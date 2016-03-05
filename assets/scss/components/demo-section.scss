@@ -69,3 +69,16 @@ $demo-height: 500px;
 		}
 	}
 }
+
+
+@media (max-width: $breakpoint-small) {
+	.demo-section {
+		.demo-wrap {
+			flex-direction: column;
+
+			.demo {
+				width: 100%;
+			}
+		}
+	}
+}
