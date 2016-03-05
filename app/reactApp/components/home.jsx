@@ -37,7 +37,7 @@ class HeroNav extends React.Component {
 		return  ( 
 			<nav className="nav">
 				<div className="nav-item-wrap">
-					<Link to="/" className="nav-item logo"> SoundCTL </Link>
+					<Link to="/" className="nav-item logo"> <img src="/images/icons/soundctl.svg" alt=""/> </Link>
 					<div className="nav-right">
 						{/* <div className="nav-item"> Features </div> 	*/}
 						<Link  to="/pricing" className="nav-item"> Pricing </Link>
