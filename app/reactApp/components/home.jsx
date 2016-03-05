@@ -110,9 +110,9 @@ class PricingSection extends React.Component {
 
 	render() {
 		return  ( 
-				<div className="pricing-section">
+				<div className="pricing-section animated fadeInDown">
 					<div className="column-row">
-						<div className="pricing-column">
+						<div className="pricing-column ">
 							<h1 className="price-tier">
 								Hacker
 							</h1>
@@ -132,7 +132,7 @@ class PricingSection extends React.Component {
 							</div>
 							<button className="cta"> Sign Up</button>
 						</div>
-						<div className="pricing-column inactive">
+						<div className="pricing-column inactive ">
 							<div id="coming-soon">Coming Soon</div>
 							<h1 className="price-tier">
 								Developer
@@ -153,7 +153,7 @@ class PricingSection extends React.Component {
 							</div>
 							<button className="cta"> Purchase </button>
 						</div>
-						<div className="pricing-column inactive">
+						<div className="pricing-column inactive ">
 							<div id="coming-soon">Coming Soon</div>
 							<h1 className="price-tier">
 								Enterprise
@@ -175,7 +175,7 @@ class PricingSection extends React.Component {
 							<button className="cta"> Purchase </button>
 						</div>
 					</div>
-					<h2> 100% money back guarantee for the first 30 days on any paid plan. </h2>
+					<h2 className=""> 100% money back guarantee for the first 30 days on any paid plan. </h2>
 				</div>
 		);
 	}
@@ -189,7 +189,7 @@ class FaqSection extends React.Component {
 
 	render() {
 		return  ( 
-			<div className="faq-section">
+			<div className="faq-section animated fadeInDown">
 				<h1> Frequently Asked Questions </h1>
 				<div className="question-wrap">
 					<div className="question-column">
