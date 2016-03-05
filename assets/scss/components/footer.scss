@@ -11,17 +11,53 @@
 	position: absolute;
 	bottom: 0px;
 
-	.uk-table {
+	.uk-width-1-4 {
 		max-width: 800px;
 		margin: 0px;
+		padding: 0px;
 
-		thead {
-			font-size: 16px;
-			font-weight: 600;
+		.text {
+			display: block;
+			font-size: 14px;
+			padding: 5px 25px;
+			min-width: 175px;
 		}
 
-		td {
+		.header {
+			font-size: 16px;
+			font-weight: 600;
+			margin-bottom: 10px;
+		}
+
+		.row {
 			font-size: 14px;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+@media (max-width: $breakpoint-small) {
+	#home {
+		padding-bottom: 0px;
+	}
+	.footer-wrap {
+		height: auto;
+		position: static;
+		padding-bottom: 30px;
+
+		.uk-grid {
+			margin: auto;
+		}
+		.uk-width-1-4 {
+			width: 100%;
+			margin-bottom: 25px;
+			padding: 0px 3%;
+
+			.text {
+				margin: 0px;
+				padding: 10px 0px;
+			}
+			
 		}
 	}
 }
