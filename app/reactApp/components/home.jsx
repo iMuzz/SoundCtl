@@ -37,7 +37,7 @@ class HeroNav extends React.Component {
 		return  ( 
 			<nav className="nav">
 				<div className="nav-item-wrap">
-					<Link to="/" className="nav-item logo"> <img src="/images/icons/soundctl.svg" alt=""/> </Link>
+					<Link to="/" className="nav-item logo"> <img src="/images/icons/soundctl.png" alt=""/> </Link>
 					<div className="nav-right">
 						{/* <div className="nav-item"> Features </div> 	*/}
 						<Link  to="/pricing" className="nav-item"> Pricing </Link>
@@ -296,14 +296,29 @@ class DemoSection extends React.Component {
 
 	constructor(props) {
 		super(props);
+
+		this.showDemo = this.showDemo.bind(this);
+	}
+	showDemo(e){
+		let source;
+		if ($(e.target).is("i")) {
+			source = $(e.target).parent().attr('data-vid-url');
+		} else {
+			source = $(e.target).attr('data-vid-url');
+		}
+
+		let lightbox = UIkit.lightbox.create([
+			{'source': source, 'type':'video'}
+		]);
+		lightbox.show();
 	}
 
 	render() {
 		return  ( 
 			<div className="demo-section">
 				<div className="demo-wrap">
-					<div className="demo"><i className="fa fa-play"></i></div>
-					<div className="demo"><i className="fa fa-play"></i></div>
+					<div className="demo" data-vid-url="https://www.youtube.com/watch?v=wZZ7oFKsKzY" onClick={this.showDemo}><i className="fa fa-play"></i></div>
+					<div className="demo" data-vid-url="https://www.youtube.com/watch?v=dQw4w9WgXcQ" onClick={this.showDemo}><i className="fa fa-play"></i></div>
 				</div>
 			</div>
 		);
