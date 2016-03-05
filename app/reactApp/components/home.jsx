@@ -10,7 +10,12 @@ export class Home extends React.Component {
 		return (
 			<div>
 				<HeroSection {...this.props} />
-				<FeaturesSection />
+				<div className="transition-wrapper">
+					<div className="content-wrapper">
+						<FeaturesSection />
+						<DemoSection />
+					</div>
+				</div>
 				<Footer />
 			</div>
 		)
@@ -36,7 +41,7 @@ class HeroNav extends React.Component {
 					<div className="nav-right">
 						{/* <div className="nav-item"> Features </div> 	*/}
 						<Link  to="/pricing" className="nav-item"> Pricing </Link>
-						<a className="nav-item" href="https://docs.soundctl.com" target="_blank"> Documentation </a>
+						<a className="nav-item" href="https://docs.soundctl.com" target="_blank"> Docs </a>
 						<div className="nav-item" onClick={this.showLock}> Login</div>
 					</div>
 				</div>
@@ -55,16 +60,19 @@ class HeroSection extends React.Component {
 		return  ( 
 				<div className="hero-wrapper">
 					<HeroNav {...this.props}/>
-					<div className="bg-hero bg-hero-1"></div>
-					<div className="hero-content">
-						<div className="slogan animated fadeInDown delay-half-sec"> Audio mixing, from the future </div>
-						<Countdown endTime='Mon Mar 7 2016 00:56:22 GMT-0700'/>
-						{/*
-						<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
-							<input placeholder="Enter email address" type="email" name="EMAIL" required/>
-							<input className="cta-base" type="submit" value="Signup"/>
-						</form>
-						*/}
+					<div className="bg-hero bg-hero-1">
+						<div className="invisible-wrap">
+							<div className="hero-content">
+								<div className="slogan animated fadeInDown delay-half-sec"> The future of real-time audio</div>
+								<Countdown endTime='Mon Mar 7 2016 00:56:22 GMT-0700'/>
+								{/*
+								<form id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
+									<input placeholder="Enter email address" type="email" name="EMAIL" required/>
+									<input className="cta-base" type="submit" value="Signup"/>
+								</form>
+								*/}
+							</div>
+						</div>
 					</div>
 				</div>
 		);
@@ -281,6 +289,24 @@ export class Footer extends React.Component {
 				</div>
 			</div>
 		)
+	}
+}
+
+class DemoSection extends React.Component {
+
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return  ( 
+			<div className="demo-section">
+				<div className="demo-wrap">
+					<div className="demo"><i className="fa fa-play"></i></div>
+					<div className="demo"><i className="fa fa-play"></i></div>
+				</div>
+			</div>
+		);
 	}
 }
 
