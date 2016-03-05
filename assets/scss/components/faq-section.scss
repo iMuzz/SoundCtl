@@ -2,7 +2,7 @@
 
 .faq-section {
 	@extend .section;
-	padding: 75px 0px;	
+	padding: 75px 0px;
 	background-color: #f8f9fb;
 
 	h1 {
@@ -41,6 +41,29 @@
 				.answer {
 					font-size: 1em;
 					line-height: 2;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $breakpoint-small) {
+
+	.faq-section {
+		padding: 50px 0px;
+		h1 {
+			font-size: 1.4em;
+		}
+
+		.question-wrap {
+			display: block;
+			padding: 0px 3%;
+
+			.question-column {
+				width: 100%;
+
+				.question-block {
+					max-width: 100%;
 				}
 			}
 		}

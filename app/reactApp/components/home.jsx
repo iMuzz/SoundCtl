@@ -36,7 +36,7 @@ class HeroNav extends React.Component {
 					<div className="nav-right">
 						{/* <div className="nav-item"> Features </div> 	*/}
 						<Link  to="/pricing" className="nav-item"> Pricing </Link>
-						{/* <div className="nav-item"> Docs </div> 	*/}
+						<a className="nav-item" href="https://docs.soundctl.com"> Documentation </a>
 						<div className="nav-item" onClick={this.showLock}> Login</div>
 					</div>
 				</div>
@@ -267,7 +267,7 @@ export class Footer extends React.Component {
 						</thead>
 						<tr>
 							<td>Blog</td>
-							<td>Documentation</td> 
+							<td><a href="https://docs.soundctl.com">Documentation</a></td> 
 							<td><a href="mailto:admin@soundctl.com?Subject=Help%20me!"> Email Us </a></td>
 							<td> <span className="fa fa-github"></span> <a href="https://github.com/soundctl" target="_blank"> GitHub </a></td>
 						</tr>
