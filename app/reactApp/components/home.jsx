@@ -36,7 +36,7 @@ class HeroNav extends React.Component {
 					<div className="nav-right">
 						{/* <div className="nav-item"> Features </div> 	*/}
 						<Link  to="/pricing" className="nav-item"> Pricing </Link>
-						<a className="nav-item" href="https://docs.soundctl.com"> Documentation </a>
+						<a className="nav-item" href="https://docs.soundctl.com" target="_blank"> Documentation </a>
 						<div className="nav-item" onClick={this.showLock}> Login</div>
 					</div>
 				</div>
@@ -223,10 +223,10 @@ class FeaturesSection extends React.Component {
 		return  ( 
 			<div className="features-section">
 				<div className="intro-content">
-					<h5> Let us take care of your audio</h5>
+					<h5> Take control of Audio</h5>
 					<h1> What is it? </h1>
 					<p> SoundCTL is an API, that allows you to mix audio in real-time. Transmit your audio and we'll do powerful manipulations through simple API calls. We'll decode, signal process, re-encode, and send it back at the speed of light. </p>
-					<button className="cta"> Start Building </button>
+					<a className="cta" href="https://docs.soundctl.com" target="_blank"> Learn More </a>
 				</div>
 				<div className="features-content">
 					<img src="/images/icons/tower.svg"/>
