@@ -38,7 +38,6 @@ $main: #D8D8D8;
 
 #home {
 	min-height: 100vh;
-	padding-bottom: 240px; // this is set so footer is always at bottom
 }
 
 .nav {
@@ -103,17 +102,13 @@ $main: #D8D8D8;
 		}
 	}
 }
-@keyframes shrink {
-	from {
-		min-height: 100vh;
-	}
 
-	to {
-		min-height: 400px;
-	}
-}
+
 .hero-wrapper {
-	position: relative;
+	position:absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: 0;
 
 	&:before {
 		content: "";
@@ -123,53 +118,29 @@ $main: #D8D8D8;
         background: linear-gradient(180deg,rgba(25,35,45,1),rgba(20,30,70,0.75)),linear-gradient(90deg,#f00,#38f);
 		opacity: .9;
 		z-index: 1;
-		// animation: back-hue 60s infinite linear;
 	}
-	// @keyframes back-hue {
-	// 	from {
-	// 	filter: hue-rotate(0deg);
-	// 	}
-
-	// 	to {
-	// 	filter: hue-rotate(-360deg);
-	// 	}
-	// }
 	
 	.bg-hero {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		width: 100%;
 		min-height: 400px;
-		background-size: cover;
-		// min-height: 100vh;
-		// animation: shrink 1s 1 ease-in-out;
-		// animation-delay: 2s;
-		// animation-fill-mode: forwards;  
+		min-height: 100vh;
+		position: relative;
 
+		.invisible-wrap {
+			position: absolute;
+			z-index: 2;
+			width: 100%;
+			height: 400px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
 		&.bg-hero-pricing {
 			height: 250px;
 		}
 	}
 	
-	.hero-content {
-		z-index: 2;
-		position: absolute;
-		top: 50%;
-		left: 0px;
-		right: 0px;
-		transform: translateY(-50%);
-		margin: 0 auto;
-		text-align: center;
-	}
-	
-	/* Temporary landing page style. Remove when landing page updated*/
-	.slogan {
-		color: white;
-		font-size: 2.5em;
-		position: relative;
-		font-weight: 100;
-	}
 
 	.hero-cta {
 		border: 1px solid white;
@@ -237,6 +208,44 @@ $main: #D8D8D8;
 
 }
 
+
+.hero-content {
+	z-index: 2;
+	text-align: center;
+	min-height: 200px;
+
+	.slogan {
+		color: white;
+		font-size: 2.5em;
+		position: relative;
+		font-weight: 100;
+	}
+}
+
+@keyframes shrink {
+	from {
+		transform: translate3d(0,100vh,0);
+	}
+
+	to {
+		transform: translate3d(0,400px,0);
+	}
+}
+
+
+.transition-wrapper {
+    animation: shrink 1.3s ease-in-out;
+	animation-delay: .5s;
+	animation-fill-mode: forwards;
+    z-index: 0;
+	transform: translate3d(0,100vh,0);
+
+	.content-wrapper {
+		position: relative;
+		background-color: white;
+		z-index: 1;
+	}
+}
 
 a {
 	color: #fff;

@@ -1,0 +1,71 @@
+@import "../_variables";
+
+$demo-height: 500px;
+
+.demo-section {
+	.demo-wrap {
+		display: flex;
+		position: relative;
+		.demo {
+			position: relative;
+			height: $demo-height;
+			width: 50%;
+			background-size: 100%;
+			transition: background-size .3s;
+
+			.fa-play {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				z-index: 2;
+				text-align: center;
+				font-size: 5em;
+				transform: translateY(-50%);
+				color: white;
+				transition: color .3s, border-color .3s;
+				border: 1px solid white;
+				border-radius: 50%;
+				width: 150px;
+				height: 150px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-left: -75px;
+
+				&:before {
+					margin-left: 18px;
+				}
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+			&:hover {
+				background-size: 104%;
+				cursor: pointer;
+
+				.fa-play {
+					color: lighten(#30a2ac, 20%);
+					border-color: lighten(#30a2ac, 20%);
+				}
+			}
+			
+			&:before {
+				content: "";
+				height: 100%;
+				position: absolute;
+				width: 100%;
+				background-color: rgba(0,0,0, .6);
+				z-index: 1;
+			}
+
+			&:first-child {
+				background-image: url('/images/demo1.jpg');
+			}
+
+			&:nth-child(2) {
+				background-image: url('/images/demo2.jpg');
+			}
+		}
+	}
+}
