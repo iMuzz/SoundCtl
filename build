@@ -6,4 +6,3 @@ bower install
 gulp js-build
 gulp css-build
 uglifyjs --compress --o public/scripts/dist/bundle.js --mangle -- public/scripts/dist/bundle.js
-uglifyjs --compress --o public/scripts/app.js --mangle -- public/scripts/app.js
