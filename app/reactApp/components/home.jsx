@@ -12,7 +12,8 @@ export class Home extends React.Component {
 				<HeroSection {...this.props} />
 				<div className="transition-wrapper">
 					<div className="content-wrapper">
-						<FeaturesSection />
+						<IntroSection />
+						<InfoSection />
 						<DemoSection />
 					</div>
 				</div>
@@ -225,7 +226,7 @@ class FaqSection extends React.Component {
 	}
 }
 
-class FeaturesSection extends React.Component {
+class IntroSection extends React.Component {
 
 	constructor(props) {
 		super(props);
