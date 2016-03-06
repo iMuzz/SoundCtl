@@ -2,6 +2,6 @@
 .DS_Store
 node_modules/*
 bower_components
-
 public/stylesheets/main.css
 dist/
+public/scripts/app.js
