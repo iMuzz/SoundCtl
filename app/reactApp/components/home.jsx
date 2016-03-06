@@ -117,7 +117,7 @@ class PricingSection extends React.Component {
 								Hacker
 							</h1>
 							<div className="price">
-								Free
+								$0
 							</div>
 							<div className="pricing-content">
 								<div className="features-included">
