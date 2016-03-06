@@ -344,19 +344,19 @@ export class InfoSection extends React.Component {
 					<div className="info-block-container">
 						<div className="info-block">
 							<img src="/images/icons/tower.svg"/>
+							<h1> Outstanding Documentation </h1>
+							<p> The SoundCTL API is a powerful combination of features. But a powerful API is pointless without great documentation. We've made great documentation our highest priorirty to make it easy for all types of learners to get started with our API. </p>
+						</div>
+						<div className="info-block">
+							<img src="/images/icons/tower.svg"/>
 							<h1>Real-time Audio Routing </h1>
-							<p>SoundCtl is a simple API that allows you mix audio in realtime. SoundCtl is a simple API that allows you mix audio in realtime. SoundCtl is a simple API that allows you mix audio in realtime. </p>
+							<p> Connect any number of auido inputs and mix them together or apart at your will. </p>
 						</div>
 						<div className="info-block">
 							<img src="/images/icons/tower.svg"/>
 							<h1>Take control of Audio</h1>
 							<i className="ti-eye"></i>
 							<p> Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. </p>
-						</div>
-						<div className="info-block">
-							<img src="/images/icons/tower.svg"/>
-							<h1> Robust API </h1>
-							<p> SoundCtl will automatically spin up more servers based on the number of listeners that you have.  SoundCtl will automatically spin up more servers based on the number of listeners that you have.</p>
 						</div>
 					</div>
 				</div>
