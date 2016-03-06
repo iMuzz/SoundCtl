@@ -24,11 +24,17 @@
 
 			.question-block {
 				box-shadow: 1px 1px 4px rgba(0,0,0,.25);
+				transition: box-shadow .2s ease-in-out;
 				background-color: white;
 				display: inline-block;
 				max-width: 90%;
 				padding: 25px 25px;
 				margin-bottom: 25px;
+
+
+				&:hover {
+					box-shadow: 1px 1px 10px rgba(0,0,0,.25);
+				}
 
 				.question {
 					font-size: 1.1em;
