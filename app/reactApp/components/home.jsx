@@ -123,10 +123,11 @@ class PricingSection extends React.Component {
 							<div className="pricing-content">
 								<div className="features-included">
 									<ul>
-										<li> 25 Connections </li>
-										<li> 10 Listeners </li>
-										<li> 2GB Bandwidth </li>
-										<li> 10GB Disk Space </li>
+										<li> 50 Connections </li>
+										<li> 2 Inputs </li>
+										<li> 2 Outputs </li>
+										<li> 2 GB Storage </li>
+										<li> 50 GB Transfer </li>
 										{ /*<li> Authentication <i className="fa fa-times"></i> </li> */}
 									</ul>
 								</div>
