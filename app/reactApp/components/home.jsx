@@ -118,7 +118,7 @@ class PricingSection extends React.Component {
 								Hacker
 							</h1>
 							<div className="price">
-								$0
+								<span className="bling">$</span> <span className="cash-money">0</span>
 							</div>
 							<div className="pricing-content">
 								<div className="features-included">
@@ -127,7 +127,7 @@ class PricingSection extends React.Component {
 										<li> 10 Listeners </li>
 										<li> 2GB Bandwidth </li>
 										<li> 10GB Disk Space </li>
-										<li> Authentication <i className="fa fa-times"></i> </li>
+										{ /*<li> Authentication <i className="fa fa-times"></i> </li> */}
 									</ul>
 								</div>
 							</div>
@@ -343,7 +343,7 @@ export class InfoSection extends React.Component {
 					<div className="info-block-container">
 						<div className="info-block">
 							<img src="/images/icons/tower.svg"/>
-							<h1>Build Powerful Audio-Streaming Apps</h1>
+							<h1>Real-time Audio Routing </h1>
 							<p>SoundCtl is a simple API that allows you mix audio in realtime. SoundCtl is a simple API that allows you mix audio in realtime. SoundCtl is a simple API that allows you mix audio in realtime. </p>
 						</div>
 						<div className="info-block">
@@ -354,7 +354,7 @@ export class InfoSection extends React.Component {
 						</div>
 						<div className="info-block">
 							<img src="/images/icons/tower.svg"/>
-							<h1> SoundCtl grows with you </h1>
+							<h1> Robust API </h1>
 							<p> SoundCtl will automatically spin up more servers based on the number of listeners that you have.  SoundCtl will automatically spin up more servers based on the number of listeners that you have.</p>
 						</div>
 					</div>
