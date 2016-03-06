@@ -134,45 +134,49 @@ class PricingSection extends React.Component {
 						</div>
 						<div className="pricing-column inactive ">
 							<div id="coming-soon">Coming Soon</div>
-							<h1 className="price-tier">
-								Developer
-							</h1>
-							<div className="price">
-								$ <span className="light-text"> per month</span>
-							</div>
-							<div className="pricing-content">
-								<div className="features-included">
-									<ul>
-										<li> Unlimited Connections</li>
-										<li> 500 Listeners </li>
-										<li> 1TB Bandwidth </li>
-										<li> 50GB Disk Space </li>
-										<li> Authentication <i className="fa fa-check"></i> </li>
-									</ul>
+							<div className="blur">
+								<h1 className="price-tier">
+									Developer
+								</h1>
+								<div className="price">
+									$ <span className="light-text"> per month</span>
 								</div>
+								<div className="pricing-content">
+									<div className="features-included">
+										<ul>
+											<li> Unlimited Connections</li>
+											<li> 500 Listeners </li>
+											<li> 1TB Bandwidth </li>
+											<li> 50GB Disk Space </li>
+											<li> Authentication <i className="fa fa-check"></i> </li>
+										</ul>
+									</div>
+								</div>
+								<button className="cta"> Purchase </button>
 							</div>
-							<button className="cta"> Purchase </button>
 						</div>
 						<div className="pricing-column inactive ">
 							<div id="coming-soon">Coming Soon</div>
-							<h1 className="price-tier">
-								Enterprise
-							</h1>
-							<div className="price">
-								$ <span className="light-text"> per month</span>
-							</div>
-							<div className="pricing-content">
-								<div className="features-included">
-									<ul>
-										<li> Unlimited Connections</li>
-										<li> 500 Listeners </li>
-										<li> 1TB Bandwidth </li>
-										<li> 1TB Disk Space </li>
-										<li> Authentication <i className="fa fa-check"></i> </li>
-									</ul>
+							<div className="blur">
+								<h1 className="price-tier">
+									Enterprise
+								</h1>
+								<div className="price">
+									$ <span className="light-text"> per month</span>
 								</div>
+								<div className="pricing-content">
+									<div className="features-included">
+										<ul>
+											<li> Unlimited Connections</li>
+											<li> 500 Listeners </li>
+											<li> 1TB Bandwidth </li>
+											<li> 1TB Disk Space </li>
+											<li> Authentication <i className="fa fa-check"></i> </li>
+										</ul>
+									</div>
+								</div>
+								<button className="cta"> Purchase </button>
 							</div>
-							<button className="cta"> Purchase </button>
 						</div>
 					</div>
 					<h2 className=""> 100% money back guarantee for the first 30 days on any paid plan. </h2>

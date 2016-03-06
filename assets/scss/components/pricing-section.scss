@@ -9,6 +9,7 @@
 .pricing-section {
 	@extend .section;
 	text-align: center;
+	background-color: #f8f9fb;
 
 	.column-row {
 		display: flex;
@@ -18,58 +19,31 @@
 		margin: auto;
 
 		.pricing-column {
+			background-color: white;
 			display: flex;
 			flex-direction: column;
-			flex: 1;
 			justify-content: center;
-			border: 1px solid $grey-light;
-			border-radius: 5px;
 			color: $primary-color;
-			transition: border-color .5s;
+			padding: 60px 75px;
+			box-shadow: 1px 1px 4px rgba(0,0,0,.25);
+			transition: box-shadow .2s ease-in-out;
+			width: 30%;
 
-			&:nth-child(1) {
-			}
-			&:nth-child(2) {
-				margin: 0px 10px;
-				.price-tier {
-					background-color: lighten(#297575, 1%);
-				}
-				
-				.price {
-					border-top-color: darken(#297575, 4%);
-					background-color: darken(#297575, 2%);
-				}
-			}
-
-			&:nth-child(3) {
-				.price-tier {
-					background-color: lighten(#3C6D8E, 1%);
-				}
-				
-				.price {
-					border-top-color: darken(#3C6D8E, 4%);
-					background-color: darken(#3C6D8E, 2%);
-				}
+			&:hover {
+				box-shadow: 1px 1px 10px rgba(0,0,0,.25);
 			}
 
 			.price-tier {
 				font-family: $primary-font-family;
 				font-size: 1.5em;
 				text-align: center;
-				padding: 20px 0px;
-				color: white;
+				color: black;
 				border-top-left-radius: 5px;
 				border-top-right-radius: 5px;
-				background-color: #479E82;
-
-				&:nth-child(2) {
-				}
 			}
 
 			.price {
-				background-color: #3E8C72;
-				border-top: 2px solid darken(#3E8C72, 2%);
-				color: white;
+				color: black;
 				padding: 20px 0px;
 				font-family: $primary-font-family;
 				text-align: center;
@@ -77,13 +51,11 @@
 			}
 
 			ul {
-				color: darken(#AAB6BB, 10%);
+				margin-bottom: 20px;
 				font-size: 1em;
 
 				li {
-					padding: 15px 15%;
-					border-bottom: 1px solid $grey-light; 
-
+					padding: 10px 0px;
 					&:last-child {
 						border: none;
 					}
@@ -92,18 +64,12 @@
 
 			.cta {
 				border: none;
-				padding: 15px 0px;
-				background-color: #30a2ac;
-				color: $white;
-				border-top: 1px solid white;
+				padding: 10px 20px;
+				color: white;
 				font-size: 1.3em;
-				width: 100%;
 				font-family: $primary-font-family;
 				transition: background .3s;
-				border-bottom-left-radius: 5px;
-				border-bottom-right-radius: 5px;
-				border-top-right-radius: 0px;
-				border-top-left-radius: 0px;
+				border-radius: 0px;
 
 				&:hover {
 					background-color: lighten(#30a2ac, 20%);
@@ -114,7 +80,23 @@
 				position: relative;
 				overflow: hidden;
 
-				&:before {
+				.blur {
+					filter: blur(5px);
+				}
+				
+				#coming-soon {
+					position: absolute;
+					color: white;
+					text-align: center;
+					top: 50%;
+					transform: translateY(-50%);
+					width: 100%;
+					z-index: 1;
+					font-size: 1.5em;
+					left: 0px;
+				}
+
+				&:after {
 					content: "";
 					position: absolute;
 					top: 0px;
@@ -122,24 +104,14 @@
 					width: 100%;
 					height: 100%;
 					background-color: black;
-					opacity: .65;
+					opacity: .7;
+					transition: opacity .2s ease-in-out;
 				}
 
-				#coming-soon {
-					position: absolute;
-					width: 1000px;
-					padding: 15px;
-					background-color: #602D48;
-					color: white;
-					transform: rotate(49.5deg);
-					top: -225px;
-					left: -225px;
-					right: 0px;
-					bottom: 0px;
-					height: 45px;
-					margin: auto;
-					font-size: 1.3em;
-					line-height: .7;
+				&:hover {
+					&:after {
+						opacity: .8;
+					}
 				}
 
 				.light-text {
