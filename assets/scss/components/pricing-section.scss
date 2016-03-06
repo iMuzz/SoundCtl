@@ -8,9 +8,8 @@
 }
 .pricing-section {
 	@extend .section;
-
 	text-align: center;
-	// background: linear-gradient(180deg,rgba(25,35,45,1),rgba(20,30,70,0.75)),linear-gradient(90deg,#f00,#38f);
+
 	.column-row {
 		display: flex;
 		justify-content: space-between;
@@ -23,13 +22,10 @@
 			flex-direction: column;
 			flex: 1;
 			justify-content: center;
-
 			border: 1px solid $grey-light;
 			border-radius: 5px;
 			color: $primary-color;
 			transition: border-color .5s;
-			// max-width: 370px;
-			// min-width: 370px;
 
 			&:nth-child(1) {
 			}
@@ -148,19 +144,6 @@
 
 				.light-text {
 					display: none;
-				}
-
-				.price-tier {
-					// background-color: lighten($grey-medium, 20%);
-				}
-
-				.price {
-					// border-top-color: lighten($grey-medium, 12%);
-					// background-color: lighten($grey-medium, 10%);
-				}
-
-				.cta {
-					// background-color: #b1b1b1
 				}
 			}
 		}
