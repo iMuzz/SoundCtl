@@ -191,7 +191,7 @@ $main: #D8D8D8;
 			font-size: 1em;
 			text-align: center;
 
-			@media only screen and(max-width: 768px) {
+			@media only screen and(max-width: $breakpoint-small) {
 				width: 100%;
 				margin: auto;
 			}
@@ -220,7 +220,7 @@ $main: #D8D8D8;
 	    		// background-color: lighten(#CF1C22, 10%);
 	    	}
 			
-			@media only screen and(max-width: 768px) {
+			@media only screen and(max-width: $breakpoint-small) {
 				display: block;
 				width: 100%;
 				margin: auto;
@@ -228,7 +228,6 @@ $main: #D8D8D8;
 	    }
 	}
 }
-
 
 .hero-content {
 	z-index: 2;
@@ -238,6 +237,16 @@ $main: #D8D8D8;
 		color: white;
 		font-size: 2.5em;
 		font-weight: 100;
+		transition: font-size 1s ease-in-out;
+	}
+}
+
+@media (max-width: $breakpoint-small) { 
+	.hero-content {
+		min-height: auto;
+		.slogan {
+			font-size: 1.5em;
+		}
 	}
 }
 
