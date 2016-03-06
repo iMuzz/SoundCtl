@@ -124,7 +124,7 @@ class PricingSection extends React.Component {
 								<div className="features-included">
 									<ul>
 										<li> 50 Connections </li>
-										<li> 2 Inputs </li>
+										<li> 4 Inputs </li>
 										<li> 2 Outputs </li>
 										<li> 2 GB Storage </li>
 										<li> 50 GB Transfer </li>

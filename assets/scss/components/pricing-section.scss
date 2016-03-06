@@ -73,20 +73,6 @@
 				}
 			}
 
-			.cta {
-				border: none;
-				padding: 10px 20px;
-				color: white;
-				font-size: 1.3em;
-				font-family: $primary-font-family;
-				transition: background .3s;
-				border-radius: 0px;
-
-				&:hover {
-					background-color: lighten(#30a2ac, 20%);
-				}
-			}
-
 			&.inactive {
 				position: relative;
 				overflow: hidden;

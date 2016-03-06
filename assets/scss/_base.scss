@@ -36,16 +36,16 @@
 .cta {
 	border: none;
 	padding: 15px 25px;
-	background-color: #30a2ac;
+	background-color: #4975B5;
 	color: $white;
 	border-top: 1px solid white;
 	font-size: 1em;
 	font-family: $primary-font-family;
-	transition: background .3s;
+	transition: background .5s;
 	border-radius: 5px;
-
+	font-weight: 100;
 	&:hover {
-		background-color: lighten(#30a2ac, 20%);
+		background-color: #B54A83;
 	}
 }
 
