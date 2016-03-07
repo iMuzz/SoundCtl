@@ -3,27 +3,36 @@
     <!-- Generator: Sketch 3.5 (25232) - http://www.bohemiancoding.com/sketch -->
     <title>Documentation</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#3023AE" offset="0%"></stop>
+            <stop stop-color="#C96DD8" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#E29191" offset="0%"></stop>
+            <stop stop-color="#4975B5" offset="100%"></stop>
+        </linearGradient>
+    </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Documentation" sketch:type="MSLayerGroup">
-            <g id="documentation" fill="#4975B5" sketch:type="MSShapeGroup">
+            <g id="documentation" fill="url(#linearGradient-1)" sketch:type="MSShapeGroup">
                 <path d="M1.02,0.021 C0.656,0.077 0.376,0.442 0.376,0.808 L0.376,46.9 C0.376,47.321 0.74,47.686 1.16,47.686 L24.717,47.686 C28.023,47.686 30.711,50.129 31.131,53.248 C31.131,53.894 32.084,54.231 32.504,53.754 C32.56,53.726 32.588,53.697 32.616,53.642 C32.728,53.53 32.812,53.389 32.84,53.248 C33.26,50.13 35.978,47.686 39.282,47.686 L62.84,47.686 C63.232,47.686 63.624,47.321 63.624,46.9 L63.624,0.808 C63.624,0.387 63.231,0.021 62.84,0.021 L39.282,0.021 C36.061,0.021 33.288,1.875 32,4.6 C30.711,1.875 27.938,0.021 24.717,0.021 L1.16,0.021 L1.104,0.021 L1.02,0.021 L1.02,0.021 L1.02,0.021 Z M1.944,1.594 L24.716,1.594 C28.329,1.594 31.214,4.459 31.214,7.998 L31.214,49.568 C29.73,47.517 27.433,46.113 24.716,46.113 L1.944,46.113 L1.944,1.594 L1.944,1.594 L1.944,1.594 Z M39.282,1.594 L62.027,1.594 L62.027,46.114 L39.282,46.114 C36.565,46.114 34.24,47.518 32.784,49.569 L32.784,7.999 C32.784,4.459 35.669,1.594 39.282,1.594 L39.282,1.594 L39.282,1.594 Z" id="Shape"></path>
             </g>
-            <g id="Lines" transform="translate(38.000000, 10.000000)" stroke="#4975B5" stroke-linecap="square" fill="#D8D8D8" sketch:type="MSShapeGroup">
-                <path d="M0,1 L21,1" id="Line"></path>
-                <path d="M0,6 L21,6" id="Line"></path>
-                <path d="M0,11 L21,11" id="Line"></path>
-                <path d="M0,16 L21,16" id="Line"></path>
-                <path d="M0,21 L21,21" id="Line"></path>
-                <path d="M0,26 L21,26" id="Line"></path>
+            <g id="Lines" transform="translate(38.000000, 10.000000)" stroke-linecap="square" fill="url(#linearGradient-2)" sketch:type="MSShapeGroup">
+                <path d="M0,1 L21,1" id="Line" stroke="#4F32B6"></path>
+                <path d="M0,6 L21,6" id="Line" stroke="#5D39BA"></path>
+                <path d="M0,11 L21,11" id="Line" stroke="#6C40BE"></path>
+                <path d="M0,16 L21,16" id="Line" stroke="#7A47C2"></path>
+                <path d="M0,21 L21,21" id="Line" stroke="#874DC5"></path>
+                <path d="M0,26 L21,26" id="Line" stroke="#9655CA"></path>
             </g>
-            <g id="Lines" transform="translate(5.000000, 10.000000)" stroke="#4975B5" stroke-linecap="square" fill="#D8D8D8" sketch:type="MSShapeGroup">
-                <path d="M0,1 L21,1" id="Line"></path>
-                <path d="M0,6 L21,6" id="Line"></path>
-                <path d="M0,11 L21,11" id="Line"></path>
-                <path d="M0,16 L21,16" id="Line"></path>
-                <path d="M0,21 L21,21" id="Line"></path>
-                <path d="M0,26 L21,26" id="Line"></path>
+            <g id="Lines" transform="translate(5.000000, 10.000000)" stroke-linecap="square" fill="url(#linearGradient-2)" sketch:type="MSShapeGroup">
+                <path d="M0,1 L21,1" id="Line" stroke="#4F32B6"></path>
+                <path d="M0,6 L21,6" id="Line" stroke="#5D39BA"></path>
+                <path d="M0,11 L21,11" id="Line" stroke="#6C40BE"></path>
+                <path d="M0,16 L21,16" id="Line" stroke="#7A47C2"></path>
+                <path d="M0,21 L21,21" id="Line" stroke="#874DC5"></path>
+                <path d="M0,26 L21,26" id="Line" stroke="#9655CA"></path>
             </g>
         </g>
     </g>
