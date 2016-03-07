@@ -245,7 +245,7 @@ class IntroSection extends React.Component {
 				</div>
 				<div className="features-content">
 					{/*<i className="fa fa-bolt fa-5x"></i>*/}
-					<img src="/images/icons/bolt.svg"/>
+					<img src="/images/icons/wave.svg"/>
 					<div className="feature-desc" >
 						<h3> The most powerful real-time audio API </h3>
 						<p>	SoundCTL was designed from the ground up for real-time web mixing. Anything a standard sound mixer does, we do it <bold> better</bold> and we do it <bold>live.</bold></p>
@@ -347,17 +347,17 @@ export class InfoSection extends React.Component {
 					<h1> Features </h1>
 					<div className="info-block-container">
 						<div className="info-block">
-							<img src="/images/icons/tower.svg"/>
+							<img className='info-icon' src="/images/icons/documentation.svg"/>
 							<h1> Outstanding Documentation </h1>
-							<p> The SoundCTL API is a powerful combination of features. But a powerful API is pointless without great documentation. We've made great documentation our highest priorirty to make it easy for all types of learners to get started with our API. </p>
+							<p> The SoundCTL API contains a powerful combination of features. But a powerful API is pointless without great documentation. We've made great documentation our highest priorirty to make it easy for all types of learners to get started with our API. </p>
 						</div>
 						<div className="info-block">
-							<img src="/images/icons/routing.svg"/>
-							<h1>Real-time Audio Routing </h1>
-							<p> Connect any number of audio inputs and merge them together instantly at your will. Manipulate the audio in any way you like. </p>
+							<img className='info-icon' src="/images/icons/routing.svg"/>
+							<h1> Real-time Audio Routing </h1>
+							<p> Connect any number of audio inputs and merge them together instantly at your will. Send unique instructions to each of your inputs or god dammit caludio wants me to push this so I didn't finish my thought. </p>
 						</div>
 						<div className="info-block">
-							<img src="/images/icons/tower.svg"/>
+							<img className='info-icon' src="/images/icons/bolt.svg"/>
 							<h1>Take control of Audio</h1>
 							<i className="ti-eye"></i>
 							<p> Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. </p>

@@ -26,9 +26,15 @@ $text-color: black;
 		text-align: center;
 		width: 25%;
 		min-height: 300px;
+		
+		.info-icon {
+			width: 127px;
+		}
+
 		p {
 			line-height: 1.5;
 			text-align: left;
+			font-weight: 100;
 		}
 	}
 	h1 {
