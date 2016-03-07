@@ -43,11 +43,6 @@ $demo-height: 500px;
 			&:hover {
 				background-size: 104%;
 				cursor: pointer;
-
-				.fa-play {
-					color: lighten(#30a2ac, 20%);
-					border-color: lighten(#30a2ac, 20%);
-				}
 			}
 			
 			&:before {
