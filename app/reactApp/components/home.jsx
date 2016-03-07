@@ -240,7 +240,7 @@ class IntroSection extends React.Component {
 				<div className="intro-content">
 					<h5> Take control of Audio </h5>
 					<h1> What is SoundCTL? </h1>
-					<p> SoundCTL is an API, that allows you to mix audio in real-time. Simply transmit your audio and start sending audio instructions. We'll decode, process the audio with your instructions, re-encode it in any format you want, and send it back at the speed of light. </p>
+					<p> SoundCTL is an API that allows you to mix audio in real-time. Simply transmit your audio and start sending instructions. We'll decode, process the audio with your instructions, re-encode it in any format you want, and send it back at the speed of light. </p>
 					<a className="cta" href="https://docs.soundctl.com" target="_blank"> Learn More </a>
 				</div>
 				<div className="features-content">
@@ -255,8 +255,8 @@ class IntroSection extends React.Component {
 					<div className="feature-desc" >
 						{/* Push the boundaries of livestreaming applications */}
 						{/* Build next-gen livestream applications */}
-						<h3> Push the boundaries of livestreaming Apps </h3>
-						<p> Being able to mix audio in real-time opens the door for completely new types of applications. From remote music collaboration to virtual reality, the things you can build is limited only by your imagination. </p>
+						<h3> Push the boundaries of live streaming Apps </h3>
+						<p> Being able to mix audio in real-time opens the door for completely new types of applications. From remote music collaboration to virtual reality, the things you can build are limited only by your imagination. </p>
 					</div>
 					<img src="/images/icons/streaming.svg"/>
 				</div>
