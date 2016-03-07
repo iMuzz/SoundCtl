@@ -252,13 +252,13 @@ class IntroSection extends React.Component {
 					</div>
 				</div>
 				<div className="features-content">
+					<img id="satellite" src="/images/icons/satellite.svg"/>
 					<div className="feature-desc" >
 						{/* Push the boundaries of livestreaming applications */}
 						{/* Build next-gen livestream applications */}
 						<h3> Push the boundaries of live streaming Apps </h3>
 						<p> Being able to mix audio in real-time opens the door for completely new types of applications. From remote music collaboration to virtual reality, the things you can build are limited only by your imagination. </p>
 					</div>
-					<img src="/images/icons/streaming.svg"/>
 				</div>
 			</div>
 		);
