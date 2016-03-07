@@ -233,14 +233,14 @@ class IntroSection extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	// Simply transmit your audio and start sending audio instructions.  We'll process in real-time. 
+	// Simply transmit your audio and start sending audio commands.  We'll process in real-time. 
 	render() {
 		return  ( 
 			<div className="features-section">
 				<div className="intro-content">
 					<h5> Take control of Audio </h5>
 					<h1> What is SoundCTL? </h1>
-					<p> SoundCTL is an API that allows you to mix audio in real-time. Simply transmit your audio and start sending instructions. We'll decode, process the audio with your instructions, re-encode it in any format you want, and send it back at the speed of light. </p>
+					<p> SoundCTL is an API that allows you to mix audio in real-time. Simply transmit your audio and start sending commands. We'll decode, process the audio with your commands, re-encode it in any format you want, and send it back at the speed of light. </p>
 					<a className="cta" href="https://docs.soundctl.com" target="_blank"> Learn More </a>
 				</div>
 				<div className="features-content">
@@ -354,7 +354,7 @@ export class InfoSection extends React.Component {
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/routing.svg"/>
 							<h1> Real-time Audio Routing </h1>
-							<p> Connect any number of audio inputs and merge them together instantly at your will. Send unique instructions to each of your inputs or god dammit caludio wants me to push this so I didn't finish my thought. </p>
+							<p> Connect any number of audio inputs and merge them together instantly at your will. Send unique commands to each of your inputs or god dammit caludio wants me to push this so I didn't finish my thought. </p>
 						</div>
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/bolt.svg"/>
