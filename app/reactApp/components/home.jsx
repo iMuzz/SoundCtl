@@ -103,6 +103,7 @@ export class PricingPage extends React.Component {
 		);
 	}
 }
+
 class PricingSection extends React.Component {
 
 	constructor(props) {
@@ -127,7 +128,7 @@ class PricingSection extends React.Component {
 										<li> 4 Inputs </li>
 										<li> 2 Outputs </li>
 										<li> 2 GB Storage </li>
-										<li> 50 GB Transfer </li>
+										<li> 50 GB Bandwidth </li>
 										{ /*<li> Authentication <i className="fa fa-times"></i> </li> */}
 									</ul>
 								</div>
@@ -232,27 +233,29 @@ class IntroSection extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-
+	// Simply transmit your audio and start sending audio instructions.  We'll process in real-time. 
 	render() {
 		return  ( 
 			<div className="features-section">
 				<div className="intro-content">
-					<h5> Take control of Audio</h5>
-					<h1> What is it? </h1>
-					<p> SoundCTL is an API, that allows you to mix audio in real-time. Transmit your audio and we'll do powerful manipulations through simple API calls. We'll decode, signal process, re-encode, and send it back at the speed of light. </p>
+					<h5> Take control of Audio </h5>
+					<h1> What is SoundCTL? </h1>
+					<p> SoundCTL is an API, that allows you to mix audio in real-time. Simply transmit your audio and start sending audio instructions. We'll decode, process the audio with your instructions, re-encode it in any format you want, and send it back at the speed of light. </p>
 					<a className="cta" href="https://docs.soundctl.com" target="_blank"> Learn More </a>
 				</div>
 				<div className="features-content">
 					<img src="/images/icons/tower.svg"/>
 					<div>
-						<h3> The most powerful audio streaming platform </h3>
-						<p>	SoundCTL was designed from the ground up for real-time web mixing. Anything a standard sound mixer does, we do it <bold> better</bold>.</p>
+						<h3> The most powerful real-time audio API </h3>
+						<p>	SoundCTL was designed from the ground up for real-time web mixing. Anything a standard sound mixer does, we do it <bold> better</bold> and we do it <bold>live.</bold></p>
 					</div>
 				</div>
 				<div className="features-content">
 					<div>
-						<h3>Build on any device</h3>
-						<p>Build cross-platform native mobile and web apps with our Android, iOS, and JavaScript SDKs.</p>
+						{/* Push the boundaries of livestreaming applications */}
+						{/* Build next-gen livestream applications */}
+						<h3> Push the boundaries of livestreaming Apps </h3>
+						<p> Being able to mix audio in real-time opens the door for completely new types of applications. From remote music collaboration to virtual reality, the things you can build is limited only by your imagination. </p>
 					</div>
 					<img src="/images/icons/tower.svg"/>
 				</div>
@@ -350,7 +353,7 @@ export class InfoSection extends React.Component {
 						<div className="info-block">
 							<img src="/images/icons/tower.svg"/>
 							<h1>Real-time Audio Routing </h1>
-							<p> Connect any number of auido inputs and mix them together or apart at your will. </p>
+							<p> Connect any number of audio inputs and merge them together instantly at your will. Manipulate the audio in any way you like. </p>
 						</div>
 						<div className="info-block">
 							<img src="/images/icons/tower.svg"/>
