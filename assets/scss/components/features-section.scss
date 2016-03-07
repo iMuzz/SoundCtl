@@ -39,24 +39,33 @@
 		max-width: 800px;
 		margin: auto;
 
+		.fa.fa-bolt {
+			width: 50%;
+			text-align: center;
+			font-size: 7em;
+		}
+
 		&:not(:last-child) {
 			margin-bottom: 75px;
 		}
 
 		img {
-			width: 80%;
-			max-width: 200px;
- 			max-height: 75px;
+			width: 50%;
+			max-height: 150px;
+			position: relative;
+			top: -15px;
 		}
+		.feature-desc {
+			width: 60%;
+			h3 {
+				margin-bottom: 10px; 
+				font-weight: 500;
+			}
 
-		h3 {
-			margin-bottom: 10px; 
-			font-weight: 500;
-		}
-
-		p {
-			font-weight: 100;
-			line-height: 1.5;
+			p {
+				font-weight: 100;
+				line-height: 1.5;
+			}
 		}
 	}
 }
