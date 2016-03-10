@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="173px" height="234px" viewBox="0 0 173 234" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5 (25232) - http://www.bohemiancoding.com/sketch -->
+    <title>interface</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="interface" sketch:type="MSLayerGroup">
+            <g id="Capa_1" sketch:type="MSShapeGroup">
+                <rect id="Border" stroke="#000000" stroke-width="6" x="0" y="0" width="173" height="234" rx="10"></rect>
+                <g id="Group" transform="translate(33.638889, 36.592593)">
+                    <g id="Checkmarks" stroke-linecap="square" stroke="#000000" stroke-width="3">
+                        <g id="Checkmark" transform="translate(0.000000, 57.777778)">
+                            <path d="M0.480555556,11.0740741 L5.28611111,15.8888889" id="Line"></path>
+                            <path d="M5.28611111,15.8888889 L19.7027778,0.481481481" id="Line"></path>
+                        </g>
+                        <g id="Checkmark" transform="translate(0.000000, 86.666667)">
+                            <path d="M0.480555556,11.0740741 L5.28611111,15.8888889" id="Line"></path>
+                            <path d="M5.28611111,15.8888889 L19.7027778,0.481481481" id="Line"></path>
+                        </g>
+                        <g id="Checkmark" transform="translate(0.000000, 115.555556)">
+                            <path d="M0.480555556,11.0740741 L5.28611111,15.8888889" id="Line"></path>
+                            <path d="M5.28611111,15.8888889 L19.7027778,0.481481481" id="Line"></path>
+                        </g>
+                        <g id="Checkmark" transform="translate(0.000000, 144.444444)">
+                            <path d="M0.480555556,11.0740741 L5.28611111,15.8888889" id="Line"></path>
+                            <path d="M5.28611111,15.8888889 L19.7027778,0.481481481" id="Line"></path>
+                        </g>
+                        <g id="Checkmark" transform="translate(0.000000, 28.888889)">
+                            <path d="M0.480555556,11.0740741 L5.28611111,15.8888889" id="Line"></path>
+                            <path d="M5.28611111,15.8888889 L19.7027778,0.481481481" id="Line"></path>
+                        </g>
+                        <g id="Checkmark" transform="translate(1.922222, 0.000000)">
+                            <path d="M0.480555556,11.0740741 L5.28611111,15.8888889" id="Line"></path>
+                            <path d="M5.28611111,15.8888889 L19.7027778,0.481481481" id="Line"></path>
+                        </g>
+                    </g>
+                    <g id="Lines" transform="translate(34.600000, 6.740741)" fill="#000000">
+                        <rect id="Rectangle-7" x="0.518429969" y="144.444444" width="70.1611111" height="3.85185185" rx="9"></rect>
+                        <rect id="Rectangle-7" x="0.518429969" y="115.555556" width="70.1611111" height="3.85185185" rx="9"></rect>
+                        <rect id="Rectangle-7" x="0.518429969" y="87.6296296" width="70.1611111" height="3.85185185" rx="9"></rect>
+                        <rect id="Rectangle-7" x="0.518429969" y="57.7777778" width="70.1611111" height="3.85185185" rx="9"></rect>
+                        <rect id="Rectangle-7" x="0.518429969" y="28.8888889" width="70.1611111" height="3.85185185" rx="9"></rect>
+                        <rect id="Rectangle-7" x="0.518429969" y="0" width="70.1611111" height="3.85185185" rx="9"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

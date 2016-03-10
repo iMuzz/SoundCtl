@@ -247,7 +247,7 @@ class IntroSection extends React.Component {
 					{/*<i className="fa fa-bolt fa-5x"></i>*/}
 					<img src="/images/icons/wave.svg"/>
 					<div className="feature-desc" >
-						<h3> The most powerful real-time audio API </h3>
+						<h3> Most powerful audio API </h3>
 						<p>	SoundCTL was designed from the ground up for real-time web mixing. Anything a standard sound mixer does, we do it <bold> better</bold> and we do it <bold>live.</bold></p>
 					</div>
 				</div>
@@ -256,7 +256,7 @@ class IntroSection extends React.Component {
 					<div className="feature-desc" >
 						{/* Push the boundaries of livestreaming applications */}
 						{/* Build next-gen livestream applications */}
-						<h3> Push the boundaries of live streaming Apps </h3>
+						<h3> Push the boundaries </h3>
 						<p> Being able to mix audio in real-time opens the door for completely new types of applications. From remote music collaboration to virtual reality, the things you can build are limited only by your imagination. </p>
 					</div>
 				</div>
@@ -349,18 +349,18 @@ export class InfoSection extends React.Component {
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/documentation.svg"/>
 							<h1> Outstanding Documentation </h1>
-							<p> The SoundCTL API contains a powerful combination of features. We've made great documentation a priorirty and have made it easy for all types of learners to get started with our API. </p>
+							<p> SoundCTL API has a powerful combination of features. We've made great documentation a priorirty and have made it easy for all types of learners to get started. </p>
 						</div>
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/routing.svg"/>
 							<h1> Real-time Audio Routing </h1>
-							<p> Connect any number of audio inputs and merge them together instantly at your will. This is just sample data for now. I need to make it better. Add some more shit here.  Little bit more content for equal width.</p>
+							<p> Connect any number of audio inputs and merge them together instantly at your will. This allows for a whole suite application that couldn't exist before. </p>
 						</div>
 						<div className="info-block">
-							<img className='info-icon' src="/images/icons/bolt.svg"/>
-							<h1>Take control of Audio</h1>
+							<img className='info-icon' src="/images/icons/interface.svg"/>
+							<h1> Multiple Audio Formats </h1>
 							<i className="ti-eye"></i>
-							<p> Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. Harness the power of a top of the line audio mixer with a JSON patch. </p>
+							<p> Transmit a variety of audio formats and SoundCTL will automatically detect and decode. This gives you the power to create an app for any device. </p>
 						</div>
 					</div>
 				</div>
