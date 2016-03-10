@@ -354,7 +354,7 @@ export class InfoSection extends React.Component {
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/routing.svg"/>
 							<h1> Real-time Audio Routing </h1>
-							<p> Connect any number of audio inputs and merge them together instantly at your will. </p>
+							<p> Connect any number of audio inputs and merge them together instantly at your will. This is just sample data for now. I need to make it better. Add some more shit here.  Little bit more content for equal width.</p>
 						</div>
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/bolt.svg"/>
