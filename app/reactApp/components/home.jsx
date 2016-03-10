@@ -72,7 +72,7 @@ class HeroSection extends React.Component {
 						<div className="invisible-wrap">
 							<div className="hero-content">
 								<div className="slogan animated fadeInDown delay-half-sec"> The future of real-time audio</div>
-								<Countdown endTime='Mon Mar 7 2016 00:56:22 GMT-0700'/>
+								<Countdown endTime='Mon Mar 10 2016 00:56:22 GMT-0700'/>
 							</div>
 						</div>
 					</div>
@@ -349,12 +349,12 @@ export class InfoSection extends React.Component {
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/documentation.svg"/>
 							<h1> Outstanding Documentation </h1>
-							<p> The SoundCTL API contains a powerful combination of features. But a powerful API is pointless without great documentation. We've made great documentation our highest priorirty to make it easy for all types of learners to get started with our API. </p>
+							<p> The SoundCTL API contains a powerful combination of features. We've made great documentation a priorirty and have made it easy for all types of learners to get started with our API. </p>
 						</div>
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/routing.svg"/>
 							<h1> Real-time Audio Routing </h1>
-							<p> Connect any number of audio inputs and merge them together instantly at your will. Send unique commands to each of your inputs or god dammit caludio wants me to push this so I didn't finish my thought. </p>
+							<p> Connect any number of audio inputs and merge them together instantly at your will. </p>
 						</div>
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/bolt.svg"/>
