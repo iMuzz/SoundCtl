@@ -72,7 +72,7 @@ class HeroSection extends React.Component {
 						<div className="invisible-wrap">
 							<div className="hero-content">
 								<div className="slogan animated fadeInDown delay-half-sec"> The future of real-time audio</div>
-								<Countdown endTime='Mon Mar 10 2016 00:56:22 GMT-0700'/>
+								<Countdown endTime='Mon Mar 17 2016 00:56:22 GMT-0700'/>
 							</div>
 						</div>
 					</div>
