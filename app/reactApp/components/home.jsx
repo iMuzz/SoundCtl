@@ -38,7 +38,7 @@ class HeroNav extends React.Component {
 		return  ( 
 			<nav className="nav">
 				<div className="nav-item-wrap">
-					<Link to="/" className="nav-item logo"> <img src="/images/icons/soundctl.png" alt=""/> </Link>
+					<Link to="/" className="nav-item logo"> SoundCTL </Link>
 					<div className="nav-right">
 						{/* <div className="nav-item"> Features </div> 	*/}
 						<Link  to="/pricing" className="nav-item"> Pricing </Link>
@@ -354,7 +354,7 @@ export class InfoSection extends React.Component {
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/routing.svg"/>
 							<h1> Real-time Audio Routing </h1>
-							<p> Connect any number of audio inputs and merge them together instantly at your will. This allows for a whole suite application that couldn't exist before. </p>
+							<p> Connect any number of audio inputs and merge them together instantly at your will. This allows for a whole suite applications that couldn't exist before. </p>
 						</div>
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/interface.svg"/>
