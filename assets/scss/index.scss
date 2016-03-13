@@ -199,13 +199,13 @@ $main: #D8D8D8;
 	}
 
 	#mc-embedded-subscribe-form {
-		width: 80%;
+		width: 100%;
 		margin: auto;
-		padding: 0px 5%;
+		padding: 0px;
 		display: flex;
 		justify-content: center;
 	    input[type='email'] {
-			width: 300px;
+			width: 100%;
 			height: 45px;
 
 			font-size: 1em;

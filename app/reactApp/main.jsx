@@ -9,7 +9,8 @@ import $ from                                    'jquery';
 import {AppController} from                      './components/appController';
 import {DashboardController} from                './components/dashboardController';
 import {SettingsController} from                 './components/settingsController';
-import {Home, PricingPage} from                  './components/home'
+import {Home} from                               './components/website/home'
+import {PricingPage} from                        './components/website/pricing-page'
 import {Mixer} from                              './components/mixer';
 import {socketManager} from                      './modules/websocket';
 import userStoreInstance from                    './stores/UserStore';
