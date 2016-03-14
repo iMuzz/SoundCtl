@@ -97,7 +97,7 @@ class IntroSection extends React.Component {
 				</div>
 				<div className="features-content">
 					{/*<i className="fa fa-bolt fa-5x"></i>*/}
-					<img src="/images/icons/wave.svg"/>
+					<img src="/images/icons/multiplatform.svg"/>
 					<div className="feature-desc" >
 						<h3> Powerful Audio API </h3>
 						<p>	SoundCTL was designed from the ground up for real-time web mixing. Anything a standard sound mixer does, we do it <bold> better</bold> and we do it <bold>live.</bold></p>
