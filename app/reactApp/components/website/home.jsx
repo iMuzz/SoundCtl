@@ -68,7 +68,7 @@ class HeroSection extends React.Component {
 								<div className="slogan animated fadeInDown delay-half-sec"> The future of real-time audio</div>
 								<Countdown endTime='Mon Mar 17 2016 00:56:22 GMT-0700'/>
 								<form className="animated fadeInDown delay-1s" id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
-									<input placeholder="Enter email address to request early access" type="email" name="EMAIL" required/>
+									<input placeholder="Enter email address" type="email" name="EMAIL" required/>
 									<input className="cta-base" type="submit" value="Notify Me!"/>
 								</form>
 							</div>
@@ -90,7 +90,7 @@ class IntroSection extends React.Component {
 		return  ( 
 			<div className="features-section">
 				<div className="intro-content">
-					<h5> Take control of Audio </h5>
+					<h5> Shape your sound </h5>
 					<h1> What is SoundCTL? </h1>
 					<p> SoundCTL is an API that allows you to mix audio in real-time. Simply transmit your audio and start sending commands. We'll decode, process the audio with your commands, re-encode it in any format you want, and send it back at the speed of light. </p>
 					<a className="cta" href="https://docs.soundctl.com" target="_blank"> Learn More </a>
@@ -104,7 +104,10 @@ class IntroSection extends React.Component {
 					</div>
 				</div>
 				<div className="features-content">
-					<img id="satellite" src="/images/icons/satellite.svg"/>
+					<div className='feature-icon-wrap'>
+						<div className="pulse"></div>
+						<img id="network" src="/images/icons/network.svg"/>
+					</div>
 					<div className="feature-desc" >
 						{/* Push the boundaries of livestreaming applications */}
 						{/* Build next-gen livestream applications */}

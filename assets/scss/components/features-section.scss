@@ -35,6 +35,16 @@
 			}
 		}
 	}
+	@keyframes Pulse {
+		from {
+			transform: scale(0);
+			
+		}
+
+		to {
+			transform: scale(29);
+		}
+	}
 
 	.features-content {
 		display: flex;
@@ -42,18 +52,39 @@
 		max-width: 1000px;
 		margin: auto;
 
+		.feature-icon-wrap {
+			position: relative;
+			height: 148px;
+			width: 215px;
+			overflow: hidden;
+			order: 2;
+			.pulse {
+				animation: Pulse 2.25s ease infinite;
+				background-image: url('/images/icons/pulse.png');
+				width: 300px;
+				height: 200px;
+				position: relative;
+				top: 37px;
+    			left: 134px;
+				width: 10px;
+				height: 10px;
+				background-size: cover;
+    			background-repeat: no-repeat;
+			}
 
-		#satellite {
-			width: 150px;
-			height: 150px;
+			#network {
+				width: 300px;
+				position: absolute;
+				top: -1px;
+				z-index: 2;
+			}
 		}
-
 		&:not(:last-child) {
 			margin-bottom: 75px;
 		}
 
 		&:nth-child(even) {
-			img {
+			img{
 				order: 0;
 			}
 		}
