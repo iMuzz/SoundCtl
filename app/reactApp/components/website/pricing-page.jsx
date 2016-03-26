@@ -1,6 +1,6 @@
 import React from         'react';
 import { Link } from      'react-router';
-import {HeroNav} from     './HeroNav';
+import { HeroNav } from     './heroNav';
 import { Footer } from    './footer';
 
 export class PricingPage extends React.Component {
