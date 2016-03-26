@@ -78,7 +78,7 @@ class IntroSection extends React.Component {
 						<img id="network" src="/images/icons/network.svg"/>
 					</div>
 					<div className="feature-desc" >
-						<h3> Push the boundaries </h3>
+						<h3> Push The Boundaries </h3>
 						<p> Being able to mix audio in real-time opens the door for completely new types of applications. From remote music collaboration to virtual reality, the things you can build are limited only by your imagination. </p>
 					</div>
 				</div>

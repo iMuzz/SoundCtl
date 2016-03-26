@@ -105,7 +105,6 @@ class PricingSection extends React.Component {
 	}
 }
 
-
 class FaqSection extends React.Component {
 	constructor(props) {
 		super(props);

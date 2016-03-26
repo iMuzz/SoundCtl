@@ -199,7 +199,11 @@ $main: #D8D8D8;
 		padding: 0px;
 		display: flex;
 		justify-content: center;
-	    input[type='email'] {
+
+		@media only screen and(max-width: $breakpoint-small) {
+			flex-direction: column;
+		}
+		input[type='email'] {
 			width: 100%;
 			height: 45px;
 
