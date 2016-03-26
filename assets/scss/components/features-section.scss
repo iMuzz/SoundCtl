@@ -59,17 +59,19 @@
 			overflow: hidden;
 			order: 2;
 			.pulse {
-				animation: Pulse 4s ease infinite;
-				background-image: url('/images/icons/pulse.png');
+				animation: Pulse 4s ease;
+				// background-image: url('/images/icons/pulse.png');
+				background-color: black;
 				width: 300px;
 				height: 200px;
 				position: relative;
 				top: 37px;
-    			left: 134px;
-				width: 10px;
-				height: 10px;
+				left: 134px;
+				width: 290px;
+				height: 290px;
 				background-size: cover;
-    			background-repeat: no-repeat;
+				background-repeat: no-repeat;
+				animation-fill-mode: forwards;
 			}
 
 			#network {
