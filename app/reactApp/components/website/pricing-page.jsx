@@ -123,7 +123,7 @@ class FaqSection extends React.Component {
 
 						<div className="question-block">
 							<h2 className="question">What forms of payments do you accept? </h2>
-							<p className="answer">We accept all major credit cards (Visa, MasterCard, Discover and American Express), Bitcoin,  Apple Pay. </p>
+							<p className="answer">We accept all major credit cards, Bitcoin, and Apple Pay. </p>
 						</div>
 
 						<div className="question-block">
