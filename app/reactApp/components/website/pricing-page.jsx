@@ -27,7 +27,6 @@ export class PricingPage extends React.Component {
 	}
 }
 
-
 class PricingSection extends React.Component {
 
 	constructor(props) {
