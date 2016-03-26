@@ -66,7 +66,7 @@ class HeroSection extends React.Component {
 						<div className="invisible-wrap">
 							<div className="hero-content">
 								<div className="slogan animated fadeInDown delay-half-sec"> The future of real-time audio</div>
-								<Countdown endTime='Mon Mar 17 2016 00:56:22 GMT-0700'/>
+								<Countdown endTime='Mon Mar 31 2016 00:56:22 GMT-0700'/>
 								<form className="animated fadeInDown delay-1s" id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
 									<input placeholder="Enter email address" type="email" name="EMAIL" required/>
 									<input className="cta-base" type="submit" value="Notify Me!"/>
