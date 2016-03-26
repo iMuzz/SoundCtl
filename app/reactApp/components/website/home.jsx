@@ -65,15 +65,14 @@ class IntroSection extends React.Component {
 				<div className="intro-content">
 					<h5> Shape your sound </h5>
 					<h1> What is SoundCTL? </h1>
-					<p> SoundCTL is an API that allows you to mix audio in real-time. Simply transmit your audio and start sending commands. We'll decode, process the audio with your commands, re-encode it in any format you want, and send it back at the speed of light. </p>
+					<p> SoundCTL is an API that allows you to take full control of real-time audio streaming. Combine multiple live sources, tweak audio levels and transmit the final output, all at the speed of light. </p>
 					<a className="cta" href="https://docs.soundctl.io" target="_blank"> Learn More </a>
 				</div>
 				<div className="features-content">
-					{/*<i className="fa fa-bolt fa-5x"></i>*/}
 					<img src="/images/icons/multiplatform.svg"/>
 					<div className="feature-desc" >
 						<h3> Powerful Audio API </h3>
-						<p>	SoundCTL was designed from the ground up for real-time web mixing. Anything a standard sound mixer does, we do it <bold> better</bold> and we do it <bold>live.</bold></p>
+						<p>	SoundCTL was designed from the ground up for real-time audio mixing. Harness the true power of live audio compositing with simple API calls and take your apps to the next level. </p>
 					</div>
 				</div>
 				<div className="features-content">
@@ -82,8 +81,6 @@ class IntroSection extends React.Component {
 						<img id="network" src="/images/icons/network.svg"/>
 					</div>
 					<div className="feature-desc" >
-						{/* Push the boundaries of livestreaming applications */}
-						{/* Build next-gen livestream applications */}
 						<h3> Push the boundaries </h3>
 						<p> Being able to mix audio in real-time opens the door for completely new types of applications. From remote music collaboration to virtual reality, the things you can build are limited only by your imagination. </p>
 					</div>
@@ -107,12 +104,12 @@ export class InfoSection extends React.Component {
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/documentation.svg"/>
 							<h1> Outstanding Documentation </h1>
-							<p> SoundCTL API has a powerful combination of features. We've made great documentation a priorirty and have made it easy for all types of learners to get started. </p>
+							<p> SoundCTL API has a powerful combination of features. We've made great documentation a priorirty and have made it easy for everyone to get started. </p>
 						</div>
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/routing.svg"/>
 							<h1> Real-time Audio Routing </h1>
-							<p> Connect any number of audio inputs and merge them together instantly at your will. This allows for a whole suite applications that couldn't exist before. </p>
+							<p> Connect any number of audio inputs and merge them together instantly at your will. This allows for a whole suite of applications that couldn't exist before. </p>
 						</div>
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/interface.svg"/>
