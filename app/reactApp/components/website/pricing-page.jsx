@@ -3,9 +3,7 @@ import { Link } from      'react-router';
 import {HeroNav} from     './HeroNav';
 import { Footer } from    './footer';
 
-
 export class PricingPage extends React.Component {
-
 	constructor(props) {
 		super(props);
 	}
@@ -28,7 +26,6 @@ export class PricingPage extends React.Component {
 }
 
 class PricingSection extends React.Component {
-
 	constructor(props) {
 		super(props);
 	}
@@ -110,7 +107,6 @@ class PricingSection extends React.Component {
 
 
 class FaqSection extends React.Component {
-
 	constructor(props) {
 		super(props);
 	}
