@@ -17,7 +17,6 @@ export class Home extends React.Component {
 					<div className="content-wrapper">
 						<IntroSection />
 						<InfoSection />
-						{ /**  <DemoSection />  **/}
 					</div>
 				</div>
 				<Footer />
@@ -53,9 +52,7 @@ class HeroSection extends React.Component {
 	}
 }
 
-
 class IntroSection extends React.Component {
-
 	constructor(props) {
 		super(props);
 	}
@@ -126,7 +123,6 @@ export class InfoSection extends React.Component {
 }
 
 class DemoSection extends React.Component {
-
 	constructor(props) {
 		super(props);
 
