@@ -15,7 +15,7 @@ export class Home extends React.Component {
 					<div className="content-wrapper">
 						<IntroSection />
 						<InfoSection />
-						{ /**  <DemoSection />  **/} 
+						{ /**  <DemoSection />  **/}
 					</div>
 				</div>
 				<Footer />
@@ -36,14 +36,14 @@ class HeroNav extends React.Component {
 	}
 
 	render() {
-		return  ( 
+		return  (
 			<nav className="nav">
 				<div className="nav-item-wrap">
 					<Link to="/" className="nav-item logo"> SoundCTL </Link>
 					<div className="nav-right">
 						{/* <div className="nav-item"> Features </div> 	*/}
 						<Link  to="/pricing" className="nav-item"> Pricing </Link>
-						<a className="nav-item" href="https://docs.soundctl.com" target="_blank"> Docs </a>
+						<a className="nav-item" href="https://docs.soundctl.io" target="_blank"> Docs </a>
 						<div className="nav-item" onClick={this.showLock}> Login</div>
 					</div>
 				</div>
@@ -59,7 +59,7 @@ class HeroSection extends React.Component {
 	}
 
 	render() {
-		return  ( 
+		return  (
 				<div className="hero-wrapper intro-animation">
 					<HeroNav {...this.props}/>
 					<div className="bg-hero bg-hero-1">
@@ -85,15 +85,15 @@ class IntroSection extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	// Simply transmit your audio and start sending audio commands.  We'll process in real-time. 
+	// Simply transmit your audio and start sending audio commands.  We'll process in real-time.
 	render() {
-		return  ( 
+		return  (
 			<div className="features-section">
 				<div className="intro-content">
 					<h5> Shape your sound </h5>
 					<h1> What is SoundCTL? </h1>
 					<p> SoundCTL is an API that allows you to mix audio in real-time. Simply transmit your audio and start sending commands. We'll decode, process the audio with your commands, re-encode it in any format you want, and send it back at the speed of light. </p>
-					<a className="cta" href="https://docs.soundctl.com" target="_blank"> Learn More </a>
+					<a className="cta" href="https://docs.soundctl.io" target="_blank"> Learn More </a>
 				</div>
 				<div className="features-content">
 					{/*<i className="fa fa-bolt fa-5x"></i>*/}
@@ -198,7 +198,7 @@ class Countdown extends React.Component {
 	}
 
 	render() {
-		return  ( 
+		return  (
 			<div className="countdown animated fadeInDown delay-half-sec">
 				<div className="time-wrap">
 					<div>
@@ -241,7 +241,7 @@ class DemoSection extends React.Component {
 	}
 
 	render() {
-		return  ( 
+		return  (
 			<div className="demo-section">
 				<div className="demo-wrap">
 					<div className="demo" data-vid-url="https://www.youtube.com/watch?v=wZZ7oFKsKzY" onClick={this.showDemo}><i className="fa fa-play"></i></div>

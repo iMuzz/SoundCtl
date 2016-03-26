@@ -2,7 +2,7 @@ import React from         'react';
 import { Link } from      'react-router';
 
 
-export class Footer extends React.Component { 
+export class Footer extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -18,7 +18,7 @@ export class Footer extends React.Component {
 					</div>
 					<div className="uk-width-1-4">
 						<div className="text header"> Product </div>
-						<a className="text row" href="https://docs.soundctl.com"> Documentation </a>
+						<a className="text row" href="https://docs.soundctl.io"> Documentation </a>
 						<Link to="/pricing" className="text row"> Pricing </Link>
 						<div className="text row"> Uptime & Status </div>
 					</div>
