@@ -102,7 +102,7 @@ export class InfoSection extends React.Component {
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/documentation.svg"/>
 							<h1> Outstanding Documentation </h1>
-							<p> SoundCTL API has a powerful combination of features. We've made great documentation a priorirty and have made it easy for everyone to get started. </p>
+							<p> Our API has a powerful combination of features. We've made great documentation a priorirty and have made it easy for everyone to get started. </p>
 						</div>
 						<div className="info-block">
 							<img className='info-icon' src="/images/icons/routing.svg"/>
@@ -113,7 +113,7 @@ export class InfoSection extends React.Component {
 							<img className='info-icon' src="/images/icons/interface.svg"/>
 							<h1> Multiple Audio Formats </h1>
 							<i className="ti-eye"></i>
-							<p> Transmit a variety of audio formats and SoundCTL will automatically detect and decode. This gives you the power to create an app for any device. </p>
+							<p> Transmit a variety of audio formats and we will automatically detect and decode. This gives you the power to create an app for any device. </p>
 						</div>
 					</div>
 				</div>
