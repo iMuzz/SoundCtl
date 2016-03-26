@@ -118,25 +118,34 @@ class FaqSection extends React.Component {
 				<div className="question-wrap">
 					<div className="question-column">
 						<div className="question-block">
-							<h2 className="question"> What is a "Database Connection"? </h2>
-							<p className="answer">A database connection is a measure of the number of devices that are using your app's database simultaneously. This isn't the same as the total number of users of your app or visitors to your site. It's any open network connection to our database servers, including streaming REST API requests.</p>
+							<h2 className="question"> Can I upgrade, downgrade, or cancel my plan? </h2>
+							<p className="answer">Yes. You can change your paid plan or even cancel at any time.</p>
 						</div>
 
 						<div className="question-block">
-							<h2 className="question"> What are the limits on the FREE Plan? </h2>
-							<p className="answer">The Free and the Spark plan have a hard cap at 100 concurrent connections. When the 101st user tries to connect, the API will throw an error and any additional connections will fail. In addition, storage and transfer is limited, and your app may be disabled if it exceeds these limits during a single month. </p>
+							<h2 className="question">What forms of payments do you accept? </h2>
+							<p className="answer">We accept all major credit cards (Visa, MasterCard, Discover and American Express), Bitcoin,  Apple Pay. </p>
+						</div>
+
+						<div className="question-block">
+							<h2 className="question">Can I see my usage metrics?  </h2>
+							<p className="answer"> Yes, at any time you’ll be able to see exactly the number of clients connected to your instance, bandwidth usage and active inputs/outputs. </p>
 						</div> 
 
 					</div> 
 
 					<div className="question-column">
 						<div className="question-block">
-							<h2 className="question"> What is the difference between database storage and transfer and hosting storage and transfer? </h2>
-							<p className="answer"> Database storage is the total amount of data stored in your Firebase database. Database transfer is the amount of data transfered in and out of your Firebase database over the course of a month. Hosting storage is the total size of all files uploaded for your website to Firebase Hosting. Hosting transfer is the bandwidth used to serve your website to end users. </p>
+							<h2 className="question"> What happens if I exceed my monthly transfer limit? </h2>
+							<p className="answer"> If you exceed the transfer limit of your plan, you’ll be charged $0.10 for each GB over your allowed quota. </p>
 						</div> 
 						<div className="question-block">
-							<h2 className="question"> Can I see my usage metrics? </h2>
-							<p className="answer">Yes. For detailed analytics, head over to your App Dashboard and click on the “Analytics” tab on the left.</p>
+							<h2 className="question"> Still have a question? </h2>
+							<p className="answer"> Please feel free to contact us at support@soundctl.io and we’ll get back at you in no time :)</p>
+						</div> 
+						<div className="question-block">
+							<h2 className="question"> What is a client? </h2>
+							<p className="answer"> A client is a device connected to a SoundCTL instance. The max clients is based on concurrent connections and not the total amount of connections.</p>
 						</div> 
 					</div> 
 				</div>
