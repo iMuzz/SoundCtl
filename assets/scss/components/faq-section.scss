@@ -47,6 +47,13 @@
 				.answer {
 					font-size: 1em;
 					line-height: 2;
+
+					a { 
+						color: $primary-cta-color;
+						&:hover {
+							text-decoration: underline;
+						}
+					}
 				}
 			}
 		}
