@@ -43,7 +43,7 @@ class HeroNav extends React.Component {
 					<div className="nav-right">
 						{/* <div className="nav-item"> Features </div> 	*/}
 						<Link  to="/pricing" className="nav-item"> PRICING </Link>
-						<a className="nav-item" href="https://docs.soundctl.com" target="_blank"> DOCS </a>
+						<a className="nav-item" href="https://docs.soundctl.io" target="_blank"> DOCS </a>
 						{ /* <div className="nav-item" onClick={this.showLock}> Login</div> */ }
 					</div>
 				</div>
