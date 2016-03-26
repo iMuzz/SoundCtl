@@ -220,21 +220,21 @@ $main: #D8D8D8;
 		#mc-embedded-subscribe {
 		}
 		/* Height 44px */
-	    .cta-base {
-	    	font-size: 1em;
-	    	display: inline-block;
-	    	line-height: 1.5;
-	    	padding: 10px 40px;
-	    	border: 1px solid white;
-	    	background-color: transparent;
-	    	color: white;
-	    	font-weight: 400;
-	    	height: 45px;
+		.cta {
+			font-size: 1em;
+			display: inline-block;
+			line-height: 1.5;
+			padding: 10px 40px;
+			color: white;
+			font-weight: 400;
+			height: 45px;
+			border-radius: 0px;
+			border: 1px solid $primary-cta-color;
 
-	    	&:hover {
-	    		// background-color: lighten(#CF1C22, 10%);
-	    	}
-			
+			&:hover {
+				border-color: $primary-cta-hover;
+			}
+
 			@media only screen and(max-width: $breakpoint-small) {
 				display: block;
 				width: 100%;

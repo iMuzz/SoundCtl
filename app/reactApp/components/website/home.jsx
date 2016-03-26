@@ -26,7 +26,6 @@ export class Home extends React.Component {
 }
 
 class HeroSection extends React.Component {
-
 	constructor(props) {
 		super(props);
 	}
@@ -42,7 +41,7 @@ class HeroSection extends React.Component {
 								<Countdown endTime='Mon Mar 31 2016 00:56:22 GMT-0700'/>
 								<form className="animated fadeInDown delay-1s" id="mc-embedded-subscribe-form" action="//SoundCtl.us12.list-manage.com/subscribe/post?u=be4c8e8b746c8bbb27b92210e&amp;id=7228dc16ba" name="mc-embedded-subscribe-form" method="post" target="_blank">
 									<input placeholder="Enter email address" type="email" name="EMAIL" required/>
-									<input className="cta-base" type="submit" value="Notify Me!"/>
+									<input className="cta" type="submit" value="Notify Me!"/>
 								</form>
 							</div>
 						</div>

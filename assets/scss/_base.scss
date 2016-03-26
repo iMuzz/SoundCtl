@@ -36,16 +36,17 @@
 .cta {
 	border: none;
 	padding: 15px 25px;
-	background-color: #4975B5;
+	background-color: $primary-cta-color;
 	color: $white;
-	border-top: 1px solid white;
+	border-top: 1px solid transparent;
 	font-size: 1em;
 	font-family: $primary-font-family;
-	transition: background .5s;
+	transition: background .5s, border-color .5s;
 	border-radius: 5px;
 	font-weight: 100;
 	&:hover {
-		background-color: #B54A83;
+		background-color: $primary-cta-hover;
+		border-color: $primary-cta-hover;
 	}
 }
 
