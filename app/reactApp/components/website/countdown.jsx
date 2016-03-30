@@ -33,12 +33,10 @@ export class Countdown extends React.Component {
 	}
 
 	componentDidMount(){
-		console.log("Component mounting...");
 		this.interval = setInterval(this.updateRemaingTime, 1000);
 	}
 
 	componentWillUnmount(){
-		console.log("Countdown unmounting...");
 		clearInterval(this.interval);
 	}
 
