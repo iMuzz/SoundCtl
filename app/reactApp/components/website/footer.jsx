@@ -23,7 +23,7 @@ export class Footer extends React.Component {
 					</div>
 					<div className="uk-width-1-4">
 						<div className="text header"> Support </div>
-						<a className="text row" href="mailto:admin@soundctl.com?Subject=Help%20me!"> Email Us </a>
+						<a className="text row" href="mailto:support@soundctl.io?Subject=Help%20me!"> Email Us </a>
 						<div className="text row">Call Us </div>
 					</div>
 					<div className="uk-width-1-4">
