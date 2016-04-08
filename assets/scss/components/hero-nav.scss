@@ -1,24 +1,20 @@
 @import "../_variables";
 
+$nav-padding: 0px 5%;
+$nav-border-bottom: 1px solid hsla(0,0%,100%,.05);
+$mobile-nav-background-color: rgba(0, 0, 0, 0.91);
+
 .nav {
   position: absolute;
   z-index: 3;
   width: 100%;
   display: flex;
   justify-content: center;
-}
-.nav-item-wrap {
+  border-bottom: $nav-border-bottom;
+  padding:$nav-padding;
   height: $nav-height;
   max-height: $nav-height;
-  padding: 0px 5%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: white;
-  font-size: 16px;
-  border-bottom: 1px solid hsla(0,0%,100%,.05);
-
+  
   .nav-right {
     display: flex;
     flex-direction: row;
@@ -32,6 +28,7 @@
       transition: background-color .5s, border-color .5s;
 
       &:hover {
+        color: white;
         background-color: rgba(255, 255, 255, .15);
         border-right-color: transparent;
       }
@@ -44,6 +41,17 @@
       }
     }
   }
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: white;
+  font-size: 16px;
+
+  .mobile-menu {
+    display: none;
+  }
 
   .nav-item {
     font-size: 1em;
@@ -53,7 +61,6 @@
     &.logo {
       font-size: 1.3em;
       position: relative;
-      left: -25px;
       img {
         width: 175px;
       }
@@ -65,20 +72,52 @@
   }
 }
 
-
+// Mobile Styling
 @media only screen and(max-width: $breakpoint-small) {
-  .nav-item-wrap {
-    .nav-right {
-      .nav-item {
-          padding: 0px 8px;
+  .nav {
+    padding: 0px; 
+    margin: 0px;
+    border-bottom: none;
+    flex-direction: column;
+    max-height: none;
+    height: auto;
+
+    &.open {
+      .nav-left {
+          background-color: $mobile-nav-background-color;
+      }
+      .nav-right {
+        display: flex;
+        flex-direction: column;
+        background-color: $mobile-nav-background-color;
+        .nav-item {
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
       }
     }
 
-    .nav-item {
+    .nav-right { //when nav is closed
+      display: none;
+    }
+
+    .nav-left { //when nav is closed
+      justify-content: space-between;
+      padding:$nav-padding;
+      border-bottom: $nav-border-bottom;
+      height: $nav-height;
+      max-height: $nav-height;  
+
+      .mobile-menu {
+        display: flex;
+        align-items: center;
+      }
       &.logo {
         left: 0px;
       }
     }
-
   }
 }

@@ -5,24 +5,32 @@ export class HeroNav extends React.Component {
 	constructor(props) {
 		super(props);
 		this.showLock = this.showLock.bind(this);
+		this.toggleNav = this.toggleNav.bind(this);
+		this.state = {
+			showNav: false
+		};
 	}
 
+	toggleNav(){
+		this.setState({showNav: !this.state.showNav});
+	}
 	showLock() {
 		this.props.lock.show();
 	}
 
 	render() {
+		let navClass = this.state.showNav ? "nav open" : "nav";
 		return  (
-			<nav className="nav">
-				<div className="nav-item-wrap">
+			<nav className={navClass}>
+				<div className="nav-left">
 					<Link to="/" className="nav-item logo"> SoundCTL </Link>
-					<div className="nav-right">
-						{/* <div className="nav-item"> Features </div> 	*/}
-						<Link  to="/pricing" className="nav-item"> PRICING </Link>
-						<a className="nav-item" href="https://docs.soundctl.io" target="_blank"> DOCS </a>
-						<a className="nav-item" href="https://github.com/soundctl/help" target="_blank"> SUPPORT </a>
-						{ /* <div className="nav-item" onClick={this.showLock}> Login</div> */ }
-					</div>
+					<i onClick={this.toggleNav} className="mobile-menu fa fa-bars fa-2x"></i>
+				</div>
+				<div className="nav-right">
+					<Link  to="/pricing" className="nav-item"> PRICING </Link>
+					<a className="nav-item" href="https://docs.soundctl.io" target="_blank"> DOCS </a>
+					<a className="nav-item" href="https://github.com/soundctl/help" target="_blank"> SUPPORT </a>
+					{ /* <div className="nav-item" onClick={this.showLock}> Login</div> */ }
 				</div>
 			</nav>
 		);
