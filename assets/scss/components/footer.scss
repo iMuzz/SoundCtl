@@ -1,67 +1,69 @@
 @import "../_variables";
 .pricing-page {
-	.footer-wrap {
-		transform: translate3d(0,0px,0);
-	}
+  .footer-wrap {
+    transform: translate3d(0,0px,0);
+  }
 }
 .footer-wrap {
-	height: 240px; // this is set so footer is always at bottom
-	width: 100%;
-	background-color: $midnight-blue;
-	color: white;
-	padding: 30px 0px 60px 0px;
-	display: flex;
-	justify-content: center;
-	transform: translate3d(0,$hero-height,0);
+  height: 240px; // this is set so footer is always at bottom
+  width: 100%;
+  background-color: $midnight-blue;
+  color: white;
+  padding: 30px 0px 60px 0px;
+  display: flex;
+  justify-content: center;
+  transform: translate3d(0,$hero-height,0);
+   @media only screen and(max-width: $breakpoint-small) {
+      transform: translate3d(0,$hero-height-mobile,0);
+   }
+   
+  .uk-width-1-4 {
+    max-width: 800px;
+    margin: 0px;
+    padding: 0px;
 
+    .text {
+      display: block;
+      font-size: 14px;
+      padding: 5px 25px;
+      min-width: 175px;
+    }
 
-	.uk-width-1-4 {
-		max-width: 800px;
-		margin: 0px;
-		padding: 0px;
+    .header {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
 
-		.text {
-			display: block;
-			font-size: 14px;
-			padding: 5px 25px;
-			min-width: 175px;
-		}
-
-		.header {
-			font-size: 16px;
-			font-weight: 600;
-			margin-bottom: 10px;
-		}
-
-		.row {
-			font-size: 14px;
-			margin-bottom: 5px;
-		}
-	}
+    .row {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+  }
 }
 
 @media (max-width: $breakpoint-small) {
-	#home {
-		padding-bottom: 0px;
-	}
-	.footer-wrap {
-		height: auto;
-		position: static;
-		padding-bottom: 30px;
+  #home {
+    padding-bottom: 0px;
+  }
+  .footer-wrap {
+    height: auto;
+    position: static;
+    padding-bottom: 30px;
 
-		.uk-grid {
-			margin: auto;
-		}
-		.uk-width-1-4 {
-			width: 100%;
-			margin-bottom: 25px;
-			padding: 0px 3%;
+    .uk-grid {
+      margin: auto;
+    }
+    .uk-width-1-4 {
+      width: 100%;
+      margin-bottom: 25px;
+      padding: 0px 3%;
 
-			.text {
-				margin: 0px;
-				padding: 10px 0px;
-			}
-			
-		}
-	}
+      .text {
+        margin: 0px;
+        padding: 10px 0px;
+      }
+      
+    }
+  }
 }
