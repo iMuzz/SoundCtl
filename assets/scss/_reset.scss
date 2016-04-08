@@ -24,36 +24,36 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0 0px;
-	padding: 0 0px;
-	border: 0 0px;
-	font-size: 100%;
-	font: inherit;
-	font-family: $font-family;
-	vertical-align: baseline;
+  margin: 0 0px;
+  padding: 0 0px;
+  border: 0 0px;
+  font-size: 100%;
+  font: inherit;
+  font-family: $font-family;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 html {
@@ -65,8 +65,8 @@ html {
 }
 
 bold {
-	font-weight: 500;
-	font-style: italic;
+  font-weight: 500;
+  font-style: italic;
 }
 
 
@@ -75,27 +75,29 @@ a, u {
     text-decoration: none;
 
     &:hover {
-    	text-decoration: none;
-    	cursor: pointer;
-    	color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      color: inherit;
     }
 }
 /* Remove blue outline on focus app wide */
 *:focus {
-	outline: none;
+  outline: none;
 }
 
-input {
-	border: 0px;
-	padding: 0px;
+input, textarea {
+  border: 0px;
+  padding: 0px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 
-	&:placeholder-shown {
-		font-family: $font-family;
-	}
+  &:placeholder-shown {
+    font-family: $font-family;
+  }
 }
 
 button, input[type='submit'] {
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 }
