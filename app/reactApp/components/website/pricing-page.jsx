@@ -36,7 +36,7 @@ class PricingSection extends React.Component {
 					<div className="column-row">
 						<div className="pricing-column ">
 							<h1 className="price-tier">
-								Hacker
+								Beta
 							</h1>
 							<div className="price">
 								<span className="bling">$</span> <span className="cash-money">0</span>
@@ -52,7 +52,7 @@ class PricingSection extends React.Component {
 									</ul>
 								</div>
 							</div>
-							<button className="cta"> Sign Up</button>
+							{/** <button className="cta"> Sign Up</button> **/ } 
 						</div>
 						<div className="pricing-column inactive ">
 							<div id="coming-soon">Coming Soon</div>
