@@ -49,7 +49,7 @@ $mobile-nav-background-color: rgba(0, 0, 0, 0.91);
   color: white;
   font-size: 16px;
 
-  .mobile-menu {
+  #mobile-menu {
     display: none;
   }
 
@@ -111,9 +111,10 @@ $mobile-nav-background-color: rgba(0, 0, 0, 0.91);
       height: $nav-height;
       max-height: $nav-height;  
 
-      .mobile-menu {
+      #mobile-menu {
         display: flex;
         align-items: center;
+        font-size: 1.8em;
       }
       &.logo {
         left: 0px;

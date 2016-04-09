@@ -24,7 +24,7 @@ export class HeroNav extends React.Component {
 			<nav className={navClass}>
 				<div className="nav-left">
 					<Link to="/" className="nav-item logo"> SoundCTL </Link>
-					<i onClick={this.toggleNav} className="mobile-menu fa fa-bars fa-2x"></i>
+					<i onClick={this.toggleNav} id="mobile-menu" className="nav-item fa fa-bars fa-2x"></i>
 				</div>
 				<div className="nav-right">
 					<Link  to="/pricing" className="nav-item"> PRICING </Link>
