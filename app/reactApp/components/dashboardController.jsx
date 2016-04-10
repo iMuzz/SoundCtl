@@ -1,6 +1,7 @@
 import React from                       'react'
 import AppDispatcher from               '../dispatcher/AppDispatcher'
 import {UsageSection} from              './usageSection'
+import {UptimeSection} from             './uptimeSection'
 
 // components
 import {DashNav} from                   './dash-nav'
@@ -24,6 +25,7 @@ export class DashboardController extends React.Component {
       <div>
         <div className="dash-view">
           <UsageSection></UsageSection>
+          <UptimeSection></UptimeSection>
         </div>
       </div>
     );

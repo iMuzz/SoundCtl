@@ -7,7 +7,7 @@ export class UsageSection extends React.Component {
 
   render() {
     return  ( 
-      <div className='usage-section'>
+      <div className='dashboard-section'>
           <div className='container'>
               <h2> Monthly Usage </h2>
               <div className='usage-cards'>
