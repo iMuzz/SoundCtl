@@ -34,9 +34,6 @@ $main: #D8D8D8;
   padding: 75px 0px;
 }
 
-#home {
-  min-height: calc(100vh - #{$dashnav-height});
-}
 
 @keyframes hero-reduce {
   from {

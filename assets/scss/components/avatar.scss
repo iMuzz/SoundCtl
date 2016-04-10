@@ -1,8 +1,10 @@
+$avatar-size: 55px;
+
 .avatar {
   .image {
     background-size: cover;
-    height: 60px;
-    width: 60px;
+    height: $avatar-size;
+    width: $avatar-size;
     border-radius: 50%;
     border: 1px solid white;
   }
