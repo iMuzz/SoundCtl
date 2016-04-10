@@ -46,9 +46,11 @@ class SideNav extends React.Component {
 
 		return  ( 
 			<div className="left-nav">
-				<div className="company-logo">
-					<img className="wave" src="images/icons/waves.svg" alt=""/>
-					<div className="text"> SoundCTL </div>
+				<div className="company-logo-wrap">
+					<div className="company-logo">
+						<img className="wave" src="images/icons/waves.svg" alt=""/>
+						<div className="text"> SoundCTL </div>
+					</div>
 				</div>
 				<nav>
 					<NavItem className="tab" to="app/dashboard"> Dashboard </NavItem>

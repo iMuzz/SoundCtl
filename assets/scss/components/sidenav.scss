@@ -5,19 +5,26 @@
   box-shadow: -6px 0px 6px 7px rgba(0,0,0,.83);
   z-index: 1;
 
-  .company-logo {
+  .company-logo-wrap {
     height: $dashnav-height;
     background-color: $secondary-color;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     padding: 0px 10px;
     
+    .company-logo {
+      display: flex;
+      align-items: center;
+    }    
     .wave {
+      display: inline-block;
       width: 2.3em;
+      margin-right: 7px;
     }
     .text{
-      width: 70%;
+      display: inline-block;
+      width: 100px;
       text-align: center;
       color: white;
       font-size: 1.2em;
