@@ -15,7 +15,7 @@ export class IntroUser extends React.Component {
 	}
 
 	render() {
-		var component;
+		let component;
 
 		if (this.props.station !== "") { //if the user doesn't have a station or has deleted a station
 			component = <ConnectMicrophone />;

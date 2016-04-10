@@ -21,7 +21,6 @@ export class DashboardController extends React.Component {
 	render() {
 		return  ( 
 			<div>
-				<DashNav userProfile={this.props.profile}/>
 				<div className="dash-view">
 				</div>
 			</div>

@@ -1,7 +1,8 @@
 import React from                                'react'
-import { Router, Route, Link, IndexRoute} from  'react-router'
+import { Router, Route, Link, IndexRoute} from   'react-router'
 import {Avatar} from                             './avatar'
 import {StationManager} from                     './stationManager'
+import {DashNav} from                            './dash-nav'
 
 import activeComponent from                      'react-router-active-component'
 
@@ -29,6 +30,7 @@ export class AppController extends React.Component {
 			<div id="dashboard">
 				<SideNav />
 				<div className="dash-view-wrap">
+					<DashNav userProfile={this.state.profile}/>
 					{ React.cloneElement(this.props.children, {profile: this.state.profile}) }
 				</div>
 		</div>
