@@ -2,18 +2,14 @@ import React from                                'react'
 import { Router, Route, Link, IndexRoute} from  'react-router'
 import {Avatar} from                             './avatar'
 import {StationManager} from                     './stationManager'
-import ProgressBar from                          'react-progress-bar-plus'
-
 
 import activeComponent from                      'react-router-active-component'
 
 let UserActions = require('../actions/UserActions');
 
 export class AppController extends React.Component {
-
 	constructor(props) {
 		super(props);
-
 		this.state = { 
 			profile: null
 		};
@@ -50,10 +46,9 @@ class SideNav extends React.Component {
 
 		return  ( 
 			<div className="left-nav">
-				<div className="user-bg">
-					<div>
-						<Avatar imageUrl={"/images/Apple-Beats-1-logo.jpg"} />
-					</div>
+				<div className="company-logo">
+					<img className="wave" src="images/icons/waves.svg" alt=""/>
+					<div className="text"> SoundCTL </div>
 				</div>
 				<nav>
 					<NavItem className="tab" to="app/dashboard"> Dashboard </NavItem>

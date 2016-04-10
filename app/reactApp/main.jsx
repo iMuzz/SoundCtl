@@ -86,61 +86,24 @@ class App extends React.Component {
 }
 
 $(document).ready(function(){
-
 	window.addEventListener("hashchange", function(){
 		if (window.location.hash.substr(0,15) === "#/access_token=") {
 			localStorage.setItem('auth0Hash', window.location.hash.replace('/', ''));
 			window.location.hash = '/app/dashboard';
 		};
 	});
-
-	if (document.getElementById('home')) {
-			ReactDom.render((
-			<Router history={appHistory}>
-				<Route path="/" component={App}>
-					<IndexRoute component={Home}/>
-					<Route path="/pricing" component={PricingPage} />
-					<Route path="/app" component={AppController}>
-						<IndexRoute component={DashboardController} user={"faraaz"}/>
-						<Route path="dashboard" {...this.props} component={DashboardController} />
-						<Route path="settings" component={SettingsController} />
-					</Route>
+	
+	ReactDom.render((
+		<Router history={appHistory}>
+			<Route path="/" component={App}>
+				<IndexRoute component={Home}/>
+				<Route path="/pricing" component={PricingPage} />
+				<Route path="/app" component={AppController}>
+					<IndexRoute component={DashboardController} user={"faraaz"}/>
+					<Route path="dashboard" {...this.props} component={DashboardController} />
+					<Route path="settings" component={SettingsController} />
 				</Route>
-			</Router>
-		), document.getElementById('home'));
-
-	};
+			</Route>
+		</Router>
+	), document.getElementById('home'));
 });
-
-// function render() {
-// 		let hardcodedObject = [
-// 			{
-// 				data: {
-// 					afx: [
-// 						{
-// 							volume: {
-// 								fader: 10
-// 							}
-// 						}
-// 					]
-// 				},
-// 				path: "/mixer/Deck1"
-// 			},
-// 			{
-// 				data: {
-// 					afx: [
-// 						{
-// 							volume: {
-// 								fader: 20
-// 							}
-// 						}
-// 					]
-// 				},
-// 				path: "/mixer/Deck2"
-// 			}
-// 		]
-// 		ReactDom.render(<Mixer soundPaths={hardcodedObject} />, document.getElementById('mixers'));
-// 	// if (station.dataStore.soundPaths[0]) {
-// 	// 	ReactDom.render(<Mixer soundPaths={station.dataStore.soundPaths} />, document.getElementById('mixers'));
-// 	// };
-// }

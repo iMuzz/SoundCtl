@@ -1,5 +1,5 @@
 import React from                       'react'
-import {Navbar} from                    './navbar'
+import {DashNav} from                   './dash-nav'
 import {StationManager} from            './stationManager'
 import {IntroUser} from                 './introductionFlow/introUser'
 import stationStoreInstance from        '../stores/stationStore'
@@ -35,7 +35,7 @@ export class DashboardController extends React.Component {
 	render() {
 		return  ( 
 			<div>
-				<Navbar userProfile={this.props.profile}/>
+				<DashNav userProfile={this.props.profile}/>
 				<div className="dash-view">
 					<IntroUser station={this.state.station}/>
 				</div>

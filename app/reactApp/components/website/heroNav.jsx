@@ -30,7 +30,7 @@ export class HeroNav extends React.Component {
 					<Link  to="/pricing" className="nav-item"> PRICING </Link>
 					<a className="nav-item" href="https://docs.soundctl.io" target="_blank"> DOCS </a>
 					<a className="nav-item" href="https://github.com/soundctl/help" target="_blank"> SUPPORT </a>
-					{ /* <div className="nav-item" onClick={this.showLock}> Login</div> */ }
+					<div className="nav-item" onClick={this.showLock}> LOGIN </div>  
 				</div>
 			</nav>
 		);

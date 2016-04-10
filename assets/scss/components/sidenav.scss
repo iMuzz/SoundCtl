@@ -1,73 +1,79 @@
 @import "../_variables";
 
 .left-nav {
-	background-color: $primary-color;
-	box-shadow: -6px 0px 6px 7px rgba(0,0,0,.83);
-	z-index: 1;
+  background-color: $primary-color;
+  box-shadow: -6px 0px 6px 7px rgba(0,0,0,.83);
+  z-index: 1;
 
-	.user-bg {
-		min-height: 230px;
-		background-image: url("/images/stock1-min.jpg");
-		background-size: cover;
-		position: relative;
-		display: flex;
-		align-items: center;
+  .company-logo {
+    height: $dashnav-height;
+    background-color: $secondary-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 10px;
+    
+    .wave {
+      width: 2.3em;
+    }
+    .text{
+      width: 70%;
+      text-align: center;
+      color: white;
+      font-size: 1.2em;
+    }
+  }
 
-		&:before {
-			content: "";
-			display: block;
-			width: 100%;
-			height: 100%;
-			background: rgba(0, 0, 0, 0.7);
-			position: absolute;
-			top: 0;
-		}
+  .user-bg {
+    min-height: 230px;
+    background-image: url("/images/stock1-min.jpg");
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
 
-		> *{
-			position: relative;
-			margin: auto;
-		}
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      top: 0;
+    }
 
-		.avatar {
-			.image {
-				height: 90px;
-				width: 90px;
-				background-position-x: -37px;
-				border: 2px solid $secondary-color;
-				border-radius: 50%;
-			}
-		}
-	}
+    > *{
+      position: relative;
+      margin: auto;
+    }
 
-	nav {
-		.tab {
-			list-style-type: none;
-			transition: border .5s;
-			transition-timing-function: linear;
-			a {
-				padding: 25px;
-				text-align: center;
-				color: $white;
-				transition: border .5s;
-				display: block;
+    .avatar {
+      .image {
+        height: 90px;
+        width: 90px;
+        background-position-x: -37px;
+        border: 2px solid $secondary-color;
+        border-radius: 50%;
+      }
+    }
+  }
 
-			}
-			&:hover {
-				cursor: pointer;
-			}
+  nav {
+    .tab {
+      list-style-type: none;
+      a {
+        padding: 25px;
+        text-align: center;
+        color: $white;
+        display: block;
 
-			&.active {
-				border-left: 5px solid $secondary-color;
-			}
-		}
-		
-		> * {
-			border-top: 1px solid $grey-dark;
-			border-left: 5px solid $primary-color;
-		} 
+      }
+      &:hover {
+        cursor: pointer;
+      }
 
-		&:last-child {
-			border-bottom: 1px solid $grey-dark;
-		}
-	}
+      &.active {
+      }
+    }
+  }
 }

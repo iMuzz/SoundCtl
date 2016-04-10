@@ -4,6 +4,7 @@ $neon-green: #48DEC4;
 $white: #FFFFFF;
 $black: #000000;
 $midnight-purple: #120A2B;
+$rich-orange: #EB5425;
 
 // 1 darkest grey (higher means lighter)
 $grey-light: #D5D5D5;
@@ -12,7 +13,7 @@ $grey-dark: #5B5C59;
 
 // categories
 $primary-color: $midnight-blue;
-$secondary-color: $neon-green;
+$secondary-color: $rich-orange;
 
 $primary-font-family: "Gotham Rounded A", "Gotham Rounded B";
 $primary-cta-color: #EB5425;
@@ -24,3 +25,6 @@ $nav-height: 70px;
 $breakpoint-small: 768px;
 $hero-height: calc(100vh - 350px); //controls how far up the home page animation will go
 $hero-height-mobile: calc(100vh - 130px);
+
+// Dashboard
+$dashnav-height: 90px;

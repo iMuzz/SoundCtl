@@ -1,0 +1,77 @@
+@import "../_variables";
+
+.dash-nav {
+  height: $dashnav-height;
+  max-height: $dashnav-height;
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0 3px 0px rgba(0,0,0,.83);
+  padding: 0px 15px;
+
+  .nav-item {
+    color: $primary-color;
+    margin-left: auto;
+  }
+}
+
+// Avatar component
+.avatar {
+  img {
+    height: 60px;
+    border-radius: 50%;
+  }
+}
+
+
+.dash-view {
+  height: calc(100vh - #{$nav-height});
+}
+
+//(Dropdown) Menu componenent
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #ECEAEA;
+}
+
+.nav-item {
+  .arrow-up {
+    position: absolute;
+    top: 1px;
+    left: 20px;
+  }
+}
+
+
+.dropdown-wrap {
+  position: relative;
+  display: none;
+  top: 14px;
+
+  &.is-open {
+    display: block;
+  }
+}
+
+.dropdown {
+    background-color: #ECEAEA;
+    color: black;
+    z-index: 1;
+    border-radius: 5px;
+    position: absolute;
+    left: -173px;
+    top: 8px;
+
+  .dropdown-item {
+    padding: 10px 90px;
+    font-size: .7em;
+    color: black;
+
+    &:hover {
+      background-color: darken(#ECEAEA, 12%);
+    }
+  }
+}
