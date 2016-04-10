@@ -43,7 +43,7 @@ export class SettingsController extends React.Component {
 		return  ( 
 			<div className="settings-view">
 				<div className="content">
-					{component}
+					<div> This will be the settings page </div>
 				</div>
 			</div>
 		);
