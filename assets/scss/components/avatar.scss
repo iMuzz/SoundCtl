@@ -1,10 +1,13 @@
 .avatar {
-	.image {
-		background-size: cover;
-		height: 60px;
-		width: 60px;
-		border-radius: 50%;
+  .image {
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
     border: 1px solid white;
+  }
 
-	}
+  &:hover {
+    cursor: pointer;
+  }
 }
