@@ -1,0 +1,25 @@
+@import "../_variables";
+
+.usage-section {
+  padding: 50px;
+  border-bottom: 1px solid $dash-section-border-color;
+
+  h2 {
+    font-size: 1.3em;
+    margin-bottom: 50px;
+  }
+}
+
+.usage-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.usage-card {
+  width: 25%;
+  max-width: 200px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 100px 0px;
+}

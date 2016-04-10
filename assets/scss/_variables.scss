@@ -6,7 +6,7 @@ $black: #000000;
 $midnight-purple: #120A2B;
 $rich-orange: #EB5425;
 
-// 1 darkest grey (higher means lighter)
+// darkest grey (higher means lighter)
 $grey-light: #D5D5D5;
 $grey-medium: #979797;
 $grey-dark: #5B5C59;
@@ -28,3 +28,4 @@ $hero-height-mobile: calc(100vh - 130px);
 
 // Dashboard
 $dashnav-height: 90px;
+$dash-section-border-color: $grey-light;
