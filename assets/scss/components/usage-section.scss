@@ -1,5 +1,10 @@
 @import "../_variables";
 
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
 .usage-section {
   padding: 50px;
   border-bottom: 1px solid $dash-section-border-color;
@@ -7,19 +12,115 @@
   h2 {
     font-size: 1.3em;
     margin-bottom: 50px;
+    color: $grey-medium;
   }
 }
 
 .usage-cards {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .usage-card {
-  width: 25%;
-  max-width: 200px;
+  width: 30%;
   text-align: center;
-  border: 1px solid black;
-  border-radius: 2px;
-  padding: 100px 0px;
+  border: 1px solid $grey-light;
+  border-radius: 4px;
+  padding: 20px;
+
+  .card-title {
+    padding: 0px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h3 {
+      text-transform: uppercase;
+      text-align: left;
+      font-size: 1.1em;
+    }
+
+    .dots {
+      .dot {
+        display: block;
+        position: relative;
+        width: 5px;
+        height: 5px;
+        border-radius:10px;
+        background-color: $grey-light;
+
+        &:after, &:before {
+          content: '';
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          left: 0;
+          border-radius: 100%;
+          background-color: $grey-light;
+        }
+
+        &:after {
+          top: 8px;
+        }
+        &:before {
+          top: -8px;
+        }
+      }
+    }
+  }
+
+  .card-dash {
+    background-color: $grey-light;
+    height: 2px;
+    width: 25%;
+    margin-bottom: 25px;
+  }
+  
+  .circle {
+    position: relative;
+    canvas {
+      transform: rotate(-90deg);
+    }
+    .circle-content {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+
+      .inner-value {
+        display: block;
+      }
+
+      span {
+        position: relative;
+        top: -5px;
+        color: $grey-medium;
+        font-size: .5em;
+      }
+     }
+  }
+
+  .usage-stats {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .usage-stat  {
+      .stat-unit {
+        font-size: .8em;
+        margin-top: 10px;
+      }
+      span{
+        font-size: 1.8em;
+      }
+    }
+    .usage-divider {
+      background-color: $grey-light;
+      width: 2px;
+      height: 30px;
+    }
+  }
 }
