@@ -11,9 +11,9 @@ export class UsageSection extends React.Component {
           <div className='container'>
               <h2> Monthly Usage </h2>
               <div className='usage-cards'>
-                <UsageCard title='transfer' uniqueId='circle-1' percentage={.75}></UsageCard>
-                <UsageCard title='clients' uniqueId='circle-2' percentage={.33}></UsageCard> 
-                <UsageCard title='storage' uniqueId='circle-3' percentage={.05}></UsageCard> 
+                <UsageCard title='transfer' used={36.5} remaining={13.5} unitUsed={'GB used'} unitRemaining={'GB left'} uniqueId='circle-1' percentage={.75}></UsageCard>
+                <UsageCard title='clients' used={16} remaining={34} unitUsed={'Clients used'} unitRemaining={'Clients left'} uniqueId='circle-2' percentage={.33}></UsageCard> 
+                <UsageCard title='storage' used={2.5} remaining={47.5} unitUsed={'GB used'} unitRemaining={'GB left'} uniqueId='circle-3' percentage={.05}></UsageCard> 
               </div>
           </div>
       </div>
@@ -62,9 +62,9 @@ class UsageCard extends React.Component {
             </div>
           </div>
           <div className='usage-stats'>
-            <div className='usage-stat'> <span className='used' >36.5</span> <div className='stat-unit'> GB Used</div></div>
+            <div className='usage-stat'> <span className='used' >{this.props.used}</span> <div className='stat-unit'> {this.props.unitUsed}</div></div>
             <div className='usage-divider'></div>
-            <div className='usage-stat'> <span className='remaining'>13.5</span> <div className='stat-unit'> GB Used</div></div>
+            <div className='usage-stat'> <span className='remaining'>{this.props.remaining}</span> <div className='stat-unit'> {this.props.unitRemaining}</div></div>
           </div>
       </div>  
     );

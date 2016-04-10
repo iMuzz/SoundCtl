@@ -114,13 +114,14 @@
         margin-top: 10px;
       }
       span{
-        font-size: 2em;
         &.used {
+            font-size: 2em;
             color: #3DAD3D;
         }
 
         &.remaining {
             color: #FF6900;
+            font-size: 2em;
         }
       }
     }
