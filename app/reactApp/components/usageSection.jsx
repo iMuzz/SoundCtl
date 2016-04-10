@@ -11,9 +11,9 @@ export class UsageSection extends React.Component {
           <div className='container'>
               <h2> Monthly Usage </h2>
               <div className='usage-cards'>
-                <UsageCard uniqueId='circle-1' percentage={.75}></UsageCard>
-                <UsageCard uniqueId='circle-2' percentage={.33}></UsageCard> 
-                <UsageCard uniqueId='circle-3' percentage={.05}></UsageCard> 
+                <UsageCard title='transfer' uniqueId='circle-1' percentage={.75}></UsageCard>
+                <UsageCard title='clients' uniqueId='circle-2' percentage={.33}></UsageCard> 
+                <UsageCard title='storage' uniqueId='circle-3' percentage={.05}></UsageCard> 
               </div>
           </div>
       </div>
@@ -48,7 +48,7 @@ class UsageCard extends React.Component {
     return  ( 
       <div className='usage-card'>
           <div className='card-title'>
-            <h3> Transfer</h3>
+            <h3> {this.props.title} </h3>
             <div className='dots'>
               <div className='dot'></div>
             </div>
@@ -62,9 +62,9 @@ class UsageCard extends React.Component {
             </div>
           </div>
           <div className='usage-stats'>
-            <div className='usage-stat'> <span>36.5</span> <div className='stat-unit'> GB Used</div></div>
+            <div className='usage-stat'> <span className='used' >36.5</span> <div className='stat-unit'> GB Used</div></div>
             <div className='usage-divider'></div>
-            <div className='usage-stat'> <span>13.5</span> <div className='stat-unit'> GB Used</div></div>
+            <div className='usage-stat'> <span className='remaining'>13.5</span> <div className='stat-unit'> GB Used</div></div>
           </div>
       </div>  
     );

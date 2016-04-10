@@ -114,7 +114,14 @@
         margin-top: 10px;
       }
       span{
-        font-size: 1.8em;
+        font-size: 2em;
+        &.used {
+            color: #3DAD3D;
+        }
+
+        &.remaining {
+            color: #FF6900;
+        }
       }
     }
     .usage-divider {
