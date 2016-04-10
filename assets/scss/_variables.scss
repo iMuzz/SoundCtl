@@ -5,6 +5,7 @@ $white: #FFFFFF;
 $black: #000000;
 $midnight-purple: #120A2B;
 $rich-orange: #EB5425;
+$green: #3DAD3D;
 
 // darkest grey (higher means lighter)
 $grey-light: #D5D5D5;
@@ -27,5 +28,8 @@ $hero-height: calc(100vh - 350px); //controls how far up the home page animation
 $hero-height-mobile: calc(100vh - 130px);
 
 // Dashboard
-$dashnav-height: 70px;
+$dash-success-color: $green;
 $dash-section-border-color: $grey-light;
+$dash-fail-color: $rich-orange;
+
+$dashnav-height: 70px;

@@ -3,6 +3,12 @@
 
 .dash-view {
   padding-top: $dashnav-height;
+
+  .dashboard-section:nth-child(2) {
+    h2 {
+      margin: 0px;
+    }
+  }
 }
 
 .dash-nav {

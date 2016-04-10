@@ -6,12 +6,12 @@
 }
 
 .dashboard-section {
-  padding: 50px;
+  padding: 40px;
   border-bottom: 1px solid $dash-section-border-color;
 
   h2 {
     font-size: 1.3em;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     color: $grey-medium;
   }
 }
@@ -116,11 +116,11 @@
       span{
         &.used {
             font-size: 2em;
-            color: #3DAD3D;
+            color: $dash-success-color;
         }
 
         &.remaining {
-            color: #FF6900;
+            color: $dash-fail-color;
             font-size: 2em;
         }
       }

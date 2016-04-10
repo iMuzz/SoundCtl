@@ -10,7 +10,7 @@ export class UptimeSection extends React.Component {
       <div className='dashboard-section'>
           <div className='container'>
               <h2> Instance Uptime </h2>
-              <ElapsedTime startTime={'Sat Mar 06 1976 04:05:09 GMT+0100 (CET)'}></ElapsedTime>
+              <ElapsedTime startTime={'Sat Apr 06 2016 04:05:09 GMT+0100 (CET)'}></ElapsedTime>
           </div>
       </div>
     );
@@ -62,10 +62,20 @@ class ElapsedTime extends React.Component {
   render() {
     return  ( 
       <div className='elapsed-time'>
-          <div>days: {this.state.days} </div>
-          <div>hours: {this.state.hours} </div>
-          <div>minutes: {this.state.minutes} </div>
-          <div>seconds: {this.state.seconds} </div>
+        <div className="time-wrap">
+          <div>
+            <div className="time" > {this.state.days}   </div>
+            <div className="time" > {this.state.hours} </div>
+            <div className="time" > {this.state.minutes} </div>
+            <div className="time" > {this.state.seconds} </div>
+          </div>
+          <div className="unit-wrap">
+            <div className="unit"> Days </div>
+            <div className="unit"> Hours </div>
+            <div className="unit"> Minutes </div>
+            <div className="unit"> Seconds </div>
+          </div>
+        </div>
       </div>
     );
   }
