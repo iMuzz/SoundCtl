@@ -1,8 +1,9 @@
-import React from         'react'
-import ReactDom from      'react-dom'
-import classNames from    'classnames'
-import { Link } from      'react-router'
-import { Avatar } from    './avatar'
+import React from                 'react'
+import ReactDom from              'react-dom'
+import classNames from            'classnames'
+import { Link } from              'react-router'
+import { Avatar } from            './avatar'
+import listensToClickOutside from 'react-onclickoutside/decorator';
 
 let UserActions = require('../actions/UserActions');
 
@@ -12,9 +13,9 @@ export class DashNav extends React.Component {
   }
   render() {
     return (
-      <nav className="dash-nav">
-        <div className="nav-item">
-          <UserPanel {...this.props}/>
+      <nav className='dash-nav'>
+        <div className='nav-item'>
+          <ClickOutsideUserPanel {...this.props}/>
         </div>
       </nav>
     );
@@ -29,9 +30,12 @@ class UserPanel extends React.Component {
 
     this.openDropdown = this.openDropdown.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.onClick = this.onClick.bind(this);
   }
-
+  handleClickOutside(event) {
+      this.closeDropdown();
+  }
   openDropdown() {
     this.setState({ isOpen: true });
   }
@@ -48,7 +52,7 @@ class UserPanel extends React.Component {
   render() {
     if (this.props.userProfile) {
       return (
-        <div className="user-panel" onClick={this.onClick}>
+        <div className='user-panel' onClick={this.onClick}>
           <Avatar imageUrl={this.props.userProfile.picture}/>
           <Dropdown isOpen={this.state.isOpen}/>
         </div>
@@ -58,28 +62,29 @@ class UserPanel extends React.Component {
   }
 }
 
+// Teach UserPanel how to do something if the user clicks outside it.
+const ClickOutsideUserPanel = listensToClickOutside(UserPanel);
+
 UserPanel.defaultProps = { initialCount: 0}
 
 class Dropdown extends React.Component {
   constructor() {
     super();
-
     this.logout = this.logout.bind(this);
   }
 
   logout(e) {
-    console.log('Logout the user!');
     e.stopPropagation();
     UserActions.logout();
   }
   render() {
-    let dropdownClass = classNames("dropdown-wrap", {"is-open": this.props.isOpen});
+    let dropdownClass = classNames('dropdown-wrap', {'is-open': this.props.isOpen});
     return (
       <div className={dropdownClass}>
-        <div className="arrow-up"> </div>
-        <div className="dropdown">
+        <div className='arrow-up'> </div>
+        <div className='dropdown'>
           <a onClick={this.logout}> 
-            <div className="dropdown-item">   
+            <div className='dropdown-item'>   
               Logout
             </div>
           </a>

@@ -31,6 +31,7 @@
     "passport-auth0": "^0.5.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-onclickoutside": "^4.8.0",
     "react-progress-bar-plus": "^0.2.2",
     "react-router": "^2.0.0-rc5",
     "react-router-active-component": "^4.0.0-rc.0",
