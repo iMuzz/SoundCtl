@@ -54,7 +54,7 @@ class UserPanel extends React.Component {
       return (
         <div className='user-panel' onClick={this.onClick}>
           <Avatar imageUrl={this.props.userProfile.picture}/>
-          <Dropdown isOpen={this.state.isOpen}/>
+          <Dropdown isOpen={this.state.isOpen} itemClickHandler={this.closeDropdown}/>
         </div>
       );
     }     
@@ -81,8 +81,8 @@ class Dropdown extends React.Component {
     let dropdownClass = classNames('dropdown-wrap', {'is-open': this.props.isOpen});
     return (
       <div className={dropdownClass}>
-        <div className='arrow-up'> </div>
-        <div className='dropdown'>
+        <div className='dropdown animated fadeInDown'>
+          <div className='menu-bar'> <i className='fa fa-close' onClick={this.props.itemClickHandler} ></i></div>
           <a onClick={this.logout}> 
             <div className='dropdown-item'>   
               Logout

@@ -1,6 +1,5 @@
 @import "../_variables";
 
-
 .dash-view {
   padding-top: $dashnav-height;
 
@@ -30,6 +29,10 @@
   }
 }
 
+.user-panel{
+  position: relative;
+}
+
 // Avatar component
 .avatar {
   img {
@@ -38,29 +41,11 @@
   }
 }
 
-
-//(Dropdown) Menu componenent
-.arrow-up {
-  width: 0; 
-  height: 0; 
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid #ECEAEA;
-}
-
-.nav-item {
-  .arrow-up {
-    position: absolute;
-    top: 1px;
-    left: 20px;
-  }
-}
-
-
 .dropdown-wrap {
-  position: relative;
+  position: absolute;
   display: none;
-  top: 14px;
+  top: 70px;
+  right: 0px ;
 
   &.is-open {
     display: block;
@@ -68,21 +53,31 @@
 }
 
 .dropdown {
-    background-color: #ECEAEA;
-    color: black;
+    background-color: $primary-color;
+    padding: 10px;
+    color: white;
     z-index: 1;
     border-radius: 5px;
-    position: absolute;
-    left: -173px;
-    top: 8px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.35);
+    min-width: 200px;
+    animation-duration: .3s;
+
+    .menu-bar {
+      text-align: right;
+      padding-bottom: 0px;
+
+      i {
+        cursor: pointer;
+        color: white;
+      }
+    }
 
   .dropdown-item {
-    padding: 10px 90px;
-    font-size: .7em;
-    color: black;
-
-    &:hover {
-      background-color: darken(#ECEAEA, 12%);
-    }
+    border-radius: 5px;
+    padding: 10px 0px;
+    padding-top: 0px;
+    font-size: 1em;
+    color: white;
+    text-align: center;
   }
 }

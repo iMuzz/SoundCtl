@@ -1,3 +1,6 @@
+
+@import "../_variables";
+
 $avatar-size: 55px;
 
 .avatar {
@@ -7,9 +10,11 @@ $avatar-size: 55px;
     width: $avatar-size;
     border-radius: 50%;
     border: 1px solid white;
+    transition: border-color .3s;
+    &:hover {
+      cursor: pointer;
+      border-color: $secondary-color;
+    }
   }
 
-  &:hover {
-    cursor: pointer;
-  }
 }
