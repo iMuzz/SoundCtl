@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="23px" height="24px" viewBox="0 0 23 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5 (25232) - http://www.bohemiancoding.com/sketch -->
+    <title>Dashboard Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-34.000000, -105.000000)" fill="#FFFFFF">
+            <g id="Side-Nav" sketch:type="MSLayerGroup">
+                <g id="Nav-Item" transform="translate(0.000000, 82.000000)" sketch:type="MSShapeGroup">
+                    <g id="Dashboard-+-Dashboard-Icon" transform="translate(34.000000, 23.000000)">
+                        <g id="Dashboard-Icon">
+                            <path d="M0,11.73 C0,18.20496 5.152,23.46 11.5,23.46 C17.848,23.46 23,18.20496 23,11.73 C23,5.25504 17.848,0 11.5,0 C5.152,0 0,5.25504 0,11.73 L0,11.73 Z M1.44133333,11.73 C1.44133333,6.06832 5.94933333,1.47016 11.5,1.47016 C17.0506667,1.47016 21.5586667,6.06832 21.5586667,11.73 C21.5586667,17.39168 17.0506667,21.98984 11.5,21.98984 C5.94933333,21.98984 1.44133333,17.39168 1.44133333,11.73 L1.44133333,11.73 Z" id="Shape"></path>
+                            <ellipse id="Oval" cx="11.5" cy="16.422" rx="2.3" ry="2.346"></ellipse>
+                            <rect id="Rectangle" x="10.7333333" y="9.384" width="1.53333333" height="7.82"></rect>
+                            <rect id="Rectangle" x="10.7333333" y="3.128" width="1.53333333" height="1.564"></rect>
+                            <rect id="Rectangle" x="18.4" y="9.384" width="1.53333333" height="1.564"></rect>
+                            <rect id="Rectangle" x="6.13333333" y="4.692" width="1.53333333" height="1.564"></rect>
+                            <rect id="Rectangle" x="3.06666667" y="9.384" width="1.53333333" height="1.564"></rect>
+                            <rect id="Rectangle" x="15.3333333" y="4.692" width="1.53333333" height="1.564"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

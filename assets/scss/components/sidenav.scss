@@ -1,5 +1,6 @@
 @import "../_variables";
 
+$nav-item-inactive-color: rgba(158, 158, 158, 0.66);
 .left-nav {
   background-color: $primary-color;
   box-shadow: -6px 0px 6px 7px rgba(0,0,0,.83);
@@ -38,7 +39,27 @@
         padding: 25px;
         text-align: center;
         display: block;
-        color: rgba(158, 158, 158, 0.66);
+        color: $nav-item-inactive-color;
+        display: flex;
+        align-items: center;
+        
+        .svg {
+          margin-right: 15px;
+          width: 25px;
+          height: 25px;
+          background-size: cover;
+          mask-repeat: no-repeat;
+          background-color: $nav-item-inactive-color;
+          
+          &.dash {
+            mask-image: url('../../images/icons/dashboard.svg');
+          }  
+
+          &.settings {
+            mask-image: url('../../images/icons/settings.svg');
+          }
+        }
+        
       }
       &:hover {
         cursor: pointer;
@@ -47,6 +68,9 @@
       &.active {
         a{
           color: white;
+          .svg { 
+            background-color: white;
+          }
         }
       }
     }
