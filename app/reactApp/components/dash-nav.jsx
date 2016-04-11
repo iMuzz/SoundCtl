@@ -84,7 +84,7 @@ class Dropdown extends React.Component {
         <div className='dropdown animated fadeInDown'>
           <div className='menu-bar'> <i className='fa fa-close' onClick={this.props.itemClickHandler} ></i></div>
           <a onClick={this.logout}> 
-            <div className='dropdown-item'>   
+            <div className='dropdown-item'>
               Logout
             </div>
           </a>
