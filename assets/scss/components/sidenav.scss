@@ -42,9 +42,10 @@ $nav-item-inactive-color: rgba(158, 158, 158, 0.66);
         color: $nav-item-inactive-color;
         display: flex;
         align-items: center;
+        justify-content: center;
         
         .svg {
-          margin-right: 15px;
+          margin-right: 10px;
           width: 25px;
           height: 25px;
           background-size: cover;
