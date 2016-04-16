@@ -2,33 +2,32 @@ var express = require('express');
 var router = express.Router();
 var requiresLogin = require('../requiresLogin');
 var request = require('request');
+var chalk = require('chalk'); 
 
 var stationManager = require('../modules/stationManager');
 var kradEngine = require('../modules/kradEngine');
 var auth0Client = require('../modules/auth0Client');
 
-function parseGoogleUserID(token){
-	 return token.replace("google-oauth2|", "");
-};
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/player', function(req, res, next) {
-  res.render('player', { title: 'Express' });
+router.get('/api/user', function(req, res, next){
+  //Get user from Auth0
+  //If callsign exists, return user object with appropriate information
+  //If it doesn't exist, have middleware create, and store in auth0 and then reutrn user object with information
 });
 
 router.get('/api/stations', function(req, res, next){
-	var userId = parseGoogleUserID(req.user.sub);
-
-	auth0Client.getUserAppData(userId)
+  console.log(chalk.blue("/api/stations called!:  " +  req.user.sub));
+	auth0Client.getUserAppData(req.user.sub)
 		.then(function(response){
 			if(response.error) {
 				res.status(503).end();
 			} else {
-				console.log("app data: ", response);
+				console.log(chalk.green("USER APP DATA: "),  response);
 				res.send(response);
 			}
 		});

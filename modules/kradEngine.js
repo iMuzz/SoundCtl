@@ -6,7 +6,7 @@ require('dotenv').load();
 
 function getRequestOptions(){
 	var requestOptionsObj = {
-		url: 'https://api.soundctl.com/',
+		url: 'https://api.soundctl.io/',
 		headers: {
 			'User-Agent': 'request'
 		}
@@ -20,9 +20,9 @@ var soundCtlKey = process.env.soundCtlKey;
 
 /*
 	A simple wrapper around the KradEngine middleware.
-	
 	Note: All methods initially return a promise.
 */
+
 var kradEngine = {
 	// Returns a list of all created stations
 	getAllStations: function(){
