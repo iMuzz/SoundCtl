@@ -19,9 +19,9 @@ router.get('/api/user', function(req, res, next){
   //If it doesn't exist, have middleware create, and store in auth0 and then reutrn user object with information
 });
 
-router.get('/api/stations', function(req, res, next){
+router.get('/api/instance', function(req, res, next){
   var userID = req.user.sub;
-  console.log(chalk.blue("/api/stations called!:  " +  userID));
+  console.log(chalk.blue("/api/instance called!:  " +  userID));
 
   auth0Client.getUserAppData(userID)
     .then(function(response){
@@ -29,13 +29,16 @@ router.get('/api/stations', function(req, res, next){
         res.status(503).end();
       } else {
         console.log(chalk.green("User App Data recieved in controller: "),  response);
+        var apiKey = response.apiKey;
         if (response.callsign !== undefined) { // if instance exists.
           kradEngine.getInstanceStats(response.callsign)
             .then(function(response){
-              console.log(chalk.green("\nSending back response: ") + response);
+              response = JSON.parse(response);
+              response.apiKey = apiKey;
+              console.log(chalk.green("\nSending back response: "), response);
               res.send(response);
             });
-        } else {
+        } else { // if instance doesn't exist create it and store it on Auth0
           console.log(chalk.yellow('\nUser does not have instance.. Creating new instance..'));
           kradEngine.createInstance()
             .then(function(response){
@@ -59,30 +62,6 @@ router.get('/api/stations', function(req, res, next){
       }
     });
 });
-
-// router.post('/api/stations', function(req, res, next){
-//   var userId = parseGoogleUserID(req.user.sub);
-
-//   stationManager.createStation(userId, req.body.callsign)
-//     .then(function(response){
-//       res.status(200).end();
-//     })
-// });
-
-// router.delete('/api/stations/:callsign', function(req, res, next){
-//   var userId = parseGoogleUserID(req.user.sub);
-
-//   stationManager.deleteStation(userId, req.params.callsign)
-//     .then(function(response){
-//       res.status(200).end();
-//     })
-// });
-
-
-// router.get('/websocket', function(req, res, next) {
-//   res.render('websocket');
-// });
-
 
 // router.get('/createrandstations', function(req, res, next){
 //   for (var i = 0; i < 5; i++) {
