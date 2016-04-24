@@ -1,76 +1,117 @@
 // Depenedencies
 var request = require('request-promise');
+var chalk = require('chalk'); 
 require('dotenv').load();
 
 // Generic request options
 
 function getRequestOptions(){
-	var requestOptionsObj = {
-		url: 'https://api.soundctl.io/',
-		headers: {
-			'User-Agent': 'request'
-		}
-	}
+  var requestOptionsObj = {
+    url: 'https://api.soundctl.io/',
+    method: 'GET',
+    headers: {
+      // 'User-Agent': 'request',
+      'Content-Type': 'application/json',
+      'Authorization': 'api E1YweNAAiK8w76prs9ZfUGvo0ybTtba9'
+    }
+  }
 
-	return requestOptionsObj;
-	
+  return requestOptionsObj;
+  
 }
 
 var soundCtlKey = process.env.soundCtlKey;
+var DEBUG = process.env.DEBUG;
 
 /*
-	A simple wrapper around the KradEngine middleware.
-	Note: All methods initially return a promise.
+  A simple wrapper around the KradEngine middleware.
+  Note: All methods initially return a promise.
 */
 
 var kradEngine = {
-	// Returns a list of all created stations
-	getAllStations: function(){
-		requestOptions = getRequestOptions();
-		requestOptions.url = requestOptions.url + 'stations?key=' + soundCtlKey;
-		return request(requestOptions)
+  getAllInstances: function(){
+    requestOptions = getRequestOptions();
+    requestOptions.url = requestOptions.url + 'instances'
+    DEBUG && console.log(chalk.yellow("\n Getting All Instances: " +  requestOptions.url));
+    return request(requestOptions)
+      .then(function(response){
+        DEBUG && console.log(chalk.green("\n Instances received: "), response);
+        return response;
+    });
+  },
+  getInstanceStats: function(callsign){
+    requestOptions = getRequestOptions();
+    requestOptions.url = requestOptions.url + ('stats?id=' + callsign);
+    DEBUG && console.log(chalk.yellow("\n Getting Instance Stats with URL: " +  requestOptions.url));
+    return request(requestOptions)
+      .then(function(response){
+        DEBUG && console.log(chalk.green("\n Instance stats received: "), response);
+        return response;
+    });
+  },
 
-			// Any kind of data extraction / processing will happen here
-			.then(function(response){
-				return response;
-			});
-	},
+  createInstance: function(){
+    requestOptions = getRequestOptions();
+    requestOptions.url = requestOptions.url + 'create';
+    requestOptions['method'] = 'POST';
 
-	station: function(callsign, action){
-		console.log('station called!', action);
-		requestOptions = getRequestOptions();
+    DEBUG && console.log("Request Options: ", requestOptions);
+    return request(requestOptions)
+      .then(function(response){
+        DEBUG && console.log(chalk.green("\n Instance created..."), response);
+        return response;
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+  },
 
-		requestOptions['url'] = requestOptions.url + action
-		requestOptions['method'] = 'POST';
-		requestOptions['headers']['Content-Type'] = 'application/json';
-		requestOptions['json'] = {
-			callsign: callsign,
-			key: soundCtlKey
-		};
+  // Returns a list of all created stations
+  getAllStations: function(){
+    requestOptions = getRequestOptions();
+    requestOptions.url = requestOptions.url + 'stations?key=' + soundCtlKey;
+    return request(requestOptions)
+      // Any kind of data extraction / processing will happen here
+      .then(function(response){
+        return response;
+      });
+  },
 
-		console.log("requestOptions", requestOptions);
-		return request(requestOptions)
-			.then(function(response){
-				return response;
-			})
-			.catch(function(err){
-				console.log(err);
-			})
-	},
+  station: function(callsign, action){
 
-	destroyAllStations: function(){
-		// console.log('\033[31m', 'sometext' ,'\033[91m');
-		var that = this;
-		this.getAllStations()
-			.then(function(response){
-				var stations = JSON.parse(response);
-				for(var i = 0; i < stations.length; i++) {
-					console.log('destroying...', stations[i]);
-					that.station(stations[i], 'destroy');
-					// break; //Uncomment to destroy only one stations
-				}
-			})
-	}
+    requestOptions = getRequestOptions();
+
+    requestOptions['url'] = requestOptions.url + action
+    requestOptions['method'] = 'POST';
+    requestOptions['headers']['Content-Type'] = 'application/json';
+    requestOptions['json'] = {
+      callsign: callsign,
+      key: soundCtlKey
+    };
+
+    console.log("requestOptions", requestOptions);
+    return request(requestOptions)
+      .then(function(response){
+        return response;
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+  },
+
+  destroyAllStations: function(){
+    // console.log('\033[31m', 'sometext' ,'\033[91m');
+    var that = this;
+    this.getAllStations()
+      .then(function(response){
+        var stations = JSON.parse(response);
+        for(var i = 0; i < stations.length; i++) {
+          console.log('destroying...', stations[i]);
+          that.station(stations[i], 'destroy');
+          // break; //Uncomment to destroy only one stations
+        }
+      })
+  }
 }
 
 

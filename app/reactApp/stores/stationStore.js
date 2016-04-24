@@ -52,6 +52,7 @@ class StationStore {
 			}).done((data) => {
 				privateVars.cacheAvailable = true;
 				Object.assign(dashState, data);
+				console.log("DATA Arrived: ", data);
 				this.emitChange();
 			}).error(err => {
 				console.log('GET failed with..', err)

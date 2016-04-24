@@ -57,16 +57,21 @@ class App extends React.Component {
 		var idToken = localStorage.getItem('userToken');
 		var authHash = this.lock.parseHash(localStorage.getItem('auth0Hash'));
 		localStorage.removeItem('auth0Hash') //remove the hash or the user will login with oldToken
-		if (!idToken && authHash) {
-			if (authHash.id_token) {
-				idToken = authHash.id_token
-				localStorage.setItem('userToken', authHash.id_token);
-				console.log('userToken set..', localStorage.getItem('userToken'));
-			}
-			if (authHash.error) {
-				console.log("Error signing in", authHash);
-			}
-		}
+    // debugger;
+    if (!idToken && authHash) {
+      // debugger;
+      if (authHash.id_token) {
+        // debugger;
+        idToken = authHash.id_token
+        localStorage.setItem('userToken', authHash.id_token);
+        console.log('userToken set..', localStorage.getItem('userToken'));
+      }
+      if (authHash.error) {
+        // debugger;
+        console.log("Error signing in", authHash);
+      }
+    }
+    // debugger;
 		return idToken;
 	}
 
@@ -84,11 +89,15 @@ class App extends React.Component {
 		)
 	}
 }
+// eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NvdW5kY3RsLmF1dGgwLmNvbS8iLCJzdWIiOiJnaXRodWJ8NzI5NzI2OSIsImF1ZCI6ImRhOG9MMGJaU2xqc2NLcjk0T3ExMVc3UDdBaVR2YjRMIiwiZXhwIjoxNDYwOTk2NDY2LCJpYXQiOjE0NjA5NjA0NjZ9.xG1LH7sA7kCXfYy2G_ToJLh3FtomUwts8po-OPuzSMk
 
 $(document).ready(function(){
 	window.addEventListener("hashchange", function(){
+    // debugger
 		if (window.location.hash.substr(0,15) === "#/access_token=") {
+      // debugger;
 			localStorage.setItem('auth0Hash', window.location.hash.replace('/', ''));
+      // debugger;
 			window.location.hash = '/app/dashboard';
 		};
 	});

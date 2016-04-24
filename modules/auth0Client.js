@@ -26,7 +26,7 @@ var auth0Client = {
         if (response.app_metadata) {
           return response.app_metadata;
         };
-        return {callsign: ''};
+        return {callsign: undefined};
       })
   },
   
@@ -52,7 +52,7 @@ var auth0Client = {
     options['headers']['Content-Type'] = 'application/json';
     options['json'] = {app_metadata: payLoad}
 
-    console.log(chalk.yellow("updateAppData request options: " + options));
+    console.log(chalk.yellow("updateAppData request options: "), options);
     
     return request(options)
       .then(function(response){

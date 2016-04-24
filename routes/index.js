@@ -8,7 +8,6 @@ var stationManager = require('../modules/stationManager');
 var kradEngine = require('../modules/kradEngine');
 var auth0Client = require('../modules/auth0Client');
 
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -21,40 +20,68 @@ router.get('/api/user', function(req, res, next){
 });
 
 router.get('/api/stations', function(req, res, next){
-  console.log(chalk.blue("/api/stations called!:  " +  req.user.sub));
-	auth0Client.getUserAppData(req.user.sub)
-		.then(function(response){
-			if(response.error) {
-				res.status(503).end();
-			} else {
-				console.log(chalk.green("USER APP DATA: "),  response);
-				res.send(response);
-			}
-		});
-});
+  var userID = req.user.sub;
+  console.log(chalk.blue("/api/stations called!:  " +  userID));
 
-router.post('/api/stations', function(req, res, next){
-  var userId = parseGoogleUserID(req.user.sub);
-
-  stationManager.createStation(userId, req.body.callsign)
+  auth0Client.getUserAppData(userID)
     .then(function(response){
-      res.status(200).end();
-    })
+      if(response.error) {
+        res.status(503).end();
+      } else {
+        console.log(chalk.green("User App Data recieved in controller: "),  response);
+        if (response.callsign !== undefined) { // if instance exists.
+          kradEngine.getInstanceStats(response.callsign)
+            .then(function(response){
+              console.log(chalk.green("\nSending back response: ") + response);
+              res.send(response);
+            });
+        } else {
+          console.log(chalk.yellow('\nUser does not have instance.. Creating new instance..'));
+          kradEngine.createInstance()
+            .then(function(response){
+              if (response.error) {
+                res.status(503).end();
+              } else {
+                console.log(chalk.green('\n New Instance available in controller: ') + response);
+                var parsedJSON = JSON.parse(response)
+                var payLoad = {
+                  callsign: parsedJSON.id,
+                  apiKey: parsedJSON.apiKey
+                }
+                auth0Client.updateAppMetaData(userID, payLoad)
+                  .then(function(response){
+                    console.log(chalk.yellow('\nupdateAppMetaData for user: '),  response);
+                    res.send({"id":parsedJSON.id,"clients":0,"transfer":0});
+                  })
+              }
+            });
+        }
+      }
+    });
 });
 
-router.delete('/api/stations/:callsign', function(req, res, next){
-  var userId = parseGoogleUserID(req.user.sub);
+// router.post('/api/stations', function(req, res, next){
+//   var userId = parseGoogleUserID(req.user.sub);
 
-  stationManager.deleteStation(userId, req.params.callsign)
-    .then(function(response){
-      res.status(200).end();
-    })
-});
+//   stationManager.createStation(userId, req.body.callsign)
+//     .then(function(response){
+//       res.status(200).end();
+//     })
+// });
+
+// router.delete('/api/stations/:callsign', function(req, res, next){
+//   var userId = parseGoogleUserID(req.user.sub);
+
+//   stationManager.deleteStation(userId, req.params.callsign)
+//     .then(function(response){
+//       res.status(200).end();
+//     })
+// });
 
 
-router.get('/websocket', function(req, res, next) {
-  res.render('websocket');
-});
+// router.get('/websocket', function(req, res, next) {
+//   res.render('websocket');
+// });
 
 
 // router.get('/createrandstations', function(req, res, next){
@@ -66,10 +93,10 @@ router.get('/websocket', function(req, res, next) {
 // });
 
 // Destroy all stations (testing purposes)
-router.get('/destroystations', function(req, res, next) {
-  kradEngine.destroyAllStations();
-  res.status(200).end();
-});
+// router.get('/destroystations', function(req, res, next) {
+//   kradEngine.destroyAllStations();
+//   res.status(200).end();
+// });
 
 
 module.exports = router;
