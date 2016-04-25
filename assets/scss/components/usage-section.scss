@@ -18,7 +18,7 @@
 
 .usage-cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .usage-card {
@@ -27,6 +27,7 @@
   border: 1px solid $grey-light;
   border-radius: 4px;
   padding: 20px;
+  margin: 0px 30px;
 
   .card-title {
     padding: 0px;

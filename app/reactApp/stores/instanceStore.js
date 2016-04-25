@@ -2,8 +2,10 @@ import {FluxStore} from       './fluxStore';
 import AppDispatcher from     '../dispatcher/AppDispatcher';
 import {EventEmitter} from    'fbemitter';
 
-const CHANGE_EVENT = 'IntroStoreChange';
+const CHANGE_EVENT = 'InstanceStoreChange';
 let emitter = new EventEmitter();
+
+let token;
 
 let privateVars = {
   cacheAvailable: false
@@ -42,7 +44,6 @@ class InstanceStore {
       }).done((data) => {
         privateVars.cacheAvailable = true;
         Object.assign(state, data);
-        console.log("DATA Arrived: ", data);
         this.emitChange();
       }).error(err => {
         console.log('GET failed with..', err)

@@ -11,7 +11,7 @@ export class UptimeSection extends React.Component {
       <div className='dashboard-section'>
           <div className='container'>
               <h2> Instance Uptime </h2>
-              <ElapsedTime startTime={'Sat Apr 06 2016 04:05:09 GMT+0100 (CET)'}></ElapsedTime>
+              <ElapsedTime startTime={this.props.startTime}></ElapsedTime>
           </div>
       </div>
     );

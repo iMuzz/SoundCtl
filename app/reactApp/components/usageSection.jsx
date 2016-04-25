@@ -5,15 +5,39 @@ export class UsageSection extends React.Component {
     super(props);
   }
 
+  convertBytes(bytes){
+   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+   let answer;
+   if (bytes === 0 || bytes === undefined) {
+    answer = {
+      amount: 0,
+      unit: 'GB'
+    }
+    return answer;
+   }
+   var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+   answer = {
+    amount: Math.round(bytes / Math.pow(1024, i), 2),
+    unit: sizes[i]
+   }
+   return answer
+  }
+
   render() {
+    console.log("Rendering usage Section!", this.props);
+    let transferUsed = this.convertBytes(this.props.transfer);
+    let transferRemaining = this.convertBytes(53687091200 - this.props.transfer);
+    let clientsUsed = this.props.clients;
+    let clientsRemaining = 50 - this.props.clients;
+
     return  ( 
       <div className='dashboard-section'>
           <div className='container'>
               <h2> Monthly Usage </h2>
               <div className='usage-cards'>
-                <UsageCard title='transfer' used={36.5} remaining={13.5} unitUsed={'GB used'} unitRemaining={'GB left'} uniqueId='circle-1' percentage={.75}></UsageCard>
-                <UsageCard title='clients' used={16} remaining={34} unitUsed={'Clients used'} unitRemaining={'Clients left'} uniqueId='circle-2' percentage={.33}></UsageCard> 
-                <UsageCard title='storage' used={2.5} remaining={47.5} unitUsed={'GB used'} unitRemaining={'GB left'} uniqueId='circle-3' percentage={.05}></UsageCard> 
+                <UsageCard title='transfer' used={transferUsed.amount} remaining={transferRemaining.amount} unitUsed={transferUsed.unit + ' used'} unitRemaining={transferRemaining.unit + ' left'} uniqueId='circle-1' percentage={transferUsed.amount / transferRemaining.amount}></UsageCard>
+                <UsageCard title='clients' used={clientsUsed} remaining={clientsRemaining} unitUsed={'Clients used'} unitRemaining={'Clients left'} uniqueId='circle-2' percentage={clientsUsed / clientsRemaining}></UsageCard> 
+                { /** <UsageCard title='storage' used={2.5} remaining={47.5} unitUsed={'GB used'} unitRemaining={'GB left'} uniqueId='circle-3' percentage={.05}></UsageCard>  **/ }
               </div>
           </div>
       </div>
