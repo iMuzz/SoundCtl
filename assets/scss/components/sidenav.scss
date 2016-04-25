@@ -4,7 +4,9 @@ $nav-item-inactive-color: rgba(158, 158, 158, 0.66);
 .left-nav {
   background-color: $primary-color;
   box-shadow: -6px 0px 6px 7px rgba(0,0,0,.83);
-  z-index: 1;
+  z-index: 3;
+  min-height: 100vh;
+  position: fixed;
 
   .company-logo-wrap {
     height: $dashnav-height;
