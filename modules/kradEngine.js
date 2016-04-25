@@ -10,7 +10,6 @@ function getRequestOptions(){
     url: 'https://api.soundctl.io/',
     method: 'GET',
     headers: {
-      // 'User-Agent': 'request',
       'Content-Type': 'application/json',
       'Authorization': 'api E1YweNAAiK8w76prs9ZfUGvo0ybTtba9'
     }
@@ -66,6 +65,43 @@ var kradEngine = {
       })
   },
 
+  startInstance: function(callsign){
+    requestOptions = getRequestOptions();
+    requestOptions.url = requestOptions.url + 'start';
+    requestOptions['method'] = 'POST';
+
+    requestOptions['json'] = {
+      id: callsign
+    };
+
+    return request(requestOptions)
+      .then(function(response){
+        DEBUG && console.log(chalk.green("\n Instance started with callsign: " + callsign), response);
+        return response;
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+  },
+
+  createAndStartInstance: function(){
+    var that = this;
+    return this.createInstance()
+      .then(function(response){
+        var jsonResponse = JSON.parse(response);
+        return that.startInstance(jsonResponse.id)
+        .then(function(startResponse){
+          return that.getInstanceStats(jsonResponse.id)
+            .then(function(res){
+              var parsedResponse = JSON.parse(res);
+              parsedResponse.apiKey = jsonResponse.apiKey;
+              parsedResponse.startedAt = Date.now();
+              return parsedResponse;
+            })
+        })
+      });
+  },
+
   // Returns a list of all created stations
   getAllStations: function(){
     requestOptions = getRequestOptions();
@@ -78,9 +114,7 @@ var kradEngine = {
   },
 
   station: function(callsign, action){
-
     requestOptions = getRequestOptions();
-
     requestOptions['url'] = requestOptions.url + action
     requestOptions['method'] = 'POST';
     requestOptions['headers']['Content-Type'] = 'application/json';
