@@ -40,28 +40,19 @@ router.get('/api/instance', function(req, res, next){
             });
         } else { // if instance doesn't exist create it and store it on Auth0
           console.log(chalk.yellow('\nUser does not have instance.. Creating new instance..'));
-          kradEngine.createInstance()
+          kradEngine.createAndStartInstance()
             .then(function(response){
-              if (response.error) {
-                res.status(503).end();
-              } else {
-                console.log(chalk.green('\n New Instance available in controller: ') + response);
-                var parsedJSON = JSON.parse(response)
-                var payLoad = {
-                  callsign: parsedJSON.id,
-                  apiKey: parsedJSON.apiKey
-                }
-                auth0Client.updateAppMetaData(userID, payLoad)
-                  .then(function(response){
-                    console.log(chalk.yellow('\nupdateAppMetaData for user: '),  response);
-                    res.send({
-                      "id":parsedJSON.id,
-                      "apiKey": parsedJSON.apiKey,
-                      "clients":0,
-                      "transfer":0
-                    });
-                  })
+              console.log(chalk.green('\n New Instance available in controller: ') + response);
+              var parsedJSON =response
+              var payLoad = {
+                callsign: parsedJSON.id,
+                apiKey: parsedJSON.apiKey
               }
+              auth0Client.updateAppMetaData(userID, payLoad)
+                .then(function(response){
+                  console.log(chalk.yellow('\nupdateAppMetaData for user: '),  response);
+                  res.send(parsedJSON);
+                })
             });
         }
       }
