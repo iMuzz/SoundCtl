@@ -1,8 +1,13 @@
 import React from                       'react'
 import AppDispatcher from               '../dispatcher/AppDispatcher'
+
+// React Components
 import {UsageSection} from              './usageSection'
 import {UptimeSection} from             './uptimeSection'
-import {AppInfoSection} from             './appInfoSection'
+import {AppInfoSection} from            './appInfoSection'
+
+// Stores
+import instanceStore from               '../stores/instanceStore'
 
 // components
 import {DashNav} from                   './dash-nav'
@@ -13,6 +18,8 @@ export class DashboardController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    Object.assign(this.state, instanceStore.getState());
+    console.log("STATE: ", this.state);
   }
 
   render() {

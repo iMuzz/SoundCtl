@@ -54,7 +54,12 @@ router.get('/api/instance', function(req, res, next){
                 auth0Client.updateAppMetaData(userID, payLoad)
                   .then(function(response){
                     console.log(chalk.yellow('\nupdateAppMetaData for user: '),  response);
-                    res.send({"id":parsedJSON.id,"clients":0,"transfer":0});
+                    res.send({
+                      "id":parsedJSON.id,
+                      "apiKey": parsedJSON.apiKey,
+                      "clients":0,
+                      "transfer":0
+                    });
                   })
               }
             });
