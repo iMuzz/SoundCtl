@@ -45,7 +45,18 @@ var kradEngine = {
     return request(requestOptions)
       .then(function(response){
         DEBUG && console.log(chalk.green("\n Instance stats received: "), response);
-        return response;
+        return JSON.parse(response);
+    });
+  },
+
+  getApiKey: function(callsign){
+    requestOptions = getRequestOptions();
+    requestOptions.url = requestOptions.url + ('key?id=' + callsign);
+    DEBUG && console.log(chalk.yellow("\n Getting API key " +  requestOptions.url));
+    return request(requestOptions)
+      .then(function(response){
+        DEBUG && console.log(chalk.green("\n Instance stats received: "), response);
+        return JSON.parse(response);
     });
   },
 
@@ -112,7 +123,7 @@ var kradEngine = {
         .then(function(startResponse){
           return that.getInstanceStats(jsonResponse.id)
             .then(function(res){
-              var parsedResponse = JSON.parse(res);
+              var parsedResponse = res;
               parsedResponse.apiKey = jsonResponse.apiKey;
               parsedResponse.startedAt = Date.now();
               return parsedResponse;
