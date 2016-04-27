@@ -1,60 +1,63 @@
 #dashboard {
-	display: flex;
-	height: calc(100vh);
-	min-width: 1100px;
+  display: flex;
+  height: calc(100vh);
+  min-width: 1100px;
 }
 
 .left-nav {
-	width: 15%;
+  width: 15%;
 }
 
 .dash-view-wrap {
-	width: 85%;
-	margin-left: 15%;
+  width: 85%;
+  margin-left: 15%;
 }
 
 .settings-view {
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-	.content {
-		width: 70%;
-		text-align: center;
-	}
+  .content {
+    width: 70%;
+    text-align: center;
+  }
 }
 
 .primary-cta.btn-danger {
-	border: 0px;
-	font-size: 18px;
-	color: white;
-	padding: 15px;
-	width: 100%;
-	background-color: $secondary-color;
+  border: 0px;
+  font-size: 18px;
+  color: white;
+  padding: 15px;
+  width: 100%;
+  background-color: $secondary-color;
 }
 
 .cta {
-	border: none;
-	padding: 15px 25px;
-	background-color: $primary-cta-color;
-	color: $white;
-	border-top: 1px solid transparent;
-	font-size: 1em;
-	font-family: $primary-font-family;
-	transition: background .5s, border-color .5s;
-	border-radius: 5px;
-	font-weight: 100;
-	&:hover {
-		background-color: $primary-cta-hover;
-		border-color: $primary-cta-hover;
-	}
+  border: none;
+  padding: 15px 25px;
+  background-color: $primary-cta-color;
+  color: $white;
+  border-top: 1px solid transparent;
+  font-size: 1em;
+  font-family: $primary-font-family;
+  transition: background .5s, border-color .5s;
+  border-radius: 5px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background-color: $primary-cta-hover;
+    border-color: $primary-cta-hover;
+    cursor: pointer;
+  }
 }
 
 .delay-1s {
-	animation-delay: 2s;
+  animation-delay: 2s;
 }
 
 .delay-half-sec {
-	animation-delay: .5s;
+  animation-delay: .5s;
 }

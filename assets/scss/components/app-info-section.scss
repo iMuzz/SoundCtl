@@ -26,9 +26,13 @@
       }
     }
     // create border for API Key
-    &:nth-child(1) > .content > input{
-      border: 1px solid $dash-section-border-color;
+    &:nth-child(1) > .content {
+      input{
+        border: 1px solid $dash-section-border-color;
+      }
+      .cta {
+        display: inline-block;
+      }
     }
   }
-
 }

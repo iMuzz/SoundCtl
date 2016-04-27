@@ -14,10 +14,11 @@ router.get('/', function(req, res, next) {
 });
 
 //TODO:  What if an authenticated user tries to regenerate a callsign that doesn't belong to them?
-router.get('/api/regenerate', function(req, res, next){
-  kradEngine.regenerateApiKey('kiwi')
+router.put('/api/regenerate', function(req, res, next){
+  var callsign = req.body.callsign;
+  kradEngine.regenerateApiKey(callsign)
     .then(function(response){
-        res.status(200).end();
+        res.send(response);
     })
 });
 

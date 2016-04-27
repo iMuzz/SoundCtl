@@ -52,18 +52,29 @@ class InstanceStore {
       return state;
     };
   }
+  regenerateApiKey(){
+   $.ajax({
+      headers: {'Authorization': 'Bearer ' + localStorage.getItem('userToken') },
+      url: '/api/regenerate',
+      method: 'PUT',
+      data: {callsign: state.id }
+    }).done((data) => {
+      console.log("REGENERATED APIKEY", data)
+      state.apiKey = data.apiKey
+      this.emitChange();
+    }).error(err => {
+      console.log('GET failed with..', err)
+    });
+  }
 }
 
 let instanceStore = new InstanceStore();
 
 AppDispatcher.register( action => {
   switch(action.actionType) {
-    case "CREATE_STATION":
-      stationStoreInstance.createStation(action.payload);
-      stationStoreInstance.emitChange();
+    case "REGENERATE_API_KEY":
+      instanceStore.regenerateApiKey();
       break;
-    case "DELETE_STATION":
-      stationStoreInstance.deleteStation();
     default:
       break;
   }

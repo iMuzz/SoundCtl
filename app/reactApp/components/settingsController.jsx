@@ -1,5 +1,5 @@
-import React from                       'react'
-import AppDispatcher from               '../dispatcher/AppDispatcher';
+import React from         'react'
+import AppDispatcher from '../dispatcher/AppDispatcher';
 
 // Import Stores
 import stationStoreInstance from        '../stores/stationStore'
