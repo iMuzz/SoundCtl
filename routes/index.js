@@ -19,6 +19,14 @@ router.get('/api/user', function(req, res, next){
   //If it doesn't exist, have middleware create, and store in auth0 and then reutrn user object with information
 });
 
+router.get('/api/regenerate', function(req, res, next){
+  kradEngine.regenerateApiKey('kiwi')
+    .then(function(response){
+        console.log('response');
+        res.status(200).end();
+    })
+});
+
 router.get('/api/instance', function(req, res, next){
   var userID = req.user.sub;
   console.log(chalk.blue("/api/instance called!:  " +  userID));

@@ -24,18 +24,18 @@ export class UsageSection extends React.Component {
   }
 
   render() {
-    console.log("Rendering usage Section!", this.props);
+    console.log("SECTION PROPS", this.props);
+    const MAX_TRANSFER = 53687091200;
     let transferUsed = this.convertBytes(this.props.transfer);
-    let transferRemaining = this.convertBytes(53687091200 - this.props.transfer);
+    let transferRemaining = this.convertBytes(MAX_TRANSFER - this.props.transfer);
     let clientsUsed = this.props.clients;
     let clientsRemaining = 50 - this.props.clients;
-
     return  ( 
       <div className='dashboard-section'>
           <div className='container'>
               <h2> Monthly Usage </h2>
               <div className='usage-cards'>
-                <UsageCard title='transfer' used={transferUsed.amount} remaining={transferRemaining.amount} unitUsed={transferUsed.unit + ' used'} unitRemaining={transferRemaining.unit + ' left'} uniqueId='circle-1' percentage={transferUsed.amount / transferRemaining.amount}></UsageCard>
+                <UsageCard title='transfer' used={transferUsed.amount} remaining={transferRemaining.amount} unitUsed={transferUsed.unit + ' used'} unitRemaining={transferRemaining.unit + ' left'} uniqueId='circle-1' percentage={this.props.transfer  / MAX_TRANSFER}></UsageCard>
                 <UsageCard title='clients' used={clientsUsed} remaining={clientsRemaining} unitUsed={'Clients used'} unitRemaining={'Clients left'} uniqueId='circle-2' percentage={clientsUsed / clientsRemaining}></UsageCard> 
                 { /** <UsageCard title='storage' used={2.5} remaining={47.5} unitUsed={'GB used'} unitRemaining={'GB left'} uniqueId='circle-3' percentage={.05}></UsageCard>  **/ }
               </div>

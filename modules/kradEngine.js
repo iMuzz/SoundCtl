@@ -84,6 +84,25 @@ var kradEngine = {
       })
   },
 
+  regenerateApiKey: function(callsign){
+    requestOptions = getRequestOptions();
+    requestOptions.url = requestOptions.url + 'reset';
+    requestOptions['method'] = 'POST';
+
+    requestOptions['json'] = {
+      id: callsign
+    };
+
+    return request(requestOptions)
+      .then(function(response){
+        DEBUG && console.log(chalk.green("\n API Key regenerated for callsign: " + callsign), response);
+        return response;
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+  },
+
   createAndStartInstance: function(){
     var that = this;
     return this.createInstance()
