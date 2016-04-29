@@ -9,6 +9,10 @@
   padding: 40px;
   border-bottom: 1px solid $dash-section-border-color;
 
+  &:last-child {
+    border-bottom: none;
+  }
+
   h2 {
     font-size: 1.3em;
     margin-bottom: 40px;

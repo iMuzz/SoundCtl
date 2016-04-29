@@ -21,13 +21,36 @@
 
       input {
         font-size: 1em;
-        width: 70%;
+        width: 80%;
         border-radius: 4px;
         padding: 10px;
         border: 1px solid $dash-section-border-color;
         font-family: $primary-font-family;
         height: 40px;
         vertical-align: middle;
+
+      }
+      .input-container {
+        position: relative;
+        display: inline-block;
+        width: 80%;
+      }
+      .copy {
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        vertical-align: middle;
+        border: solid 1px $dash-section-border-color;
+        border-radius: 4px;
+        margin-left: 10px;
+        background-image: url('/images/icons/copy-icon.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: .3s border-color;
+
+        &:hover {
+          border-color: darken($dash-section-border-color, 30%);
+        }
       }
     }
     // create border for API Key
@@ -37,6 +60,7 @@
         border-bottom-right-radius: 0px;
         border-right: 0px;
         vertical-align: middle;
+        width: 100%;
       }
       .cta {
         border-top-left-radius: 0px;
@@ -46,6 +70,8 @@
         display: inline-block;
         vertical-align: middle;
         line-height: 20px;
+        position: absolute;
+        right: 0px;
       }
     }
   }
