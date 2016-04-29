@@ -1,0 +1,49 @@
+@import "../_variables";
+
+.loader {
+  margin: auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid #EEE;
+  border-right: 1.1em solid #EEE;
+  border-bottom: 1.1em solid #EEE;
+  border-left: 1.1em solid $secondary-color;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+  position: absolute;
+  top: calc(50% - 60px);
+  left: calc(50% - 60px);
+  right: 50%;
+  transform: translate(-50%, -50%); 
+}
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 12em;
+  height: 12em;
+  overflow: hidden;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

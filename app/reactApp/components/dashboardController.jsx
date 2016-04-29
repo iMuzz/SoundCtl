@@ -36,13 +36,12 @@ export class DashboardController extends React.Component {
   }
 
   render() {
-    console.log('Rendering Dashboard controller!', this.state);
     if (this.state.transfer === undefined) {
-      return ( <div> Loading...</div> )
+      return ( <div className='loader'> Loading...</div> )
     }
     return  (
       <div>
-        <div className="dash-view">
+        <div className="dash-view animated fadeIn">
           <UsageSection transfer={this.state.transfer} clients={this.state.clients}></UsageSection>
           <UptimeSection startTime={this.state.startedAt}></UptimeSection>
           <AppInfoSection instanceID={this.state.id} apiKey={this.state.apiKey}></AppInfoSection>

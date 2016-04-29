@@ -17,21 +17,35 @@
     .content {
       padding: 10px 0px;
       width: 75%;
+      font-family: $primary-font-family;
 
       input {
         font-size: 1em;
         width: 70%;
         border-radius: 4px;
         padding: 10px;
+        border: 1px solid $dash-section-border-color;
+        font-family: $primary-font-family;
+        height: 40px;
+        vertical-align: middle;
       }
     }
     // create border for API Key
     &:nth-child(1) > .content {
-      input{
-        border: 1px solid $dash-section-border-color;
+      input {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-right: 0px;
+        vertical-align: middle;
       }
       .cta {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        height: 40px;
+        padding: 10px 20px;
         display: inline-block;
+        vertical-align: middle;
+        line-height: 20px;
       }
     }
   }
