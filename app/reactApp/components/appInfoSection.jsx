@@ -1,10 +1,18 @@
 import React from         'react';
 import AppDispatcher from '../dispatcher/AppDispatcher';
+import clipboard from 'clipboard';
 
 export class AppInfoSection extends React.Component {
   constructor(props) {
     super(props);
     this.handleRegenerate = this.handleRegenerate.bind(this);
+  }
+
+
+  componentDidMount() {
+    new clipboard('#copy-key');
+    new clipboard('#copy-endpoint');
+    new clipboard('#copy-instance');
   }
 
   handleRegenerate(){
@@ -24,29 +32,42 @@ export class AppInfoSection extends React.Component {
                   <div className='label'> API Key</div>
                   <div className='content'>
                     <div className='input-container'>
-                      <input type="text" readOnly value={this.props.apiKey}/>
+                      <input type="text" id='apiKey' readOnly value={this.props.apiKey}/>
                       <div className='cta' onClick={this.handleRegenerate}> Regenerate</div>
                     </div>
-                    <div className='copy'> </div>
+                    <div className='copy' id='copy-key' data-clipboard-target="#apiKey" > </div>
                   </div>
                 </div>
                 <div className='row'>
                   <div className='label'> API Endpoint</div>
                   <div className='content'> 
-                    <input type="text" readOnly value={'https://'+ this.props.instanceID+'.soundctl.io'}/>
-                    <div className='copy'> </div>
+                    <input type="text" id='apiEndpoint' readOnly value={'https://'+ this.props.instanceID+'.soundctl.io'}/>
+                    <div className='copy' id='copy-endpoint' data-clipboard-target='#apiEndpoint'> </div>
                   </div>
                 </div>
                 <div className='row'>
                   <div className='label'> Instance ID</div>
                   <div className='content'> 
-                    <input type="text" readOnly value={this.props.instanceID}/> 
-                    <div className='copy'> </div>
+                    <input type="text" id='instanceID' readOnly value={this.props.instanceID}/> 
+                    <div className='copy' id='copy-instance' data-clipboard-target='#instanceID'> </div>
                   </div>
                 </div>
               </div>
           </div>
       </div>
+    );
+  }
+}
+
+class CopyButton extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return  ( 
+       <div className='copy' id='copy' data-clipboard-target="#foo" > </div>
     );
   }
 }
