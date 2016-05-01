@@ -7,6 +7,7 @@ $nav-item-inactive-color: rgba(158, 158, 158, 0.66);
   z-index: 3;
   min-height: 100vh;
   position: fixed;
+  min-width: 180px;
 
   .company-logo-wrap {
     height: $dashnav-height;

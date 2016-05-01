@@ -38,6 +38,17 @@ var kradEngine = {
         return response;
     });
   },
+  getBetaUsage: function(){
+    requestOptions = getRequestOptions();
+    requestOptions.url = requestOptions.url + 'beta'
+    DEBUG && console.log(chalk.yellow("\n Getting beta usage: " +  requestOptions.url));
+
+    return request(requestOptions)
+      .then(function(response){
+        DEBUG && console.log(chalk.green("\n Beta usage: "), response);
+        return JSON.parse(response);
+    });
+  },
   getInstanceStats: function(callsign){
     requestOptions = getRequestOptions();
     requestOptions.url = requestOptions.url + ('stats?id=' + callsign);
@@ -69,7 +80,7 @@ var kradEngine = {
     return request(requestOptions)
       .then(function(response){
         DEBUG && console.log(chalk.green("\n Instance created..."), response);
-        return response;
+        return JSON.parse(response);
       })
       .catch(function(err){
         console.log(err);
@@ -116,20 +127,28 @@ var kradEngine = {
 
   createAndStartInstance: function(){
     var that = this;
-    return this.createInstance()
-      .then(function(response){
-        var jsonResponse = JSON.parse(response);
-        return that.startInstance(jsonResponse.id)
-        .then(function(startResponse){
-          return that.getInstanceStats(jsonResponse.id)
+    return this.getBetaUsage()
+    .then(function(response){
+      if (response.free > 0) {
+        return that.createInstance()
+        .then(function(response){
+          var jsonResponse = response;
+          return that.startInstance(jsonResponse.id)
+          .then(function(startResponse){
+            return that.getInstanceStats(jsonResponse.id)
             .then(function(res){
               var parsedResponse = res;
               parsedResponse.apiKey = jsonResponse.apiKey;
               parsedResponse.startedAt = Date.now();
-              return parsedResponse;
+              console.log('GOT ALL THE WAAY HerE')
+              return Promise.resolve(parsedResponse);
             })
-        })
-      });
+          })
+        });
+      } else {
+        return Promise.reject('Max Capacity')
+      }
+    })
   },
 
   // Returns a list of all created stations
@@ -164,7 +183,6 @@ var kradEngine = {
   },
 
   destroyAllStations: function(){
-    // console.log('\033[31m', 'sometext' ,'\033[91m');
     var that = this;
     this.getAllStations()
       .then(function(response){

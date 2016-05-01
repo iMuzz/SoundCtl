@@ -33,6 +33,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/instance', jwtCheck);
+app.use('/api/regenerate', jwtCheck);
 
 app.use('/', routes);
 app.use('/users', users);
