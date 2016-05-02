@@ -73,9 +73,9 @@ class UsageCard extends React.Component {
       <div className='usage-card'>
           <div className='card-title'>
             <h3> {this.props.title} </h3>
-            <div className='dots'>
+            { /** <div className='dots'>
               <div className='dot'></div>
-            </div>
+            </div> **/}
           </div>
           <div className='card-dash'></div>
           <div className='circle' id={this.props.uniqueId}>
