@@ -2,6 +2,7 @@
 
 .dash-view {
   padding-top: $dashnav-height;
+  min-height: 100vh;
 
   .dashboard-section:nth-child(2) {
     h2 {

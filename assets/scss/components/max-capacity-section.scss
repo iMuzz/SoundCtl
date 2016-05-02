@@ -1,0 +1,19 @@
+@import "../_variables";
+
+.max-capacity-wrap {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - #{$dashnav-height});
+
+
+  .max-container {
+    border: 1px solid white;
+    border-radius: 2px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.25);
+    padding: 50px;
+    width: 60%;
+    line-height: 2;
+  }
+}

@@ -55,7 +55,10 @@ class SideNav extends React.Component {
           </div>
         </div>
         <nav>
-          <NavItem className="tab" to="app/dashboard"> <div className='svg dash' ></div> Dashboard </NavItem>
+          <NavItem className="tab" to="app/dashboard">  Dashboard </NavItem>
+          <li className="tab">
+            <a target='_blank' href='https://docs.soundctl.io/docs'> Docs </a>
+          </li>
           { /** <NavItem className="tab" to="app/settings"> <div className='svg settings' ></div> Settings </NavItem> **/}
         </nav>
       </div>

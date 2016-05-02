@@ -15,7 +15,8 @@ let state = {
   id: '',
   clients: '',
   transfer: '',
-  apiKey: ''
+  apiKey: '',
+  message: 'loading'
 };
 
 class InstanceStore {
@@ -43,6 +44,7 @@ class InstanceStore {
         method: 'GET',
       }).done((data) => {
         privateVars.cacheAvailable = true;
+        console.log("DATA: ", data);
         Object.assign(state, data);
         this.emitChange();
       }).error(err => {

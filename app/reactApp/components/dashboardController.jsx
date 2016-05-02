@@ -5,6 +5,7 @@ import AppDispatcher from               '../dispatcher/AppDispatcher'
 import {UsageSection} from              './usageSection'
 import {UptimeSection} from             './uptimeSection'
 import {AppInfoSection} from            './appInfoSection'
+import {MaxCapacity} from               './maxCapacity'
 
 // Stores
 import instanceStore from               '../stores/instanceStore'
@@ -31,21 +32,32 @@ export class DashboardController extends React.Component {
   }
 
   handleInstanceStoreChange(){
-    console.log("UPDATING DASHBOARD BECAUSE INSTNACE STORE CHANGED!");
     this.setState(instanceStore.getState());
   }
 
   render() {
-    if (this.state.transfer === undefined) {
+    let componentToRender;
+
+    if (this.state.message === undefined) {
       return ( <div className='loader'> Loading...</div> )
     }
-    return  (
-      <div>
-        <div className="dash-view animated fadeIn">
+
+    if (this.state.message === 'Max Capacity') {
+      componentToRender = (
+        <MaxCapacity profile={this.props.profile}/>
+      )
+    } else {
+      componentToRender = (
+        <div>
           <UsageSection transfer={this.state.transfer} clients={this.state.clients}></UsageSection>
           <UptimeSection startTime={this.state.startedAt}></UptimeSection>
           <AppInfoSection instanceID={this.state.id} apiKey={this.state.apiKey}></AppInfoSection>
         </div>
+      )
+    }
+    return  (
+      <div className="dash-view animated fadeIn">
+        { componentToRender }
       </div>
     );
   }

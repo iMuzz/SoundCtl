@@ -72,7 +72,7 @@ router.get('/api/instance', function(req, res, next){
   };
 
   function instanceCreationFailure(response){
-    res.send(response)
+    res.send({message: response})
   };
 });
 
