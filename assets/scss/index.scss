@@ -148,9 +148,8 @@ $main: #D8D8D8;
       flex-direction: column;
     }
     input[type='email'] {
-      width: 100%;
+      width: 80%;
       height: 45px;
-
       font-size: 1em;
       text-align: center;
 
@@ -167,7 +166,6 @@ $main: #D8D8D8;
     }
     #mc-embedded-subscribe {
     }
-    /* Height 44px */
     .cta {
       font-size: 1em;
       display: inline-block;
@@ -175,7 +173,7 @@ $main: #D8D8D8;
       padding: 10px 40px;
       color: white;
       font-weight: 400;
-      height: 46px;
+      height: 45px;
       border-radius: 0px;
       border: 1px solid $primary-cta-color;
 
