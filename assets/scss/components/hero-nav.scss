@@ -9,7 +9,7 @@ $mobile-nav-background-color: rgba(0, 0, 0, 0.91);
   z-index: 3;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;  
   border-bottom: $nav-border-bottom;
   padding:$nav-padding;
   height: $nav-height;
@@ -47,7 +47,6 @@ $mobile-nav-background-color: rgba(0, 0, 0, 0.91);
 .nav-left {
   display: flex;
   align-items: center;
-  width: 100%;
   color: white;
   font-size: 16px;
 
